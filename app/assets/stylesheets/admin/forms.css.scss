@@ -1,0 +1,32 @@
+.btn-margin { margin-left: 20px; }
+
+.btn {
+  &.remove_fields { margin-top: 34px; }
+}
+
+.fields{
+  margin: 0 16px;
+}
+
+label { padding-top: 10px; font-weight: bold; }
+
+label.checkbox { padding: 0; margin: 0; margin-left: 20px; }
+
+.checkbox input[type="checkbox"], input[type="checkbox"], input[type="radio"] {
+  padding: 0;  width: auto; height: auto;
+}
+
+span.checkbox { display: inline-block; width: 33.3333% }
+
+table {
+  label { padding-top: 0; }
+}
+
+textarea.form-control { height: 200px; }
+input[type="file"] { padding: 0px !important; border: none; height: auto; margin-left: 10px;}
+
+select { &.date { width: auto; display: inline; } }
+label { &.date, &.check_boxes { display: block; } }
+
+option[data-class="sub"] { padding-left: 25px; }
+option[data-class="master"] { font-weight: bold; }

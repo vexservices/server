@@ -1,0 +1,35 @@
+== content_for :page_header do
+  h1.col-xs-12.col-sm-4== hnp User
+
+  .col-xs-12.col-sm-8
+    .row
+      .pull-right.col-xs-12.col-sm-auto
+        == link_to_new User, new_user_path
+
+== pane hnp User do
+  - cache [cache_key_for_store_users, locale: I18n.locale, page: params[:page] || 1] do
+    == display_when_present @users do
+
+      table.table.table-bordered.table-striped
+        thead
+          tr
+            th== ta(User, 'name')
+            th== ta(User, 'email')
+            th== t('labels.action')
+        tbody
+          == content_tag_for :tr, @users, class: 'text-center' do |user|
+            - cache [user, locale: I18n.locale] do
+              td== user.name
+              td== user.email
+
+              td.text-center
+                == link_to_edit edit_user_path(user)
+                == link_to_destroy user if user.id != current_user.id
+
+      .table-footer
+        == paginate @users, theme: 'twitter-bootstrap-3'
+
+  br
+
+  .col-xs-12.col-sm-auto
+    == link_to_new User, new_user_path

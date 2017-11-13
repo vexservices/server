@@ -1,0 +1,27 @@
+== simple_form_for([:admin, @seller]) do |f|
+  == f.error_notification
+
+  .form-inputs
+    == f.association :seller, prompt: true, collection: sellers_by_franchise
+    == f.input :name
+    == f.input :email
+    == f.input :password
+    == f.input :password_confirmation
+    == f.input :cell_phone
+    == f.input :phone
+    == f.input :commission
+    == f.input :document
+
+    h3== hn(Address)
+
+    == f.simple_fields_for :address do |a|
+      == a.input :country, only: ["US", "BR"], prompt: true, input_html: { data: { js: 'options-toggle', target: '#states' } }
+      == a.input :state
+      == a.input :street
+      == a.input :city
+      == a.input :zip
+    hr
+
+    .form-actions
+      == f.button :submit, class: 'btn-success'
+      == link_to_back

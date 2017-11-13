@@ -1,0 +1,32 @@
+== simple_form_for(@schedule) do |f|
+  == f.error_notification
+
+  .form-inputs
+    == f.input :initial, as: :date, input_html: { class: 'date' }, label_html: { class: 'date' }
+    == f.input :final,   as: :date, input_html: { class: 'date' }, label_html: { class: 'date' }
+    == f.input :run_at,  as: :time, input_html: { class: 'date' }, ampm: true, minute_step: 30,
+        label_html: { class: 'date' }
+
+    - if @products.present?
+      hr
+
+      h3.title== hnp(Product)
+
+      table.table.table-hover.table-striped.table-bordered
+        thead
+          tr
+            th== check_box_tag nil, nil, false, { data: { select: true } }
+            th[colspan='2']== ta(Product, 'name')
+        tbody
+          == content_tag_for(:tr, @products) do |product|
+            td.text-center
+              == check_box_tag "schedule[product_ids][]", product.id, @schedule.product_ids.include?(product.id),
+                  { id: "product_id_#{ product.id }" }
+            td
+              == image_tag product.image, class: "img-thumbnail"
+              == product.name
+      hr
+
+  .form-actions
+    == f.button :submit, class: 'btn-success'
+    == link_to_back :back

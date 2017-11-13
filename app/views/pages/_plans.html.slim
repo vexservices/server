@@ -1,0 +1,29 @@
+- plans.each do |plan|
+  div class=(['item col-md-4 col-sm-4 col-xs-12 text-center', plan.popular?  ? 'best-buy' : nil].compact.join(' '))
+    .item-inner
+      .heading
+        h3.title== plan.name
+        p.price-figure
+          span.price-figure-inner
+            span.currency== t('number.currency.format.unit')
+            span.number== plan.price_by_locale
+            br
+            span.unit== t('labels.plan.per_month')
+      .content
+        ul.list-unstyled.feature-list
+          li
+            i.fa.fa-check
+            == t('labels.plan.posts_limit', number: plan.monthly_posts)
+          li
+            i.fa.fa-check
+            == t('labels.free_app')
+          li
+            i.fa.fa-check
+            == t('labels.no_cost')
+
+          == plan_item(plan.email_support, t('labels.plan.email_support'))
+          == plan_item(plan.chat_support,  t('labels.plan.chat_support'))
+
+      - if plan.popular?
+        .ribbon
+          .text== t('labels.popular')

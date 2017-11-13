@@ -1,0 +1,29 @@
+#reliability.modal.fade
+  .modal-dialog
+    .modal-content
+      .modal-header
+        button[type="button" class="close" data-dismiss="modal"]
+          span[aria-hidden="true"] &times;
+          span.sr-only Close
+
+        h4.modal-title Confiabilidade
+
+      .modal-body
+        p Painel de controle de gerenciamento disponível 24/7; Suas postagens aparecem imediatamente no App no celular.
+        p
+          | Sua informações serão armazenadas de forma segura em servidores espalhados ao redor do mundo; nossos servidores de nuvem
+            utilizam mais de 200 pontos estratégicos de presença global.
+        p
+          | Seus dados são protegidos e criptografados em servidores em tempo real conectados a internet;
+            Mantemos servidores de backup em RAID automatizados dos seus dados.
+        p
+          | Seus dados são protegidos contra acessos não autorizado; temos alto nível de proteção contra vírus, firewalls,
+            SSL certificados de conformidade PCI para garantir a segurança de seus dados.
+        p
+          | Nosso ambiente de rede foi arquitetado cuidadosamente por engenheiros seniors altamente qualificados, usamos
+            servidores para armazenamento de dados da Amazon S3; nele você pode crescer de forma escalonável e
+            ilimitado sem precisar trocar de servidores e ter o desempenho que você precisa dentro de um ambiente
+            100% confiável e seguro.
+
+      .modal-footer
+        == link_to t('buttons.close'), '#', class: "btn btn-default", data: { dismiss: 'modal' }

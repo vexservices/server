@@ -1,0 +1,52 @@
+== simple_nested_form_for(@product) do |f|
+  == f.error_notification
+
+  .form-inputs
+    .row
+      .col-md-6
+        == f.input :code, label: ta(Product, 'code'), autofocus: true
+      .col-md-6
+        == f.input :name, label: ta(Product, 'name')
+
+    .row
+      .col-md-6
+        == f.association :category, collection: options_for_categories(@categories),
+          prompt: true, label: ta(Product, 'category')
+      .col-md-6
+        == f.input :payment_option, label: ta(Product, 'payment_option')
+
+    .row
+      .col-md-6
+        == f.input :description, label: ta(Product, 'description')
+      .col-md-6
+        == f.input :contact_info, label: ta(Product, 'contact_info')
+
+    .row
+      .col-md-6
+        == f.input :regular_price, as: :string, label: ta(Product, 'regular_price')
+      .col-md-6
+        == f.input :price, as: :string, label: ta(Product, 'price')
+
+    - if current_store.corporate?
+      .row
+        .col-md-6
+          == f.input :show_all, label: ta(Product, 'show_all')
+        .col-md-6
+          == f.association :stores, collection: current_store.stores, multiple: true,
+          input_html: { data: { js: 'select2' } }, label: ta(Product, 'stores')
+
+    /! Uncomment to enable products attributes
+      h3.title== hnp(Property)
+
+      .row[ data-no-turbolink ]
+        == f.fields_for :properties
+        == f.link_to_add t('buttons.add'), :properties, class: 'btn btn-success add_fields btn-margin'
+
+  .clearfix
+  hr
+
+  .form-actions
+    == f.button :submit, t('buttons.save', model: hn(Product)), class: 'btn-success',
+      data: { disable_with: t('buttons.submitting') }
+
+    == link_to_back products_path

@@ -1,0 +1,47 @@
+== content_for :page_header do
+  h1.col-xs-12.col-sm-4== hn(Franchise)
+
+== pane @franchise.name do
+  .col-sm-12
+    table.table.table-striped
+      thead
+        tr
+          th[colspan='2']== t('.info')
+      tbody
+        tr
+          td
+            strong== ta(Franchise, 'id')
+          td== @franchise.id
+        tr
+          td
+            strong== ta(Franchise, 'name')
+          td== @franchise.name
+        tr
+          td
+            strong== ta(Franchise, 'subdomain')
+          td== @franchise.subdomain
+        tr
+          td
+            strong== ta(Franchise, 'domain')
+          td== @franchise.domain
+        tr
+          td
+            strong== ta(Franchise, 'created_at')
+          td== l @franchise.created_at, format: :long
+        tr
+          td
+            strong== ta(Franchise, 'mx_record')
+          td== @franchise.mx_record
+        tr
+          td
+            strong== ta(Franchise, 'admin')
+          td== @franchise.admin_name
+
+  .clearfix
+  hr
+
+  .actions
+    .col-xs-12.col-sm-auto
+      == link_to_back
+    .col-xs-12.col-sm-auto
+      == link_with_icon t('buttons.edit'), edit_admin_franchise_path(@franchise), icon: 'pencil'

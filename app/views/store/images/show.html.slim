@@ -1,0 +1,19 @@
+== content_for :page_header do
+  h1.col-xs-12.col-sm-4== hn Image
+
+== pane hn Image do
+  - if @image.present?
+    - if @image.file_processing
+      == image_tag "animation_processing.gif"
+    - else
+      == image_tag @image.file.url(:version17), class: 'img-thumbnail'
+
+  - elsif current_store.app_logo.present?
+    == image_tag current_store.app_logo.file.url(:version17), class: 'img-thumbnail'
+
+  hr
+
+  - if @image.present?
+    == link_to t('buttons.upload_image'), edit_image_path, class: 'btn btn-primary'
+  - else
+    == link_to t('buttons.upload_image'), new_image_path, class: 'btn btn-primary'

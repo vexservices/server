@@ -1,0 +1,49 @@
+.mail-nav
+  == render "navegation", devices: @devices
+
+.mail-container
+  - if @device.present?
+    .mail-container-header.show
+      | #{@device.friendly_name} at #{@store.name}
+
+    .mail-message-body
+      #chat.row
+        - @messages.each do |message|
+          == render message
+
+    .mail-info
+      .col-md-12
+        == render 'form'
+
+    javascript:
+      jQuery(document).ready(function () {
+        $("#chat").animate({ scrollTop: $('#chat')[0].scrollHeight}, 1000);
+
+        if(typeof seek_messages !== 'undefined'){
+          clearInterval(seek_messages);
+        };
+
+        seek_messages = setInterval(
+          function(){
+            $.ajax({
+              type: "GET",
+              url: '#{ unread_device_store_messages_path(@device, @store) }',
+              dataType: 'html',
+
+              success: function(html){
+                if(html !== ''){
+                  $("#chat").append(html);
+                  $("#chat").animate({ scrollTop: $('#chat')[0].scrollHeight}, 1000);
+                };
+              }
+            });
+          }, 10000);
+      });
+
+  - else
+
+    .mail-container-header.show
+    .mail-message-body
+      #chat.row
+        p.text-center== t('messages.chat_empty')
+    .mail-info

@@ -1,0 +1,40 @@
+== content_for :page_header do
+  h1.col-xs-12.col-sm-4== t('menus.sandbox')
+
+  .col-xs-12.col-sm-8
+    .row
+      .pull-right.col-xs-12.col-sm-auto
+        == link_to_new App, new_admin_sandbox_app_path
+
+== pane hnp App do
+  == display_when_present @apps do
+
+    .pull-right
+      == link_to "Android Push Notification", new_admin_sandbox_android_push_path, class: 'btn btn-info'
+      == link_to "IOS Push Notification", new_admin_sandbox_ios_push_path, class: 'btn btn-default'
+
+    .clearfix
+    hr
+
+    table.table.table-bordered.table-striped
+      thead
+        tr
+          th== ta(App, 'name')
+          th== ta(App, 'apple_certificate')
+          th== ta(App, 'google_api_key')
+          th== t('labels.action')
+      tbody
+        == content_tag_for :tr, @apps, class: 'text-center' do |app|
+          td== app.name 
+          td== app.apple_certificate 
+          td== app.google_api_key_short 
+          td.text-center
+            == link_to_edit edit_admin_sandbox_app_path(app)
+            == link_to_destroy [:admin, :sandbox, app]
+    .table-footer
+      == paginate @apps, theme: 'twitter-bootstrap-3' 
+
+  br
+  
+  .col-xs-12.col-sm-auto
+    == link_to_new App, new_admin_sandbox_app_path

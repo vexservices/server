@@ -1,0 +1,27 @@
+.menu-content.top
+  .text-bg.text-center
+    span.text-semibold Admin Area
+
+== tabs_tag(builder: MenuTabBuilder, open_tabs: { class:'navigation' }) do |tab|
+  == tab.corporates  tab_item(t('menus.corporate'), 'building-o'), admin_corporates_path
+  
+  - unless current_admin.belongs_to_franchise?
+    == tab.departments tab_item(hnp(Department), 'tags'), admin_departments_path
+  
+  - if current_admin.master_admin?
+    == tab.admins      tab_item(hnp(Admin), 'users'),   admin_admins_path
+    == tab.plans       tab_item(hnp(Plan), 'suitcase'), admin_plans_path
+    == tab.paypals     tab_item(hn(Paypal), 'paypal'),  admin_paypals_path
+
+    - unless current_admin.belongs_to_franchise?
+      == tab.terms       tab_item(hn(Term), 'legal'),       edit_admin_term_path
+      == tab.businesses  tab_item(hnp(Business), 'camera'), admin_businesses_path
+      == tab.franchises  tab_item(hnp(Franchise), 'globe'), admin_franchises_path
+
+    == tab.sellers     tab_item(hnp(Seller), 'user'),          admin_sellers_path
+    == tab.banners     tab_item(hnp(Banner), 'image'),         admin_banners_path
+    == tab.videos      tab_item(hnp(Video),  'video-camera '), admin_videos_path
+    == tab.contacts    tab_item(hnp(Contact), 'comment'),      admin_contacts_path
+
+    - unless current_admin.belongs_to_franchise?
+      == tab.sandbox     tab_item(t('menus.sandbox'), 'rocket'), admin_sandbox_apps_path

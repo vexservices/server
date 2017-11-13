@@ -1,0 +1,5 @@
+== content_for :page_header do
+  h1== t('menus.sandbox')
+
+== pane t('titles.new', model: hn(App)) do
+  == render 'form'

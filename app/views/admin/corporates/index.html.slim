@@ -1,0 +1,44 @@
+== content_for :page_header do
+  h1.col-xs-12.col-sm-4== t('titles.corporates')
+
+  .col-xs-12.col-sm-8
+    .row
+      .pull-right.col-xs-12.col-sm-auto
+        == link_with_icon t('buttons.filters'), 'javascript:void(0)', id: 'filter-toggle',
+            data: { toggle: true, target: '#search' }, icon: 'search'
+
+== render 'shared/stores/search'
+
+== pane t('titles.corporates') do
+  == display_when_present @corporates do
+
+    table.table.table-bordered.table-striped
+      thead
+        tr
+          th== hn(Franchise)
+          th== ta(Store, 'name')
+          th== ta(App, 'name')
+          th== ta(Store, 'stores_count')
+          th== ta(Store, 'phone')
+          th== ta(Address, 'state')
+          th== ta(Address, 'city')
+          th== ta(Store, 'blocked')
+          th== ta(Store, 'seller')
+          th== ta(Store, 'created_at')
+          th== t('labels.action')
+      tbody
+        == content_tag_for :tr, @corporates, class: 'text-center' do |corporate|
+          td== corporate.franchise_name
+          td== link_to corporate.name, admin_corporate_path(corporate)
+          td== corporate.app_name
+          td== link_to corporate.stores_count, admin_corporate_stores_path(corporate)
+          td== corporate.phone
+          td== corporate.address_state
+          td== corporate.address_city
+          td== boolean_span corporate.blocked
+          td== corporate.seller_name
+          td== l corporate.created_at, format: :long
+          td== link_to_destroy admin_corporate_path(corporate)
+
+    .table-footer
+      == paginate @corporates, theme: 'twitter-bootstrap-3'

@@ -1,0 +1,14 @@
+== simple_form_for(@job, url: admin_store_jobs_path(@store.id)) do |f|
+  == f.error_notification
+
+  .form-inputs
+    == f.input :import_type, prompt:true, collection: Job.import_types.keys.to_a
+    == f.input :name
+    == f.input :file
+
+  .clearfix
+  hr
+
+  .form-actions
+    == f.button :submit, class: 'btn btn-success'
+    == link_to_back admin_store_jobs_path(@store)

@@ -1,0 +1,46 @@
+== content_for :page_header do
+  h1.col-xs-12.col-sm-4== hnp Admin
+
+  .col-xs-12.col-sm-8
+    .row
+      .pull-right.col-xs-12.col-sm-auto
+        == link_to_new Admin, new_admin_admin_path
+
+== pane hnp Admin do
+
+  - if current_franchise
+    .col-xs-12.col-sm-auto
+      = link_with_icon t('buttons.franchise_link'), root_url(subdomain: current_franchise.subdomain),
+          class: 'btn btn-info btn-labeled', icon: 'external-link'
+
+    .clearfix
+
+    br
+
+  == display_when_present @admins do
+
+    table.table.table-bordered.table-striped
+      thead
+        tr
+          th= hn(Franchise)
+          th= ta(Admin,'name')
+          th= ta(Admin,'email')
+          th= t('labels.action')
+      tbody
+        == content_tag_for :tr, @admins do |admin|
+          td== admin.franchise_name
+          td== admin.name
+          td== admin.email
+          td.text-center
+            - unless current_franchise.present?
+              == link_to t('buttons.login'), login_admin_admin_path(admin), class: 'btn btn-sm'
+
+            == link_to_edit edit_admin_admin_path(admin)
+            == link_to_destroy [:admin, admin] unless admin.id == current_admin.id
+    .table-footer
+      == paginate @admins, theme: 'twitter-bootstrap-3'
+
+  br
+
+  .col-xs-12.col-sm-auto
+    == link_to_new Admin, new_admin_admin_path

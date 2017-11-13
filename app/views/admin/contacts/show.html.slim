@@ -1,0 +1,26 @@
+== content_for :page_header do
+  h1== hnp Contact
+
+== pane @contact.name do
+  table.table.table-striped
+    tbody
+      tr
+        td
+          strong== ta(Contact, 'name')
+        td== @contact.name
+      tr
+        td
+          strong== ta(Contact, 'email')
+        td== @contact.email
+      tr
+        td
+          strong== ta(Contact, 'created_at')
+        td== l @contact.created_at, format: :long
+
+  h4== ta(Contact, 'message')
+  
+  == simple_format @contact.message
+
+  hr
+
+  == link_to_back admin_contacts_path

@@ -1,0 +1,24 @@
+#affordable.modal.fade
+  .modal-dialog
+    .modal-content
+      .modal-header
+        button[type="button" class="close" data-dismiss="modal"]
+          span[aria-hidden="true"] &times;
+          span.sr-only Close
+
+        h4.modal-title Asequible
+
+      .modal-body
+        p Su pruebas incluyen un período de 30 días:
+
+        ul
+          li No se requiere tarjeta de crédito para inscribirse usted mismo.
+          li No hay costes de instalación, de desarrollo o de mantenimiento.
+          li No hay costos de Internet.
+          li No hoy obligación de continuar.
+          li Puede cancelar al final de cualquier mes.
+
+        p Para más detalles haga clic en el botón 'Precio' en la parte superior de la página principal.
+
+      .modal-footer
+        == link_to t('buttons.close'), '#', class: "btn btn-default", data: { dismiss: 'modal' }

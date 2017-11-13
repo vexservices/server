@@ -1,0 +1,5 @@
+== content_for :page_header do
+  h1== hnp(Department)
+
+== pane t('titles.edit', model: hn(Department)) do
+  == render 'form'

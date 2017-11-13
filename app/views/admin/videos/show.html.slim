@@ -1,0 +1,11 @@
+== content_for :page_header do
+  h1== hnp Video
+
+== pane hn(Video) do
+
+  = @video.html.html_safe
+
+
+  hr
+
+  = link_to_back admin_videos_path

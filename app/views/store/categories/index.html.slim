@@ -1,0 +1,45 @@
+== content_for :page_header do
+  h1.col-xs-12.col-sm-4== hnp Category
+
+  .col-xs-12.col-sm-8
+    .row
+      .pull-right.col-xs-12.col-sm-auto
+        == link_to_new Category, new_category_path
+
+== pane hnp Category do
+  - cache [cache_key_for_store_categories, locale: I18n.locale] do
+    == display_when_present @categories do
+      == categories_messages
+
+      table.table.table-bordered
+        thead
+          tr
+            th== ta(Category, 'name')
+            th== t('labels.action')
+        tbody
+          - @categories.each do |category|
+            - cache [cache_key_for_category(category), locale: I18n.locale] do
+              tr
+                td
+                  == category.name
+                td.text-center
+                  - if policy(category).edit?
+                    == link_to_edit edit_category_path(category)
+                  - if policy(category).destroy?
+                    == link_to_destroy category
+
+            - category.categories.each do |sub_category|
+              - cache [cache_key_for_category(sub_category), locale: I18n.locale] do
+                tr.sub-category
+                  td
+                    == sub_category.name
+                  td.text-center
+                    - if policy(sub_category).edit?
+                      == link_to_edit edit_category_path(sub_category)
+                    - if policy(sub_category).destroy?
+                      == link_to_destroy sub_category
+
+  br
+
+  .col-xs-12.col-sm-auto
+    == link_to_new Category, new_category_path

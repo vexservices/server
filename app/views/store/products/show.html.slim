@@ -1,0 +1,80 @@
+== content_for :page_header do
+  h1== hnp Product
+
+== pane @product.name do
+  == link_to_schedule @product
+  == link_to t('buttons.edit'), edit_product_path(@product), class: 'btn btn-sm btn-primary'
+  == link_to_back products_path, class: 'btn btn-sm btn-default'
+
+  hr
+
+  h4== hnp Image
+
+  hr
+
+  h5
+    strong== t('labels.upload_picture')
+
+  == simple_form_for [@product, Picture.new] do |f|
+    == f.input :file, label: false, input_html: { multiple: true, name: 'picture[file]' }
+
+  == render 'shared/progress_bar'
+
+  hr
+
+  #pictures.images
+    - @product.pictures.each do |picture|
+        == render picture
+
+  hr
+
+  table.table.table-striped
+    tbody
+      tr
+        td
+          strong== ta(Product, 'code')
+        td== @product.code
+      tr
+        td
+          strong== ta(Product, 'name')
+        td== @product.name
+      tr
+        td
+          strong== ta(Product, 'category_name')
+        td== @product.category_name_with_father
+      tr
+        td
+          strong== ta(Product, 'regular_price')
+        td== number_to_currency_by_store_currency @product.regular_price_by_store(current_store)
+      tr
+        td
+          strong== ta(Product, 'price')
+        td== number_to_currency_by_store_currency @product.price_by_store(current_store)
+      tr
+        td
+          strong== ta(Product, 'payment_option')
+        td== @product.payment_option
+      tr
+        td
+          strong== ta(Product, 'created_at')
+        td== l @product.created_at, format: :long
+
+      /! Uncomment to enable products attributes
+        == render 'properties', properties: @product.properties
+
+  br
+
+  h4== ta(Product, 'description')
+
+  == simple_format @product.description
+
+  hr
+
+  h4== ta(Product, 'contact_info')
+
+  == simple_format @product.contact_info
+
+  hr
+
+  == link_to_back products_path
+  == link_to t('buttons.edit'), edit_product_path(@product), class: 'btn btn-primary'

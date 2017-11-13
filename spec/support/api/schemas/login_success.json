@@ -1,0 +1,15 @@
+{
+  "type": "object",
+  "required" : [
+      "success",
+      "auth_token",
+      "email"
+  ],
+  "properties" : {
+    "success"    : { "type" : ["boolean", "string"] },
+    "auth_token" : { "type" : "string"  },
+    "email"      : { "type" : "string"  },
+    "store_name" : { "type" : "string"  },
+    "store_id"   : { "type" : "integer" }
+  }
+}

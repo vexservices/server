@@ -1,0 +1,7 @@
+ul.nav.nav-tabs
+  = tabs_for t('reports.app_pendent'), admin_report_apps_path
+  = tabs_for t('reports.changes'), admin_report_changes_path
+
+#tab-content
+  .tab-pane.active
+    = yield

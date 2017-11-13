@@ -1,0 +1,61 @@
+pt-BR:
+  simple_form:
+    "yes": 'Sim'
+    "no": 'Não'
+    required:
+      text: 'obrigatório'
+      mark: '*'
+    error_notification:
+      default_message: "Por favor verifique os seguintes itens:"
+    labels:
+      app:
+        app_cover: Selecione a imagem de seu computador.
+        use_logo: Você deseja usar seu logo como capa para seu Aplicativo?
+      user:
+        about: Escreva uma descrição mais longa de até 200 letras sobre o seu Aplicativo
+        app_name: 'Nome do Aplicativo (Este nome será exibido no celular ao lado de
+          sua logomarca , devido a limitações de espaço, não deve exceder 20 letras.) '
+        business: Ramo de Atividade
+        cell_phone: Celular
+        city: Cidade
+        contact: Contato
+        corporate_name: Nome da Empresa
+        country: País
+        department: Categoria do Aplicativo
+        keywords: Palavras-chave - Digite as palavras-chave associadas com o App.
+          Palavras ou frases-chave devem ser separadas por uma vírgula (por exemplo,
+          Livros Raros, Restaurante, Música Bar)
+        name: Nome do Usuário
+        official_email: E-mail
+        password: Senha - deve ter pelo menos oito (8) letras
+        password_confirmation: Confirmação de Senha
+        payment_option: Forma de Pagamento
+        phone: Telefone
+        plan: Plano
+        plan_id: Plano
+        seller_name: Número e/ou Nome do Representante
+        seller_number: Vendedor
+        short_description: Escreva uma descrição de até 80 letras sobre seu Applicativo
+        state: Estado
+        street: Rua
+        subdepartment: Sub-Departamento
+        time_zone: Fuso horário
+        website: Site
+        zip: CEP
+      search:
+        category: Categoria
+        final_date: Data final
+        index:
+          initial_date: Data inicial
+        initial_date: Data inicial
+      store:
+        about: 'Por favor, deixe-nos conhecê-lo melhor, descreva abaixo com breve comentários
+          sobre a sua empresa ou seu trabalho.'
+      notification:
+        message: Mensagem
+
+    hints:
+      banner:
+        image: O tamanho do banner deve ser ao menos 1500x500px
+      picture:
+        file: 'Tamanho máximo: 5MB'

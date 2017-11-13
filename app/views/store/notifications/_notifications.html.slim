@@ -1,0 +1,15 @@
+table.table.table-bordered.table-striped
+  thead
+    tr
+      th== ta(Notification, 'user_name')
+      th== ta(Notification, 'message')
+      th== ta(Notification, 'created_at')
+  tbody
+    == content_tag_for :tr, @notifications, class: 'text-center' do |notification|
+      - cache [notification, locale: I18n.locale] do
+        td== notification.user_name
+        td== notification.message
+        td== l notification.created_at
+
+.table-footer
+  == paginate @notifications, theme: 'twitter-bootstrap-3'

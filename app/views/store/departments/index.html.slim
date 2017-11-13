@@ -1,0 +1,33 @@
+== content_for :page_header do
+  h1.col-xs-12.col-sm-4== hnp(Department)
+
+  .col-xs-12.col-sm-8
+    .row
+      .pull-right.col-xs-12.col-sm-auto
+        == link_to_new Department, new_department_path if policy(:department).new?
+
+
+== pane hnp(Department) do
+  - cache [cache_key_for_store_departments, locale: I18n.locale, page: params[:page] || 1] do
+    == display_when_present @departments do
+
+      table.table.table-bordered.table-striped
+        thead
+          tr
+            th== ta(Department, 'name')
+            th== t('labels.action')
+        tbody
+          == content_tag_for :tr, @departments do |department|
+            - cache [cache_key_for_department(department), locale: I18n.locale] do
+              td== department.name
+              td.text-center
+                == link_to_edit edit_department_path(department)  if policy(department).edit?
+                == link_to_destroy department_path(department)    if policy(department).destroy?
+
+      .table-footer
+        == paginate @departments, theme: 'twitter-bootstrap-3'
+
+  br
+
+  .col-xs-12.col-sm-auto
+    == link_to_new Department, new_department_path if policy(:department).new?

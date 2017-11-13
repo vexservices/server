@@ -1,0 +1,27 @@
+== content_for :page_header do
+  h1.col-xs-12.col-sm-4== t('menus.schedules')
+
+== pane t('menus.schedules') do
+  - cache [cache_key_for_store_schedules, locale: I18n.locale, page: params[:page] || 1] do
+    == display_when_present @schedules do
+        table.table.table-bordered.table-striped
+          thead
+            tr
+              th== ta(Schedule, 'initial')
+              th== ta(Schedule, 'final')
+              th== ta(Schedule, 'run_at')
+              th== ta(Schedule, 'products_count')
+              th== t('labels.action')
+          tbody
+            == content_tag_for :tr, @schedules, class: 'text-center' do |schedule|
+              - cache [schedule, locale: I18n.locale] do
+                td== l schedule.initial
+                td== l schedule.final
+                td== l schedule.run_at, format: :time
+                td== schedule.products_count
+
+              td.text-center
+                == link_to_edit edit_schedule_path(schedule)
+                == link_to_destroy schedule
+        .table-footer
+          == paginate @schedules, theme: 'twitter-bootstrap-3'

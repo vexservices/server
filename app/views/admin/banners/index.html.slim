@@ -1,0 +1,36 @@
+== content_for :page_header do
+  h1.col-xs-12.col-sm-4== hnp Banner
+
+  .col-xs-12.col-sm-8
+    .row
+      .pull-right.col-xs-12.col-sm-auto
+        == link_to_new Banner, new_admin_banner_path
+
+== pane hnp Banner do
+  == display_when_present @banners do
+
+    table.table.table-bordered.table-striped
+      thead
+        tr
+          th== hn(Franchise)
+          th== ta(Banner, 'image')
+          th== ta(Banner, 'locale')
+          th== t('labels.action')
+      tbody
+        == content_tag_for :tr, @banners, class: 'text-center' do |banner|
+          td== banner.franchise_name
+          td
+            == link_to asset_url(banner.image.url(:original)), data: { lightbox: "banner-#{ banner.id }" } do
+              == image_tag banner.image.url(:thumb), class: 'img-thumbnail'
+
+          td== translate_locale banner.locale
+          td.text-center
+            == link_to_edit edit_admin_banner_path(banner)
+            == link_to_destroy [:admin, banner]
+    .table-footer
+      == paginate @banners, theme: 'twitter-bootstrap-3'
+
+  br
+
+  .col-xs-12.col-sm-auto
+    == link_to_new Banner, new_admin_banner_path

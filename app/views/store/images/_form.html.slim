@@ -1,0 +1,26 @@
+== image_helper_message
+
+== simple_form_for(@image, url: image_url, html: { id: 'upload_logo' } ) do |f|
+  == f.error_notification
+
+  .form-inputs
+    == f.input :secret, as: :hidden
+    == f.input :file, label: t('labels.logo')
+
+  .form-actions
+    span.number * 2.
+    == f.button :submit, t('buttons.upload_logo'), class: 'btn-success'
+
+br
+
+h4
+  strong== t('labels.or')
+
+br
+
+== logo_helper_message
+
+== render 'logo_form'
+
+hr
+== link_to_back image_path unless current_store.setup_app_image?

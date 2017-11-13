@@ -1,0 +1,101 @@
+body, html {
+  height: 100%;
+}
+
+.title { border-bottom: 1px solid #d6d6d6; margin-bottom: 4px; }
+.btn { margin-right: 4px; }
+.red { color: #b94a48; }
+.number { font-weight: bold; margin-right: 6px; }
+
+img.img-published {
+  position: absolute;
+  margin-left: 18px !important;
+}
+
+img.img-featured {
+  position: absolute;
+  margin-top: 40px !important;
+  margin-left: 0px !important;
+}
+
+#main-navbar{
+  .user-menu {
+    > span { margin-right: 4px; }
+    > img { height: 16px; width: 16px; }
+  }
+
+  #main-menu-toggle {
+    i { padding: 15px 0; font-size: 15px; }
+  }
+}
+
+.menu-content {
+  .text-bg { color: #fff; }
+}
+
+ul{
+  &.navigation {
+    li > a > span.mm-text { padding-left: 6px; }
+  }
+
+  &.no-padding { padding: 0; }
+
+  &.actions {
+    left: inherit !important;
+    right: 0;
+  }
+
+  &.flag {
+    > li {
+      text-align: left !important;
+      > a > img { margin-right: 4px; }
+    }
+  }
+}
+
+table {
+ &.table { thead > tr > th { text-align: center; } }
+
+ span { &.label { margin-left: 4px; font-size: 9px; } }
+}
+
+footer { margin-top: 32px; padding-bottom: 32px; }
+
+.page-signin-alt .panel {
+  width: 420px !important;
+}
+
+.page-signin-alt .panel-signup {
+  width: 70% !important;
+}
+
+.table {
+  > tbody > tr {
+    > td {
+      vertical-align: middle;
+
+      img { margin: 0 4px; }
+    }
+  }
+}
+
+.dz-preview {
+  width: 150px;
+
+  &.logos { width: 166px; }
+}
+
+.navbar-login {
+  .navbar-nav > li > a {
+    padding-bottom: 10px;
+    padding-top: 10px;
+  }
+}
+
+.signin-header{
+  padding-left: 30px !important;
+  padding-right: 30px !important;
+}
+
+ /* FIX Z-INDEX BOOTSTRAP */
+.modal-dialog { z-index: 2000; }

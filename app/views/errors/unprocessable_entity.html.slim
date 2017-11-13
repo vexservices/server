@@ -1,0 +1,17 @@
+== content_for :title do
+  | The change you wanted was rejected (422)
+
+body.page-404
+
+  .header
+    == link_to root_path, class: 'logo' do
+      == image_tag 'logo_full.png'
+
+  .error-code 422
+
+  .error-text
+    span.oops OOPS!
+    br
+    span class="hr"
+    br
+    | THE CHANGE YOU WANTED WAS REJECTED

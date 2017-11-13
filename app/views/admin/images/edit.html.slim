@@ -1,0 +1,24 @@
+== content_for :page_header do
+  h1== t('titles.upload_logo')
+
+== pane t('titles.upload_logo') do
+  - if @image.file_processing
+    == image_tag "animation_processing.gif"
+  - else
+    == image_tag @image.file.url(:version17), class: 'img-thumbnail'
+
+  br
+
+  == simple_form_for(@image, url: admin_corporate_image_url(@corporate)) do |f|
+    == f.error_notification
+
+    .form-inputs
+      == f.input :secret, as: :hidden
+      == f.input :file
+
+    .form-actions
+      == f.button :submit, class: 'btn-success'
+
+  hr
+
+  == link_to_back admin_corporate_path(@corporate)

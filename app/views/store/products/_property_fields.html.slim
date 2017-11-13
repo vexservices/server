@@ -1,0 +1,9 @@
+.row
+  .col-md-5
+    == f.input :name
+
+  .col-md-5
+    == f.input :value
+
+  .col-md-2
+    == f.link_to_remove t("buttons.remove"), class: 'btn btn-danger remove_fields btn-margin'

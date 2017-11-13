@@ -1,0 +1,14 @@
+#main-navbar-collapse.collapse.navbar-collapse.main-navbar-collapse
+  .right.clearfix
+    ul.nav.navbar-nav.pull-right.right-navbar-nav
+      == render 'layouts/menus/locales'
+
+      li.dropdown
+        == link_to '#', class: 'dropdown-toggle user-menu', data: { toggle: "dropdown" } do
+          span== current_seller.name
+          i.fa.fa-angle-down
+
+        ul.dropdown-menu
+          li== link_to destroy_seller_session_path, method: :delete do
+            i.dropdown-icon.fa.fa-power-off
+            == " #{t('buttons.device.log_out')}"

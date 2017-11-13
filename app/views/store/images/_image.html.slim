@@ -1,0 +1,7 @@
+== content_tag :div, id: "image_#{ image.id }", class: 'dz-preview dz-image-preview logos' do
+  - unless image.file_processing
+    == image_tag image.file.url(:version17)
+
+  == link_to t('buttons.select'), logo_path(id: image), method: :put,
+    data: { confirm: t('messages.confirm.default'), disable_with: t('buttons.selecting') }, 
+    class: 'dz-select'

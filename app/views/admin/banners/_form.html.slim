@@ -1,0 +1,13 @@
+== simple_form_for([:admin, @banner]) do |f|
+  == f.error_notification
+
+  .form-inputs
+    == f.input :image
+    == f.input :locale, collection: [['English', 'en'], ['Español', 'es'], ['Português', 'pt-BR']],
+      prompt: false
+
+    hr
+
+    .form-actions
+      == f.button :submit, class: 'btn-success'
+      == link_to_back

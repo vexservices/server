@@ -1,0 +1,7 @@
+<% if @schedule.errors.present? %>
+  $('#modal').html('<%= j render "modal" %>');
+  $('.modal').modal('show');
+<% else %>
+  $('.modal').modal('hide');
+  $('#messages').html('<%= j flash_message %>');
+<% end %>

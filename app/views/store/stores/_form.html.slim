@@ -1,0 +1,97 @@
+== simple_form_for(@store) do |f|
+  == f.error_notification
+
+  .form-inputs
+    .row
+      .col-md-6
+        == f.input :name, autofocus: true
+        == f.input :cell_phone
+        == f.input :phone
+
+      .col-md-6
+        .col-md-12
+          == image_tag @store.logo_or_default_url(:medium), class: "img-thumbnail image-sample"
+
+        == f.input :logo
+
+    .row
+      .col-md-6
+        == f.input :contact
+      .col-md-6
+        == f.input :official_email
+
+    .row
+      .col-md-6
+        == f.input :website
+      .col-md-6
+        == f.input :time_zone, prompt: true, priority: /US/
+
+    .row
+      .col-md-6
+        == f.input :active
+
+    .row
+      .col-md-12
+        == f.input :about
+
+    - if policy_scope(Department)
+      .row
+        .col-md-12
+          == f.association :departments, as: :check_boxes, collection: policy_scope(Department).order('name ASC')
+
+    h3.title== hn(Address)
+
+    == f.simple_fields_for :address do |a|
+      .row
+        .col-md-6
+          == a.input :country, priority: ["US", "BR"]
+        .col-md-6
+          == a.input :state
+
+      .row
+        .col-md-6
+          == a.input :city
+        .col-md-6
+          == a.input :street
+
+      .row
+        .col-md-6
+          == a.input :zip
+        .col-md-6
+          == a.input :latitude, as: :hidden, input_html: { id: 'latitude' }
+          == a.input :longitude, as: :hidden, input_html: { id: 'longitude' }
+
+
+    - unless @store.new_record?
+        p
+          strong== t('messages.maps')
+
+        .col-md-12
+          input id="pac-input" class="map-controls" type="text"
+          #map[ style='height: 400px;']
+
+        .clearfix
+
+        == render 'shared/map', store: @store
+
+    - else
+
+      h3.title== hn(User)
+
+      == f.simple_fields_for :users do |u|
+        .row
+          .col-md-6
+            == u.input :name
+          .col-md-6
+            == u.input :email
+        .row
+          .col-md-6
+            == u.input :password
+          .col-md-6
+            == u.input :password_confirmation
+
+    hr
+
+    .form-actions
+      == f.button :submit, class: 'btn-success'
+      == link_to_back stores_path

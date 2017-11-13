@@ -1,0 +1,57 @@
+doctype html
+html
+  head
+    meta[name="viewport" content="width=device-width, initial-scale=1.0"]
+    title== franchise_name
+    meta name="description" content="Virtual Exchange"
+
+    link href='http://fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic,700italic' rel='stylesheet' type='text/css'
+    link href='http://fonts.googleapis.com/css?family=Covered+By+Your+Grace' rel='stylesheet' type='text/css'
+    link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet"
+
+    == stylesheet_link_tag "public/application", :media => 'all', 'data-turbolinks-track' => true
+    == javascript_include_tag 'public/application', 'data-turbolinks-track' => true
+
+    == csrf_meta_tags
+  body[ data-spy="scroll" ]
+    header#top.header.navbar-fixed-top
+      .container
+        h1.logo.pull-left
+          == link_to root_path, class: 'scrollto' do
+            == image_tag franchise_logo
+
+        nav#main-nav.main-nav.navbar-right[role="navigation"]
+          .navbar-header
+            button.navbar-toggle[type="button" data-toggle="collapse" data-target="#navbar-collapse"]
+              span.sr-only Toggle navigation
+              span.icon-bar
+              span.icon-bar
+              span.icon-bar
+          #navbar-collapse.navbar-collapse.collapse
+            ul.nav.navbar-nav
+              li.active.nav-item
+                == link_to t('menu.home'), "#promo", class: 'scrollto'
+              li.nav-item
+                == link_to t('menu.features'), "#features", class: 'scrollto'
+              li.nav-item
+                == link_to t('menu.price'), "#pricing", class: 'scrollto'
+              li.nav-item
+                == link_to t('menu.contact'), "#contact", class: 'scrollto'
+              li.nav-item
+                == link_to t('menu.sign_in'), new_user_session_path
+              li.nav-item
+                == link_to t('menu.registration'), new_user_registration_path
+              == render 'layouts/menus/locales'
+
+    main
+      == yield
+
+    footer.footer
+      .container
+        small.copyright.pull-right
+          | Copyright 2014 - #{ franchise_name } | All Rights Reserved
+
+        .pull-left
+          ul.links.list-inline
+            li
+              == link_to hnp(Term), terms_path

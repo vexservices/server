@@ -1,0 +1,13 @@
+doctype html
+html
+  head
+    meta content=("text/html; charset=UTF-8") http-equiv="Content-Type"
+  body
+
+  h3 Seu Aplicativo é inválido
+
+  p
+    | Seu nome do Aplicativo #{ @app.name } já esta em uso e não esta disponível pelo Apple Store e Google Play.
+    | Por favor clique no link abaixo para entrar um diferente nome para seu Aplicativo.
+
+  p== link_to 'Alterar nome do Aplicativo', edit_account_url(locale: :'pt-BR', host: @host)

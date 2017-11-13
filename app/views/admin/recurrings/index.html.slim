@@ -1,0 +1,29 @@
+== content_for :page_header do
+  h1.col-xs-12.col-sm-4== hnp(Recurring)
+
+== pane @store.name do
+  == display_when_present @recurrings do
+
+    table.table.table-bordered.table-striped
+      thead
+        tr
+          th== ta(Recurring, 'profile_id')
+          th== ta(Recurring, 'value')
+          th== ta(Recurring, 'credit_card_number')
+          th== ta(Recurring, 'canceled_at')
+          th== ta(Recurring, 'created_at')
+          th== ta(Recurring, 'updated_at')
+      tbody
+        == content_tag_for :tr, @recurrings, class: 'text-center' do |recurring|
+          td== link_to recurring.profile_id, admin_store_recurring_path(@store, recurring)
+          td== number_to_currency recurring.value
+          td== recurring.credit_card_number
+          td== l recurring.canceled_at, format: :long  if recurring.canceled_at
+          td== l recurring.created_at, format: :long
+          td== l recurring.updated_at, format: :long
+    .table-footer
+      == paginate @recurrings, theme: 'twitter-bootstrap-3'
+
+  br
+
+  == link_to_back @store.corporate? ? admin_corporate_path(@store) : admin_corporate_store_path(@store.store_id, @store)

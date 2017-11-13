@@ -1,0 +1,58 @@
+- if current_store.ready?
+  .btn-group
+    == link_to '#', class: "btn btn-sm dropdown-toggle", data: { toggle: "dropdown" } do
+      == t('buttons.actions')
+      == fa_icon 'caret-down'
+
+    ul.dropdown-menu.no-padding.actions
+      - if policy(product).unpublish_all?
+        li
+          == link_to t('buttons.unpublish_all'),
+              unpublish_all_product_path(product),
+              class: 'btn btn-danger text-left',
+              method: :post
+
+      - elsif policy(product).publish_all?
+        li
+          == link_to t('buttons.publish_all'),
+              publish_all_product_path(product),
+              class: 'btn btn-warning text-left',
+              method: :post
+
+      - if policy(product).unpublish?
+        li
+          == link_to t('buttons.unpublish'),
+              unpublish_product_path(product),
+              method: :post,
+              class: 'btn btn-danger text-left',
+              data: { disable_with: t('buttons.submitting') }
+        li
+          == link_to t('buttons.feature_a'),
+              feature_publish_path(product.try(:publish_id), featured: 3),
+              method: :post,
+              class: 'btn btn-info text-left',
+              data: { disable_with: t('buttons.submitting') }
+
+        li
+          == link_to t('buttons.feature_b'),
+              feature_publish_path(product.try(:publish_id), featured: 2),
+              method: :post,
+              class: 'btn btn-info text-left',
+              data: { disable_with: t('buttons.submitting') }
+
+        li
+          == link_to t('buttons.feature_c'),
+              feature_publish_path(product.try(:publish_id)),
+              method: :post,
+              class: 'btn btn-info text-left',
+              data: { disable_with: t('buttons.submitting') }
+
+
+
+      - elsif policy(product).publish?
+        li
+          == link_to t('buttons.publish'),
+            publish_product_path(product),
+            method: :post,
+            class: 'btn btn-success text-left',
+            data: { disable_with: t('buttons.submitting') }

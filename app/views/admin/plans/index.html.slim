@@ -1,0 +1,43 @@
+== content_for :page_header do
+  h1.col-xs-12.col-sm-4== hnp Plan
+
+  .col-xs-12.col-sm-8
+    .row
+      .pull-right.col-xs-12.col-sm-auto
+        == link_to_new Plan, new_admin_plan_path
+
+== pane hnp Plan do
+  == display_when_present @plans do
+
+    table.table.table-bordered.table-striped
+      thead
+        tr
+          th== hn(Franchise)
+          th== ta(Plan, 'name')
+          th== ta(Plan, 'monthly_posts')
+          th== ta(Plan, 'popular')
+          th== ta(Plan, 'visible')
+          th== ta(Plan, 'chat_support')
+          th== ta(Plan, 'price')
+          th== ta(Plan, 'price_real')
+          th== t('labels.action')
+      tbody
+        == content_tag_for :tr, @plans, class: 'text-center' do |plan|
+          td== plan.franchise_name
+          td== plan.name
+          td== plan.monthly_posts
+          td== boolean_span plan.popular
+          td== boolean_span plan.visible
+          td== boolean_span plan.chat_support?
+          td== number_to_currency plan.price
+          td== number_to_currency plan.price_real, unit: 'R$'
+          td.text-center
+            == link_to_edit edit_admin_plan_path(plan)
+            == link_to_destroy [:admin, plan]
+    .table-footer
+      == paginate @plans, theme: 'twitter-bootstrap-3'
+
+  br
+
+  .col-xs-12.col-sm-auto
+    == link_to_new Plan, new_admin_plan_path

@@ -1,0 +1,22 @@
+== simple_form_for([:admin, @plan]) do |f|
+  == f.error_notification
+
+  .form-inputs
+    == f.input :name
+    == f.input :monthly_posts
+
+    == f.input :price, as: :string
+    == f.input :price_real, as: :string
+
+    == f.input :popular
+    == f.input :email_support
+    == f.input :chat_support
+
+    == f.input :visible
+
+  .clearfix
+  hr
+
+  .form-actions
+    == f.button :submit, class: 'btn btn-success'
+    == link_to_back admin_plans_path

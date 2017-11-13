@@ -1,0 +1,26 @@
+== content_for :page_header do
+  h1.col-xs-12.col-sm-4== hnp(Contact)
+
+== pane hnp(Contact) do
+  == display_when_present @contacts do
+
+    table.table.table-bordered.table-striped
+      thead
+        tr
+          th== hn(Franchise)
+          th== ta(Contact, 'created_at')
+          th== ta(Contact, 'name')
+          th== ta(Contact, 'email')
+          th== t('labels.action')
+      tbody
+        == content_tag_for :tr, @contacts, class: 'text-center' do |contact|
+          td== contact.franchise_name
+          td== l contact.created_at, format: :long
+          td== contact.name
+          td== contact.email
+          td
+            == link_to_show [:admin, contact]
+            == link_to_destroy [:admin, contact]
+
+    .table-footer
+      == paginate @contacts, theme: 'twitter-bootstrap-3'

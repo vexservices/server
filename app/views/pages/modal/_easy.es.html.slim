@@ -1,0 +1,43 @@
+#easy.modal.fade
+  .modal-dialog
+    .modal-content
+      .modal-header
+        button[type="button" class="close" data-dismiss="modal"]
+          span[aria-hidden="true"] &times;
+          span.sr-only Close
+
+        h4.modal-title Fácil
+
+      .modal-body
+
+        p Fácil de iniciar
+        ul
+          li Usted decide cuántas Apps usted necesita.
+          li Sus aplicaciones se instalan gratis.
+          li Su logo aparece en cada aplicación.
+          li No hay necesidad de firmar un contrato.
+          li No hay honorarios por adelantado para pagar.
+          li Se puede cancelar en cualquier momento.
+
+        br
+
+        p Fácil de usar
+        ul
+          li Usted puede publicar la información deseada, cuando lo necesita, por el tiempo que desea.
+          li Una area disponible para administrar tus publicaciones.
+          li Puede automatizar y programar tus publicaciones.
+          li Puede integrarse con Facebook, Twitter y Instagram
+          li Puede integrarse con su WEB site existente.
+
+        br
+
+        p Fácil de aplicar
+        ul
+          li Pruebe nuestro medio ambiente sin ningún tipo de compromiso.
+          li Escoja y personalize sus campañas de publicidad.
+          li Crear y ofrecer cupones para sus ofertas especiales.
+          li Colaborar con otros negocios para ganar sinergia.
+          li Introduzca nuevas marcas de productos cuando le convenga.
+
+      .modal-footer
+        == link_to t('buttons.close'), '#', class: "btn btn-default", data: { dismiss: 'modal' }

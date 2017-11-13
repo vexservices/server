@@ -1,0 +1,48 @@
+- cache(cache_key_for_home_page(current_franchise), locale: I18n.locale, version: 'V001') do
+  section#promo.promo.section.offset-header
+    - if @banner.present?
+      == image_tag @banner.image.url(:original), class: 'img-responsive banner'
+    - else
+      == image_tag "home/banner_#{ I18n.locale }.jpg", class: 'img-responsive banner'
+
+  section#features.features.section
+    .container
+      .row.padding-bottom
+        .col-md-6
+          == render 'how'
+
+          br
+
+        - if @video.present?
+          #video-container.video-container.col-md-6
+            = @video.html.html_safe
+
+        .clearfix
+        br
+        br
+        br
+
+      .row
+        == render 'features'
+        == render 'pages/modal/reliability'
+        == render 'pages/modal/easy'
+        == render 'pages/modal/affordable'
+
+  - if @plans
+    section#pricing.pricing.section.has-pattern
+      .container
+        .row
+          .price-cols.row
+            h2.title.text-center== t('.plans')
+
+            .items-wrapper.col-md-10.col-sm-12.col-xs-12.col-md-offset-1.col-sm-offset-0.col-xs-offset-0
+              == render 'plans', plans: @plans
+
+        .row.col-md-6.col-md-offset-3.text-center
+          - if current_franchise
+            == link_to_franchise_register_path
+          - else
+            == link_to t('buttons.sign_up_free', days: 30), new_user_registration_path, class: 'btn btn-lg btn-theme'
+
+  section#contact.contact.section.has-pattern
+    == render 'contact'

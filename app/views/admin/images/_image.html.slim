@@ -1,0 +1,9 @@
+== content_tag :div, id: "image_#{ image.id }", class: 'dz-preview dz-image-preview logos' do
+  - if image.file_processing
+    == image_tag "animation_processing.gif", style: 'width:144px; height:144px;'
+  - else
+    == image_tag image.file.url(:version17)
+
+  == link_to t('buttons.remove'), admin_business_image_path(@business, image), method: :delete,
+    data: { confirm: t('messages.confirm.default'), disable_with: t('buttons.removing') }, 
+    class: 'dz-remove', remote: true

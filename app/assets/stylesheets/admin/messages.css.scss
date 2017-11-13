@@ -1,0 +1,76 @@
+#main-navbar {
+  li a i.icon { font-size: 18px;}
+}
+
+.page-mail .mail-nav:before {
+  width: 250px;
+}
+
+.page-mail .mail-nav {
+  width: 250px;
+
+  .navigation {
+    margin-top: -10px;
+  }
+
+  .sections {
+    a {
+      padding: 0 0 0 22px;
+    }
+  }
+}
+
+.page-mail .mail-container {
+  margin-left: 250px;
+}
+
+.tl-entry {
+  content: unset;
+  &:after, &:before { content: unset; }
+
+  margin-left: 28px;
+
+  .tl-body { padding: 12px; margin-right: 12px; font-size: 12px;}
+
+  &.left .tl-body:before {
+    border-color: transparent transparent transparent #d6d6d6;
+  }
+
+  &.left .tl-body:before {
+    border-width: 8px 0 8px 9px;
+    left: auto;
+    right: -9px;
+  }
+
+  &.left .tl-body:after {
+    border-color: transparent transparent transparent #fff;
+    border-width: 7px 0 7px 8px;
+    left: auto;
+    right: -8px;
+  }
+}
+
+.tl-right {
+  padding-left: 0;
+  padding-right: 48px;
+
+  .tl-icon {
+    right: 14px;
+    left: unset;
+  }
+
+  .tl-body {
+    margin-right: 24px;
+  }
+}
+
+#chat {
+  overflow-y: auto;
+  margin-right: 12px;
+  height: 58vh;
+}
+
+.message-date {
+  color: #d6d6d6;
+  font-size: 10px;
+}

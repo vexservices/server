@@ -1,0 +1,11 @@
+== pane t('titles.filter') do
+  == simple_form_for :search, url: request.path, method: :get do |f|
+    .form-inputs
+      == f.input :initial_date, input_html: { data: { js: 'datepicker' }, value: l(@initial) }
+      == f.input :final_date, input_html: { data: { js: 'datepicker' },   value: l(@final) }
+
+    br
+
+    .form_actions.clearfix
+      == f.submit t('buttons.search'), class: 'btn btn-primary'
+      == link_to t('buttons.clear'), request.path, class: 'btn btn-default'

@@ -1,0 +1,286 @@
+pt-BR:
+  views:
+    pagination:
+      first: '&laquo; Primeiro'
+      last: Último &raquo;
+      next: Próximo &rsaquo;
+      previous: '&lsaquo; Anterior'
+      truncate: '&hellip;'
+
+  'false': 'Não'
+  'true': 'Sim'
+
+  pdf:
+    invoice:
+      from: DE
+      summary: RESUMO
+      to: PARA
+      value:
+        info: '*Valor aproximado a cobrança de %{value}.'
+
+  buttons:
+    actions: Ações
+    accept_terms: Aceito os Termos de Serviço
+    add_image: Adicionar Imagem
+    add: Adicionar
+    all: Exibir Todos
+    back: Voltar
+    cancel: Cancelar
+    cancel_recurring: Cancelar Pagamento
+    clear: Limpar
+    close: Fechar
+    current_plan: Plano Atual
+    device:
+      forgot: Esqueceu?
+      log_out: Sair
+      sign_in: Entrar
+      sign_up: Cadastrar
+    devise:
+      change_password: Alterar Senha
+      reset_password: Trocar Senha
+    edit: Editar
+    edit_app: Editar App
+    feature: Destacar
+    feature_a: Destacar Nivel 1
+    feature_b: Destacar Nivel 2
+    feature_c: Destacar Nivel 3
+    franchise_link: Link de teste interno
+    filters: Filtros
+    login: Login
+    new: Criar %{model}
+    pay: Pagar
+    payment: Salvar
+    publish: Publicar
+    publish_all: Postar em todas as Lojas
+    read_more: Leia mais...
+    recurring: Enviar
+    remove: Remover
+    remove_image: Remover Imagem
+    remove_picture: Remover Imagem
+    removing: Removendo...
+    save: "Salvar %{model}"
+    schedule: Agendar
+    search: Pesquisar
+    searching: Pesquisando...
+    select: Selecionar
+    select_all:
+      stores: Selecionar todas as Lojas
+    select_plan: Escolher Plano
+    selecting: Selecionando...
+    send: Enviar
+    send_message: Enviar messagem
+    seller_link: Link para o Distribuidor
+    skip_step: Pular esse passo
+    sign_up_free: Registre-se agora e ganhe %{days} dias de graça
+    sign_up: Registre-se agora!
+    submitting: Enviando...
+    unpublish: Despublicar
+    unpublish_all: Retirar das Lojas
+    update_credit_card: Atualizar Cartão de Crédito
+    upgrade: Atualizar
+    upgrade_plan: Por Favor atualize seu plano
+    upload_image: Upload Logo
+    upload_logo: Clique aqui para subir seu arquivo
+
+  labels:
+    account_number: 'Numero da Conta:'
+    action: Ações
+    anonymous: Anônimo
+    branch_store: 'Loja:'
+    completed: Concluído?
+    corporate: 'Empresa:'
+    corporate_product: Produto da Empresa
+    credit_card_number: Cartão de Crédito
+    free_app: 'Aplicativos Para Celular da Apple e Google Instalados com Sua Logomarca '
+    logo: 1. Selecione a imagem de seu computador.
+    no_cost: 'Sem Custo de Instalação, Desenvolvimento e Manutenção '
+    or: ou
+    payment: Forma de Pagamento
+    plan:
+      chat_support: Suporte por chat
+      email_support: Suporte por email
+      per_month: por mês
+      posts_limit: '%{number} postagens mensais'
+      stores_limit: '%{number} Lojas'
+    popular: popular
+    product_deleted: Produto deletado
+    seller: 'Vendedor:'
+    upload_picture: Upload Imagem
+
+  menu:
+    contact: Contato
+    features: Recursos
+    home: Página Inicial
+    price: Preços
+    registration: Registro
+    sign_in: Entrar
+  menus:
+    account: Conta
+    corporate: Empresas
+    customize_app: Personalize seu Aplicativo
+    image: Logo do Aplicativo
+    profile: Perfil
+    report: Relatório
+    reports: Relatórios
+    sandbox: Sandbox
+    schedules: Relatório de Agendamentos
+    seller_profile: Perfil
+    notifications: Quadro de mensagens
+
+  countries:
+    brazil: Português
+    spain: Español
+    usa: English
+
+  messages:
+    accept_terms: 'Os termos de uso foram atualizados, por favor, aceite os termos
+      de uso atuais.'
+    accepted_terms: Os termos de uso foi aceitado com sucesso!
+    app_pendent: 'Seu status atual impede a publicação e agendamento de produtos no
+      seu App até a aprovação da Google Play e da Apple Store. Assim que for liberado
+      seu App você será notificado.'
+    branch_store_link_html: 'Por favor, distribua o seguinte link para as pessoas em sua
+      empresa,que irão se cadastrar como uma loja:<br><br><b>%{link}</b>'
+    category:
+      publish: 'Apenas as categorias com pelo menos um produto publicado serão exibidas
+        na App.'
+    confirm:
+      default: Você tem certeza?
+      publish_all: Você deseja postar esse produto para todas as lojas?
+    delayed_invoices: Você possui fatura(s) em aberto, para voltar a usar o sistema pague as faturas em atraso.
+    empty: Não existem registros para serem exibidos.
+    ending_of_trial_period: Seu período de teste esta acabando.
+    images:
+      help_html: 'Processo de upload Logo: <br> Para cumprir com os requisitos da Google
+        e Apple, por favor, enviar um logotipo no seguinte tamanho e formato: <b>
+        2048x1536 PNG.</b>'
+      select_logo_html: 'No caso de você não tenha um logotipo, por favor, escolha um dos
+        seguintes logotipos. Seu logotipo pode ser alterado uma vez, sem nenhum custo
+        para você. Um período de processamento de um mês deve ser esperado.'
+    limit_of_publishes: 'Voce atingiu seu limite de publicações, caso queira mais publicações
+      você poderá alterar seu plano.'
+    limit_of_stores: Você atingiu seu limite de Lojas.
+    payment: Pagamento efetuado com sucesso!
+    piture:
+      error: 'Foram encontrados os seguintes erros: %{error}'
+    maps: Clique no mapa para alterar a posição de sua loja.
+    not_authorized: Você não está autorizado a realizar esta ação.
+    plan:
+      change_limit_html: 'Voce atingiu o limite de troca de planos. Uma nova alteração só
+        poderá ser feita em um mês.'
+      payment: Por favor, escolha seu plano e em seguida digite suas informações de cartão de crédito.
+    seller:
+      link_html: 'Forneça o número da conta <b>%{number} </b>para o seu cliente antes de
+        se registrar<br><span>Forneça o seguinte link &nbsp;ao seu cliente para cadastrar-se:
+        %{link}</span>'
+    setup_payment: 'Antes de continuar, por favor selecione a forma de pagamento:'
+    recurring_pendent_html: 'Por favor, clique no botão abaixo para atualizar suas informações de cartão de crédito.
+       Você não será capaz de agendar produtos até atualizar suas informações de pagamento. <br><br> %{link}'
+    trial_period: 'Dias restantes em seu período de teste: %{days} dia(s)'
+    paypal_html: 'Para configurar uma conta de comerciante do PayPal, por favor, faça o seguinte:
+      Siga as instruções abaixo para o tipo de conta Paypal correta,
+      <br><br><b>1 - Payflow Pro (Paypal Pro)</b><br><br>Clique no abaixo para registrar e configurar a sua conta Paypal
+      <br><b>%{link}</b><br><br>
+      <b>2- Após o registro, siga os passos abaixo para configurar um usuário API</b><br><br>
+      <b>Step 1</b> - Fazer login em <b>%{manager_link}</b> <br>
+      <b>Step 2</b> - Clique em "Account Administration" <br>
+      <b>Step 3</b> - Clique em "manager Users" <br>
+      <b>Step 4</b> - Clique em "Add user" <br>
+      <b>Step 5</b> - Crie um usuário em "Assign privilege to User"  selecione: API_FULL_TRANSACTIONS <br>
+      <b>Step 6</b> - Digite no formulário abaixo, as credenciais que você criou durante a inscrição no PayPal. <br>'
+    publish_ending_html: Baseado no seu plano atual você possui %{total} publicações restantes . %{link}
+    chat_empty: Não existe histórico de mensagens
+    message_sended: Sua mensagem foi enviada
+    message_failed: Por favor, informe a mensagem
+
+  tables:
+    plan:
+      individual_price: Preço
+      name: Plano
+      price: Preço
+      products: Postagens Mensais
+      stores: Lojas
+
+  title:
+    sign_up:
+      address: Endereço
+      corporate: INFORME OS DADOS DA SUA EMPRESA
+      seller: Vendedor
+      store: INFORME OS DADOS DA SUA LOJA
+      user: INFORME OS DADOS PARA SUA CONTA
+
+  titles:
+    account: Conta
+    corporate: Empresa
+    corporates: Empresas
+    current_plan: <b>Seu Plano Atual</b>
+    customize_app: <p>Personalize seu Aplicativo</p>
+    edit: Editar %{model}
+    filter: Filtrar
+    new: Criar %{model}
+    payment: Escolha a Forma de Pagamento
+    profile: Perfil
+    recurring: Configuração de Pagamento
+    reports: Relatórios
+    seller_profile: Perfil
+    sellers: Vendedores
+    setup_app_cover: Escolha a imagem de capa para seu Aplicativo (opcional)
+    stores: Lojas
+    upload_logo: Subir Logo
+
+  reports:
+    app_pendent: Aplicativos Pendentes
+    changes: Alterações das Empresas
+    publishes: Produtos Publicados
+    images: Imagens com Tamanho Inválido
+
+  # Views
+  admin:
+    report:
+      apps:
+        index:
+          titles: Aplicações Pendentes
+    sandbox:
+      android_pushes:
+        new:
+          title: Android - Teste de push notification
+      ios_pushes:
+        new:
+          title: IOS - Teste de push notification
+  admins:
+    passwords:
+      new:
+        title: <p>Esqueceu sua senha?</p>
+    sessions:
+      new:
+        title: Entrar
+  branch_stores:
+    new:
+      title: Cadastro de Loja
+  pages:
+    contact:
+      description: 'Por favor, preencha o formulário seguinte para entrar em contato
+        conosco:'
+      email: support@vexapps.com
+    index:
+      plans: Planos
+
+  shared:
+    panel:
+      app_info: Informação da App
+      info: Informações
+  store:
+    report:
+      products:
+        index:
+          titles: Produtos Publicados
+    schedules:
+      modal:
+        title: Agendamento
+  users:
+    registrations:
+      new:
+        title: Registrar Nova Conta
+    sessions:
+      new:
+        title: Entrar

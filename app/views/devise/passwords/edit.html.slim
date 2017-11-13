@@ -1,0 +1,19 @@
+h1.form-header== t('.title')
+
+== simple_form_for(resource,
+    as: resource_name,
+    url: password_path(resource_name),
+    html: { method: :put, class: 'panel', id: 'signin-form_id' }) do |f|
+
+  == flash_message
+  == devise_error_messages!
+
+  .form-inputs
+    == f.input :reset_password_token, as: :hidden
+    == f.input :password, autofocus: true, placeholder: t('attributes.password'), label: false,
+      input_html: { class: 'form-control input-lg' }
+    == f.input :password_confirmation, autofocus: true, placeholder: t('attributes.password_confirmation'), label: false,
+      input_html: { class: 'form-control input-lg' }
+
+  .form-actions
+    == f.submit t('buttons.devise.change_password'), :class => 'btn btn-primary btn-block btn-lg'

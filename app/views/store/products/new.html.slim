@@ -1,0 +1,5 @@
+== content_for :page_header do
+  h1== hnp Product
+
+== pane t('titles.new', model: hn(Product)) do
+  == render 'form'

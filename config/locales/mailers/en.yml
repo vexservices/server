@@ -1,0 +1,4 @@
+en:
+  app_mailer:
+    invalid_app:
+      subject: Invalid app

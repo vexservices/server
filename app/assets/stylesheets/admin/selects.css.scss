@@ -1,0 +1,14 @@
+.select2 {
+  li.select2-search {
+    min-height: 30px;
+
+    &:after {
+      top: 6px;
+    }
+  }
+}
+
+.select2-container--bootstrap .select2-selection--multiple
+.select2-search--inline .select2-search__field {
+  padding: 6px 12px;
+}

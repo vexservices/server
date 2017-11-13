@@ -1,0 +1,41 @@
+== content_for :page_header do
+  h1.col-xs-12.col-sm-4
+    == hnp(Client)
+
+  .col-xs-12.col-sm-8
+    .row
+      .pull-right.col-xs-12.col-sm-auto
+        == link_to_new Client, new_client_path if policy(:client).new?
+
+== pane hnp(Client) do
+  - cache [cache_key_for_store_clients, locale: I18n.locale, page: params[:page] || 1] do
+    == display_when_present @clients do
+
+      table.table.table-bordered.table-striped
+        thead
+          tr
+            th== ta(Client, 'name')
+            th== ta(Client, 'username')
+            th== ta(Client, 'blocked')
+            th== ta(Client, 'admin')
+            th== t('labels.action')
+        tbody
+          == content_tag_for :tr, @clients do |client|
+            - cache [client, locale: I18n.locale] do
+              td== client.name
+              td== client.username
+              td.text-center
+                == boolean_span client.blocked?
+              td.text-center
+                == boolean_span client.admin?
+              td.text-center
+                == link_to_edit edit_client_path(client) if policy(client).edit?
+                == link_to_destroy client_path(client)   if policy(client).destroy?
+
+      .table-footer
+        == paginate @clients, theme: 'twitter-bootstrap-3'
+
+  br
+
+  .col-xs-12.col-sm-auto
+    == link_to_new Client, new_client_path if policy(:client).new?

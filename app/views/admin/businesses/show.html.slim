@@ -1,0 +1,25 @@
+== content_for :page_header do
+  h1== hnp Business
+
+== pane @business.name do
+  h4== hnp Image
+  
+  hr
+
+  h5
+    strong== t('labels.upload_picture')
+
+  == simple_form_for [:admin, @business, Image.new] do |f|
+    == f.input :file, label: false, input_html: { multiple: true, name: 'image[file]' }
+
+  == render 'shared/progress_bar'
+
+  hr
+
+  #pictures.images
+    - @business.images.each do |image|
+        == render image
+  hr
+
+  == link_to_back admin_businesses_path
+  == link_to t('buttons.edit'), edit_admin_business_path(@business), class: 'btn btn-primary'

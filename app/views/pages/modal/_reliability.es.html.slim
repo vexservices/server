@@ -1,0 +1,26 @@
+#reliability.modal.fade
+  .modal-dialog
+    .modal-content
+      .modal-header
+        button[type="button" class="close" data-dismiss="modal"]
+          span[aria-hidden="true"] &times;
+          span.sr-only Close
+
+        h4.modal-title Confiable
+
+      .modal-body
+        p
+          | Tenemos normas de clase mundial para poder ofrecerle un producto de calidad.
+        p
+          | Por medio de su panel de control sus publicaciones se realice de inmediato en su aplicación móvil. Todo esto es transparente al cliente.
+        p
+          | Su información viaja alrededor del mundo al instante. Nuestros servidores nube (cloud servers) utilizan más de 200 ubicaciones en diferente partes del mundo.
+        p
+          | Sus datos son protegidos en lugares fuera del sitio de nuestro servidores. Adicionalmente, nuestro sistema “Backup” es automatizado con el proceso “Automated RAID.” En tal amera evitamos faltas de “Backup”
+        p
+          | Sus datos son asegurados de acceso no autorizado. Contamos con servicios de vanguardia para proporcionar cortafuegos (Firewalls), protección contra virus, certificados SSL que cumplen con los normas de PCI (Payment Card Industry). Todo para garantizar la seguridad de sus datos.
+        p
+          | Nuestro entorno de red ha sido cuidadosamente diseñado por ingenieros altamente cualificados. Usamos servidores para el almacenamiento de datos en Amazon S3; en ella se puede crecer en forma escalable y ilimitada sin tener que cambiar de servidores y a la misma vez obtener el rendimiento necesario para un ambiente confiable y seguro.
+
+      .modal-footer
+        == link_to t('buttons.close'), '#', class: "btn btn-default", data: { dismiss: 'modal' }

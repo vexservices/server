@@ -1,0 +1,17 @@
+== content_for :page_header do
+  h1== t('titles.profile')
+
+== pane t('titles.edit', model: t('titles.profile')) do
+  == simple_form_for(@admin, url: admin_profile_path) do |f|
+    == f.error_notification
+
+    .form-inputs
+      == f.input :name
+      == f.input :email, disabled: true
+      == f.input :password
+      == f.input :password_confirmation
+
+      hr
+
+      .form-actions
+        == f.button :submit, class: 'btn-success'

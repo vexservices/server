@@ -1,0 +1,5 @@
+pt-BR:
+  enumerations:
+    payment_options:
+      all: Empresa pagará por todas as lojas.
+      individually: Cada loja pagará individualmente seu plano.

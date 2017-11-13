@@ -1,0 +1,16 @@
+== content_for :page_header do
+  h1== hn(Term)
+
+== pane t('titles.edit', model: hn(Term)) do
+  == simple_form_for([:admin, @term], url: admin_term_path) do |f|
+
+    == f.error_notification
+
+    .form-inputs
+      == f.input :version
+      == f.input :text, as: :text
+
+      hr
+
+    .form-actions
+      == f.button :submit, class: 'btn-success'

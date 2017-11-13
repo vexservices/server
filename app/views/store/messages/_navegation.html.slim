@@ -1,0 +1,14 @@
+.navigation
+  ul.sections
+    == devices
+
+    - if devices.present?
+      - devices.each do |device|
+        == content_tag :li do
+          == link_to device_store_messages_path(device.id, device.store_id) do
+            i.m-nav-icon.fa.fa-tablet
+            | #{device.friendly_name} at #{device.store_name}
+
+            - if device.messages_count > 0
+              span.label.label-info.pull-right
+                == device.messages_count

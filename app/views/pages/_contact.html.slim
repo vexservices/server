@@ -1,0 +1,25 @@
+.container
+  .row.text-center
+    h2.title.animated.fadeInUp.delayp1
+      == hn(Contact)
+
+    .intro.col-md-6.col-sm-12.col-xs-12.col-md-offset-3.animated.fadeInUp.delayp2
+      p== t('.description')
+
+      ul.list-unstyled.contact-details
+        li
+          - if current_franchise.present?
+            i.fa.fa-envelope
+            == mail_to current_franchise.email if current_franchise.email.present?
+          - else
+            i.fa.fa-envelope
+            == mail_to t('.email', default: 'support@virtualexchangeapp.com')
+
+  .row.text-center
+    .contact-form.col-md-6.col-sm-12.col-xs-12.col-md-offset-3
+      #message
+
+  .row.text-center
+    .contact-form.col-md-6.col-sm-12.col-xs-12.col-md-offset-3.animated.fadeInUp.delayp3
+      #contact_form
+        == render 'contact_form'

@@ -1,0 +1,13 @@
+table {
+  tr {
+    &.sub-category {
+      margin-left: 12px;
+
+      td:first-child {
+        border-left: 4px solid #418ce4;
+        padding-left: 32px;
+      }
+      td { background-color: #f9f9f9; }
+    }
+  }
+}

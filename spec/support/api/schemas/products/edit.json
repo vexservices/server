@@ -1,0 +1,30 @@
+{
+  "type": "object",
+  "properties" : {
+    "product" : {
+      "required" : ["id", "name"],
+      "type": "object",
+      "properties" : {
+        "id"             : { "type" : "integer" },
+        "name"           : { "type" : "string"  },
+        "code"           : { "type" : ["string", "null"]  },
+        "category_name"  : { "type" : ["string", "null"]  },
+        "regular_price"  : { "type" : ["string", "null"]  },
+        "price"          : { "type" : ["string", "decimal"] },
+        "description"    : { "type" : ["string", "null"]  },
+        "contact_info"   : { "type" : ["string", "null"]  },
+        "category_name"  : { "type" : ["string", "null"]  },
+        "category_id"    : { "type" : ["integer", "null"] },
+        "payment_option" : { "type" : ["string", "null"]  }
+      }
+    },
+
+    "categories" : {
+      "type": "array",
+      "items": [
+        { "id"   : { "type" : "integer" } },
+        { "name" : { "type" : "string"  } }
+      ]
+    }
+  }
+}

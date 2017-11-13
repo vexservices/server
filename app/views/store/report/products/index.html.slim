@@ -1,0 +1,32 @@
+== content_for :page_header do
+  h1.col-xs-12.col-sm-4== t('menus.report')
+
+== render 'search'
+
+== pane t('.titles') do
+
+  == display_when_present @publishes do
+    table.table.table-bordered.table-striped
+      thead
+        tr
+          th== ta(Product, 'name')
+          th== ta(Product, 'category')
+          th== ta(Product, 'regular_price')
+          th== ta(Product, 'price')
+          th== ta(Publish, 'created-at')
+      tbody
+        == content_tag_for :tr, @publishes, class: 'text-center' do |publish|
+          td.text-left
+            - if publish.product_name.blank?
+              == image_tag 'product/deleted.png', class: 'img-thumbnail'
+              == t('labels.product_deleted')
+            - else
+              == image_tag publish.product_image, class: 'img-thumbnail'
+              == publish.product_name
+          td== publish.product_category_name
+          td== number_to_currency_by_store_currency publish.regular_price
+          td== number_to_currency_by_store_currency publish.price
+          td
+            == l publish.created_at, format: :long
+    .table-footer
+        == paginate @publishes, theme: 'twitter-bootstrap-3'

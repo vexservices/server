@@ -1,0 +1,36 @@
+== content_for :page_header do
+  h1.col-xs-12.col-sm-4== hn Plan
+
+
+== pane t('titles.current_plan') do
+
+  - if @recurring.present?
+    p
+      strong== "#{ t('labels.credit_card_number') }: "
+      == @recurring.credit_card_number
+
+    p
+      == cancel_recurring_link
+
+  table.table.table-striped
+    thead
+      tr
+        th
+          == t('tables.plan.name')
+        th
+          == t('tables.plan.products')
+        th
+          == t('tables.plan.price')
+    tdoby
+      tr
+        td
+          == @plan.name
+        td.text-center
+          == @plan.monthly_posts
+        td.text-center
+          == number_to_currency @plan.price_by_locale
+
+== pane hnp Plan do
+
+  == plans_messages unless current_store.can_update_plan?
+  == render 'plans'

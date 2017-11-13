@@ -1,0 +1,5 @@
+<% if @image.new_record? %>
+  alert("<%= j t('messages.piture.error', error: @image.errors.full_messages.join(', ').html_safe) %>");
+<% else %>
+  $("#pictures").append("<%= j render(@image) %>");
+<% end %>

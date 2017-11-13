@@ -1,0 +1,8 @@
+== simple_form_for :search, url: logos_path, remote: true, method: :get do |f|
+
+  .form-inputs
+    == f.input :category, collection: Business.all, prompt: false
+  .form-actions
+    == f.submit t('buttons.search'), class: 'btn btn-primary', data: { disable_with: t('buttons.searching') }
+
+#logos

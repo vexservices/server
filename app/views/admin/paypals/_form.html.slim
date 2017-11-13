@@ -1,0 +1,19 @@
+== paypal_message
+
+== simple_form_for([:admin, @paypal]) do |f|
+  == f.error_notification
+
+  .form-inputs
+    == f.input :user
+    == f.input :login
+    == f.input :password, input_html: { value: @paypal.password }
+    == f.input :partner
+    == f.input :country, only: ["US", "BR"], prompt: true
+    == f.input :sandbox
+
+  .clearfix
+  hr
+
+  .form-actions
+    == f.button :submit, class: 'btn btn-success'
+    == link_to_back admin_paypals_path

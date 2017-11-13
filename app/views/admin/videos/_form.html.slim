@@ -1,0 +1,15 @@
+== simple_form_for([:admin, @video]) do |f|
+  == f.error_notification
+
+  .form-inputs
+    == f.input :external_link
+    == f.input :html
+    == f.input :locale, collection: [['English', 'en'], ['Español', 'es'], ['Português', 'pt-BR']],
+      prompt: false
+
+  .clearfix
+  hr
+
+  .form-actions
+    == f.button :submit, class: 'btn btn-success'
+    == link_to_back admin_videos_path

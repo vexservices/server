@@ -1,0 +1,11 @@
+{
+  "type": "object",
+  "required" : ["id", "name"],
+  "properties" : {
+    "id"            : { "type" : "integer" },
+    "name"          : { "type" : "string"  },
+    "category_id"   : { "type" : ["integer", "null"] },
+    "category_name" : { "type" : ["string",  "null"] },
+    "created_at"    : { "type" : ["datetime"] }
+  }
+}

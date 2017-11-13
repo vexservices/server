@@ -1,0 +1,4 @@
+pt-BR:
+  app_mailer:
+    invalid_app:
+      subject: Invalid app

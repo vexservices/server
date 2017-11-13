@@ -1,0 +1,49 @@
+{
+  "type": "object",
+  "properties" : {
+    "messages" : { "type": "array" },
+
+    "pagination" : {
+      "required" : ["pages", "current_page", "total_entries"],
+      "type": "object",
+      "properties": {
+        "pages"         : { "type" : "integer" },
+        "current_page"  : { "type" : "integer" },
+        "total_entries" : { "type" : "integer" }
+      }
+    },
+
+    "products" : {
+      "required" : ["id", "name" ],
+      "type": "array",
+      "items": [
+        { "id"            : { "type" : "integer" } },
+        { "name"          : { "type" : "string"  } },
+        { "category_name" : { "type" : "string"  } },
+        { "category_id"   : { "type" : ["integer", "null"] } },
+        { "regular_price" : { "type" : ["string", "null"]  } },
+        { "price"         : { "type" : "string" } },
+        { "image"         : { "type" : "string" } },
+        { "corporate"     : { "type" : ["string", "null"]  } },
+        { "publish_id"    : { "type" : ["string", "null"]  } },
+
+        {
+          "actions" : {
+            "required" : ["edit", "delete"],
+            "type": "object",
+            "properties" : {
+              "featured"   : { "type" : ["boolean", "string"] },
+              "edit"       : { "type" : ["boolean", "string"] },
+              "delete"     : { "type" : ["boolean", "string"] },
+              "publish"    : { "type" : ["boolean", "string"] },
+              "unpublish"  : { "type" : ["boolean", "string"] },
+              "post_all"   : { "type" : ["boolean", "string"] },
+              "unpost_all" : { "type" : ["boolean", "string"] }
+            }
+          }
+        }
+
+      ]
+    }
+  }
+}

@@ -1,0 +1,22 @@
+#affordable.modal.fade
+  .modal-dialog
+    .modal-content
+      .modal-header
+        button[type="button" class="close" data-dismiss="modal"]
+          span[aria-hidden="true"] &times;
+          span.sr-only Close
+
+        h4.modal-title Acessível
+
+      .modal-body
+        p Período de experiência de 30 dias inclui:
+        ul
+          li Não exigimos cartão de crédito para cadastrar-se.
+          li Não há custos de instalação, desenvolvimento ou manutenção.
+          li Sem custos de Internet.
+          li Opção de cancelamento no final de cada mês.
+
+        p Para mais detalhes clique no botão 'Preço' na parte superior da página inicial.
+
+      .modal-footer
+        == link_to t('buttons.close'), '#', class: "btn btn-default", data: { dismiss: 'modal' }

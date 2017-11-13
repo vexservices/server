@@ -1,0 +1,10 @@
+{
+  "type": "object",
+  "required" : ["id"],
+  "properties" : {
+    "id"         : { "type" : "integer" },
+    "token"      : { "type" : ["string", "null"] },
+    "push_token" : { "type" : ["string", "null"] },
+    "kind"       : { "type" : "string" }
+  }
+}

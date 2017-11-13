@@ -1,0 +1,8 @@
+h1.form-header== hnp(Term)
+
+.panel.panel-signup
+  == simple_format @term.with_franchise_name(franchise_name) if @term.present?
+
+  hr
+
+  == link_to_back root_path, class: 'btn btn-default btn-block'

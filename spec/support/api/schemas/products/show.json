@@ -1,0 +1,40 @@
+{
+  "type": "object",
+  "required" : ["id", "name"],
+  "properties" : {
+    "id"             : { "type" : "integer" },
+    "code"           : { "type" : ["string", "null"]  },
+    "regular_price"  : { "type" : ["decimal", "string"] },
+    "name"           : { "type" : "string" },
+    "price"          : { "type" : ["decimal", "string"] },
+    "description"    : { "type" : "string" },
+    "contact_info"   : { "type" : ["string", "null"] },
+    "category_id"    : { "type" : ["integer", "null"] },
+    "category_name"  : { "type" : ["string", "null"] },
+    "payment_option" : { "type" : ["string", "null"] },
+    "created_at"     : { "type" : ["datetime"] },
+
+    "images": {
+      "type": "array",
+      "items" : [
+        {"id"       : { "type" : "integer" }},
+        {"thumb"    : { "type" : "string"  }},
+        {"medium"   : { "type" : "string"  }},
+        {"original" : { "type" : "string"  }}
+      ]
+    },
+
+    "actions": {
+      "type": "object",
+      "properties" : {
+        "featured"   : { "type" : ["boolean", "string"] },
+        "edit"       : { "type" : ["boolean", "string"] },
+        "delete"     : { "type" : ["boolean", "string"] },
+        "publish"    : { "type" : ["boolean", "string"] },
+        "unpublish"  : { "type" : ["boolean", "string"] },
+        "post_all"   : { "type" : ["boolean", "string"] },
+        "unpost_all" : { "type" : ["boolean", "string"] }
+      }
+    }
+  }
+}

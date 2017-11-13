@@ -1,0 +1,13 @@
+pt-BR:
+  helpers:
+    page_entries_info:
+      more_pages:
+        display_entries: Displaying %{entry_name} %{first} - %{last} of %{total} in
+          total
+      one_page:
+        display_entries:
+          one: Displaying <b>1</b> %{entry_name}
+          other: Exibir tudo %{count} %{entry_name}
+          zero: '%{entry_name} no se encuentra'
+    select:
+      prompt: Por favor seleccione

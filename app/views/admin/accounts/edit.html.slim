@@ -1,0 +1,31 @@
+== content_for :page_header do
+  h1== hnp Franchise
+
+== pane t('titles.edit', model: hn(Franchise)) do
+
+  == simple_form_for([:admin, @franchise], url: admin_account_path) do |f|
+    == f.error_notification
+
+    .form-inputs
+      == f.input :name
+      == f.input :email
+      == f.input :mx_record, as: :string
+      == f.input :trial_period
+
+      h4 DNS
+
+      p Please point your Domain Name Server to the following:
+
+      ul
+        li DNS 1: dns4.pointhq.com
+        li DNS 2: dns8.pointhq.com
+
+      == f.input :subdomain
+      == f.input :domain
+      == f.input :logo
+
+      hr
+
+      .form-actions
+        == f.button :submit, class: 'btn-success'
+        == link_to_back

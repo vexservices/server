@@ -1,0 +1,9 @@
+.tl-entry class=('left tl-right' unless message.by_device?)
+  .tl-icon class=(message.by_device? ? 'bg-info' : 'bg-success')
+    i.fa class=(message.by_device? ? 'fa-mobile' : 'fa-user')
+  .panel.tl-body
+    == message.message
+    br
+
+    span.message-date
+      == l message.created_at, format: :long

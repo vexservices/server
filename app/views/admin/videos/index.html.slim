@@ -1,0 +1,36 @@
+== content_for :page_header do
+  h1.col-xs-12.col-sm-4== hnp Video
+
+  .col-xs-12.col-sm-8
+    .row
+      .pull-right.col-xs-12.col-sm-auto
+        == link_to_new Video, new_admin_video_path
+
+== pane hnp Video do
+  == display_when_present @videos do
+
+    table.table.table-bordered.table-striped
+      thead
+        tr
+          th== hn(Franchise)
+          th== ta(Video, 'external_link')
+          th== ta(Video, 'html')
+          th== ta(Video, 'locale')
+          th== t('labels.action')
+      tbody
+        == content_tag_for :tr, @videos, class: 'text-center' do |video|
+          td==h video.franchise_name
+          td==h video.external_link
+          td==h video.html
+          td== translate_locale video.locale
+          td.text-center
+            == link_to_show admin_video_path(video)
+            == link_to_edit edit_admin_video_path(video)
+            == link_to_destroy [:admin, video]
+    .table-footer
+      == paginate @videos, theme: 'twitter-bootstrap-3'
+
+  br
+
+  .col-xs-12.col-sm-auto
+    == link_to_new Video, new_admin_video_path

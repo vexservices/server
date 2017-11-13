@@ -1,0 +1,18 @@
+li.dropdown
+  == link_to '#', class: 'dropdown-toggle user-menu', data: { toggle: "dropdown" } do
+    == "#{ image_tag("flags/#{ I18n.locale }.png") } "
+    i.fa.fa-angle-down
+
+  ul.dropdown-menu.flag
+    li
+      == link_to locale: "en" do
+        == image_tag('flags/en.png')
+        == t('countries.usa')
+    li
+      == link_to locale: "pt-BR" do
+        == image_tag('flags/pt-BR.png')
+        == t('countries.brazil')
+    li
+      == link_to locale: "es" do
+        == image_tag('flags/es.png')
+        == t('countries.spain')

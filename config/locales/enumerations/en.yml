@@ -1,0 +1,6 @@
+en:
+  enumerations:
+    payment_options:
+      all: Payments for all the branches will be made at a corporate level (e.g. payments
+        will be centralized).
+      individually: Each branch store will pay individually.

@@ -1,0 +1,36 @@
+== content_for :page_header do
+  h1.col-xs-12.col-sm-4== hnp(Seller)
+
+== pane hnp(App) do
+  - if @seller.present?
+    h3= @seller.name
+    hr
+
+  == display_when_present @stores do
+
+    table.table.table-bordered.table-striped
+      thead
+        tr
+          th # App
+          th== ta(App,'name')
+          th== ta(Store,'name')
+          th== ta(Store,'stores_count')
+          th== ta(Store,'created_at')
+          th== ta(App, 'apple_certificate')
+          th== ta(App, 'google_api_key')
+      tbody
+        == content_tag_for :tr, @stores, class: 'text-center' do |store|
+          td==store.app_id
+          td==store.app_name
+          td==store.name
+          td== link_to store.stores_count, admin_corporate_stores_path(store)
+          td==l store.created_at, format: :long
+          td== boolean_span store.app_has_apple_certificate?
+          td== boolean_span store.app_has_google_api_key?
+
+    .table-footer
+      == paginate @stores, theme: 'twitter-bootstrap-3'
+
+  br
+
+  == link_to_back seller_seller_sellers_path(@seller.master? ? @seller : @seller.seller)

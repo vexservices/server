@@ -1,0 +1,73 @@
+== content_for :page_header do
+  h1.col-xs-12.col-sm-4== hnp Product
+
+  .col-xs-12.col-sm-8
+    .row
+      .pull-right.col-xs-12.col-sm-auto
+        == link_to_new Product, new_product_path
+      .pull-right.col-xs-12.col-sm-auto
+        == link_with_icon t('buttons.filters'), 'javascript:void(0)', id: 'filter-toggle',
+            data: { toggle: true, target: '#search' }, icon: 'search'
+
+== render 'search'
+
+== pane hnp Product do
+
+  == publishes_remaining_messages
+
+  - cache_if !params[:q].present?, [cache_key_for_products, locale: I18n.locale, page: params[:page] || 1] do
+    == display_when_present @products do
+      == form_tag new_schedule_path, method: :get, remote: true do
+        table.table.table-bordered.table-striped
+          thead
+            tr
+              th
+                == check_box_tag nil, nil, false, { data: { select: true, check: 'checkbox', target: '' } }
+              th== ta(Product, 'name')
+              th== ta(Product, 'category')
+              th== ta(Product, 'regular_price')
+              th== ta(Product, 'price')
+              th== t('labels.action')
+          tbody
+            == content_tag_for :tr, @products, class: 'text-center' do |product|
+              - cache [cache_key_for_product(product), locale: I18n.locale] do
+                td
+                  == check_box_tag "product_ids[]", product.id, false, { data: { check: 'checkbox', target: '' },
+                      id: "product_id_#{ product.id }" }
+
+                td.text-left
+                  == link_to asset_url(product.image(:original)), data: { lightbox: "product-#{ product.id }" } do
+                    == product_seals(product)
+                    == image_tag product.image, class: 'img-thumbnail'
+
+                  == link_to product.name, product
+                  == store_product_label(product, current_store)
+                td== product.category_name_with_father
+                td== number_to_currency_by_store_currency product.regular_price_by_store(current_store)
+                td== number_to_currency_by_store_currency product.price_by_store(current_store)
+
+                td.text-right
+                  == render 'links', product: product
+
+                  - if policy(product).edit?
+                    == link_to_edit edit_product_path(product)
+                  - else
+                    - price = current_store.prices.where(product: product).first
+                    == link_to_create_or_edit_price(product, price)
+
+                  - if policy(product).destroy?
+                    == link_to_destroy product
+
+        .table-footer
+          == paginate @products, theme: 'twitter-bootstrap-3'
+
+        br
+
+        - if current_store.ready? && !current_store.setup_payment?
+          == submit_tag t('buttons.schedule'), id: 'schedule_submit', class: 'btn btn-success'
+
+  .clearfix
+  br
+
+  .col-xs-12.col-sm-auto
+    == link_to_new Product, new_product_path

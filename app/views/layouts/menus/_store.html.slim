@@ -1,0 +1,22 @@
+.menu-content.top
+  .text-bg
+    span.text-slim== current_store.corporate? ? t('labels.corporate') : t('labels.branch_store')
+    br
+    span.text-semibold== current_store.name
+    br
+    span.text-slim== t('labels.account_number')
+    br
+    span.text-semibold== "##{current_store.number }"
+
+== tabs_tag(builder: MenuTabBuilder, open_tabs: { class:'navigation' }) do |tab|
+  == tab.departments   tab_item(hnp(Department), 'tags'),          departments_path
+  == tab.categories    tab_item(hnp(Category), 'cubes'),           categories_path
+  == tab.products      tab_item(hnp(Product), 'archive'),          products_path
+  == tab.schedules     tab_item(t('menus.schedules'), 'clock-o'),  schedules_path
+  == tab.stores        tab_item(hnp(Store), 'building-o'),         stores_path
+  == tab.users         tab_item(hnp(User), 'users'),               users_path
+  == tab.invoices      tab_item(hnp(Invoice), 'money'),            invoices_path
+  == tab.clients       tab_item(hnp(Client), 'users'),             clients_path if policy(:client).index?
+  == tab.reports       tab_item(t('menus.report'), 'file-text-o'), report_products_path
+  == tab.notifications tab_item(t('menus.notifications'), 'paper-plane-o'), new_notification_path
+  == tab.devices       tab_item(t('menus.devices'), 'mobile'),     devices_path if policy(:device).index?

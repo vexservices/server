@@ -1,0 +1,9 @@
+== simple_form_for :push, url: admin_sandbox_ios_push_path do |f|
+    
+  .form-inputs
+    == f.input :app_id, collection: App.without_store.ios, label: 'App', include_blank: false
+    == f.input :device
+  
+  .form-actions
+    == f.button :submit, 'Push Now!' , class: 'btn btn-danger'
+    == link_to_back admin_sandbox_apps_path

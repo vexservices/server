@@ -1,0 +1,19 @@
+== content_for :page_header do
+  h1.col-xs-12.col-sm-4== t('reports.publishes')
+
+== pane t('reports.publishes') do
+  == display_when_present @apps do
+    table.table.table-bordered.table-striped
+      thead
+        tr
+          th== ta(App, 'name')
+          th== ta(Store, 'name')
+          th== ta(Store, 'products_count')
+          th== ta(Store, 'created_at')
+      tbody
+        - @apps.each do |app|
+          tr.text-center
+            td== app.name
+            td== app.store_name
+            td== app.count_all
+            td== l app.created_at, format: :long

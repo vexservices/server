@@ -1,0 +1,52 @@
+== content_for :page_header do
+  h1.col-xs-12.col-sm-4== hnp(Seller)
+
+  .col-xs-12.col-sm-8
+    .row
+      .pull-right.col-xs-12.col-sm-auto
+        == link_to_new Seller, new_seller_seller_path
+
+== pane hnp(Seller) do
+
+  h3 #{ @seller.name } - Apps: #{ link_to "#{ @seller.stores_count }/#{ @seller.apps_count }", seller_seller_apps_path(@seller) }
+
+  == display_when_present @sellers do
+
+    table.table.table-bordered.table-striped
+      thead
+        tr
+          th== ta(Seller, 'name')
+          th== ta(Seller, 'phone')
+          th== ta(Address, 'state')
+          th== ta(Seller, 'commission')
+          th== ta(Seller, 'sellers_count')
+          th Apps
+          th== t('labels.link')
+          th== ta(Seller, 'created_at')
+          th== t('labels.action')
+      tbody
+        == content_tag_for :tr, @sellers, class: 'text-center' do |seller|
+          td== link_to seller.name, seller_seller_path(seller)
+          td== seller.phone
+          td== seller.address_state
+          td== number_to_percentage seller.commission, precision: 1
+          td== link_to seller.sellers_count, seller_seller_sellers_path(seller)
+          td== link_to "#{ seller.stores_count }/#{ seller.apps_count }", seller_seller_apps_path(seller)
+          td== link_to(seller_url(seller.number), seller_url(seller.number), target: '_blank')
+          td== l seller.created_at, format: :long
+          td
+            - if Seller::SellerPolicy.new(current_seller, seller).edit?
+              == mail_to_seller seller
+              == link_to_edit edit_seller_seller_path(seller)
+              == link_to_destroy seller_seller_path(seller)
+    .table-footer
+      == paginate @sellers, theme: 'twitter-bootstrap-3'
+
+  br
+
+  - unless current_seller.id == @seller.id
+    .col-xs-12.col-sm-auto
+      == link_to_back seller_seller_sellers_path(@seller.seller)
+
+  .col-xs-12.col-sm-auto
+    == link_to_new Seller, new_seller_seller_path

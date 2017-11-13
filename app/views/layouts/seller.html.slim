@@ -1,0 +1,47 @@
+doctype html
+html
+  head
+    meta[name="viewport" content="width=device-width, initial-scale=1.0"]
+    meta[http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"]
+    meta name="description" content="Virtual Exchange"
+
+    title== "#{ franchise_name } - Seller Representatives"
+
+    == javascript_include_tag 'admin/application', 'data-turbolinks-track' => true
+    == stylesheet_link_tag "admin/application", :media => 'all', 'data-turbolinks-track' => true
+
+    link href="http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,400,600,700,300&subset=latin"rel="stylesheet" type="text/css"
+    link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet"
+
+    == csrf_meta_tags
+
+  body.theme-adminflare.main-menu-animated.main-navbar-fixed
+    #main-wrapper
+      #main-navbar.navbar.navbar-inverse[role="navigation"]
+        == link_to root_path, id: 'main-menu-toggle' do
+          i.fa.fa-arrow-left.icon
+
+        .navbar-inner
+          .navbar-header
+            == link_to franchise_name, franchise_root_path, class: 'navbar-brand'
+
+            button.navbar-toggle.collapsed[data-target="#main-navbar-collapse" data-toggle="collapse" type="button"]
+              i.navbar-icon.fa.fa-bars
+
+          == render 'layouts/menus/seller_user'
+
+      #main-menu[role="navigation"]
+        == render 'layouts/menus/seller'
+
+      #content-wrapper
+        .page-header
+          == content_for :page_header
+        .row
+          #messages
+            == flash_message
+          == yield
+        footer
+          .row.col-sm-12
+            .text-center Copyright 2014 - #{ franchise_name } | All Rights Reserved
+
+      #main-menu-bg

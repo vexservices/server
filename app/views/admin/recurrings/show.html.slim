@@ -1,0 +1,43 @@
+== content_for :page_header do
+  h1.col-xs-12.col-sm-4== hn(Recurring)
+
+== pane @recurring.profile_id do
+    table.table.table-striped
+      tbody
+        tr
+          td
+            strong== ta(Recurring, 'value')
+          td== number_to_currency @recurring.value
+        tr
+          td
+            strong== ta(Recurring, 'credit_card_number')
+          td== @recurring.credit_card_number
+        tr
+          td
+            strong== ta(Recurring, 'canceled_at')
+          td== l @recurring.canceled_at, format: :long if @recurring.canceled_at
+        tr
+          td
+            strong== ta(Recurring, 'created_at')
+          td== l @recurring.created_at, format: :long
+        tr
+          td
+            strong== ta(Recurring, 'updated_at')
+          td== l @recurring.updated_at, format: :long
+
+
+    h4 Logs
+
+    table.table.table-striped
+      thead
+        tr
+          th== ta(Log, 'description')
+          th== ta(Log, 'created_at')
+      tbody
+        == content_tag_for :tr, @logs do |log|
+          td== log.description
+          td== l log.created_at, format: :long
+
+    hr
+
+    == link_to_back admin_store_recurrings_path(@store)

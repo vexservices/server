@@ -1,0 +1,45 @@
+== content_for :page_header do
+  h1.col-xs-12.col-sm-4== hnp Store
+
+  .col-xs-12.col-sm-8
+    .row
+      .pull-right.col-xs-12.col-sm-auto
+        == link_with_icon t('buttons.filters'), 'javascript:void(0)', id: 'filter-toggle',
+            data: { toggle: true, target: '#search' }, icon: 'search'
+
+== render 'shared/stores/search'
+
+== pane @corporate.name do
+
+  == display_when_present @stores do
+    table.table.table-bordered.table-striped
+      thead
+        tr
+          th== ta(Store, 'number')
+          th== ta(Store, 'name')
+          th== ta(Store, 'phone')
+          th== ta(Address, 'state')
+          th== ta(Address, 'city')
+          th== ta(Address, 'street')
+          th== ta(Store, 'blocked')
+          th== t('labels.action')
+      tbody
+        == content_tag_for :tr, @stores do |store|
+          td.text-center== store.number
+          td== link_to store.name, admin_corporate_store_path(@corporate, store)
+          td== store.phone
+          td== store.address_state
+          td== store.address_city
+          td== store.address_street
+          td.text-center
+            == boolean_span store.blocked
+          td.text-center
+            == link_to_edit edit_admin_corporate_store_path(@corporate, store)
+            == link_to_destroy admin_corporate_store_path(@corporate, store)
+
+    .table-footer
+      == paginate @stores, theme: 'twitter-bootstrap-3'
+
+  hr
+
+  == link_to_back @corporate.corporate? ? admin_corporate_path(@corporate) : admin_corporate_store_path(@corporate.store_id, @corporate)

@@ -1,0 +1,18 @@
+== simple_form_for([:seller, @seller]) do |f|
+  == f.error_notification
+
+  .form-inputs
+    == f.input :name
+    == f.input :email
+    == f.input :password
+    == f.input :password_confirmation
+    == f.input :cell_phone
+    == f.input :phone
+    == f.input :commission
+    == f.input :document
+
+    hr
+
+    .form-actions
+      == f.button :submit, class: 'btn-success'
+      == link_to_back :back

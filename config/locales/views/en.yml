@@ -1,0 +1,284 @@
+en:
+  # Kaminari - Pagination
+  views:
+    pagination:
+      first: "&laquo; First"
+      last: "Last &raquo;"
+      previous: "&lsaquo; Previous"
+      next: "Next &rsaquo;"
+      truncate: "&hellip;"
+
+  'false': 'No'
+  'true': 'Yes'
+
+  pdf:
+    invoice:
+      from: FROM
+      summary: SUMMARY
+      to: TO
+
+  buttons:
+    actions: Actions
+    accept_terms: Accept terms of service.
+    add_image: Add Image
+    add: Add
+    all: Show All
+    back: Back
+    cancel: Cancel
+    cancel_recurring: Cancel Payment
+    clear: Clear
+    close: Close
+    current_plan: Current Plan
+    device:
+      forgot: Forgot ?
+      log_out: Log Out
+      sign_in: Login
+      sign_up: Register
+    devise:
+      change_password: Change my password.
+      reset_password: Reset Password
+    edit: Edit
+    edit_app: Edit App Settings
+    feature: Show case Product
+    feature_a: Feature Code A
+    feature_b: Feature Code B
+    feature_c: Feature Code C
+    franchise_link: Internal test link
+    filters: Filters
+    login: Login
+    new: New %{model}
+    pay: Pay
+    payment: Save
+    publish: Publish
+    publish_all: Post in All branch locations
+    read_more: Read more...
+    recurring: Submit
+    remove: Remove
+    remove_image: Remove
+    remove_picture: Remove
+    removing: Removing...
+    save: "Save %{model}"
+    schedule: Schedule
+    search: Search
+    searching: Searching...
+    select: Select
+    select_all:
+      stores: Select all Branch Stores
+    select_plan: Select Plan
+    selecting: Selecting...
+    seller_link: Distributor Link
+    send: Send
+    send_message: Send Message
+    sign_up: Register Now
+    sign_up_free: Register Now For %{days} Day Free Trial
+    skip_step: Skip this Step
+    submitting: Submitting...
+    unpublish: Unpublish
+    unpublish_all: Unpost in All branch locations
+    update_credit_card: Up Date credit card now
+    upgrade: Upgrade
+    upgrade_plan: Please upgrade your plan.
+    upload_image: Upload Logo
+    upload_logo: Click here to upload your logo file.
+
+  labels:
+    account_number: 'Account Number:'
+    action: Actions
+    anonymous: Anonymous
+    branch_store: 'Branch Store:'
+    completed: Completed?
+    corporate: 'Company:'
+    corporate_product: Company or Enterprise Product
+    credit_card_number: Credit Card Number
+    free_app: Branded Mobile Apple and Google Apps Installed
+    logo: 1. Select your logo file from your computer.
+    no_cost: No Upfront Cost for Development, Installation and Maintenance
+    or: or
+    payment: Payment Option
+    plan:
+      chat_support: Chat Support
+      email_support: 24/7 E-mail Support
+      per_month: per month
+      posts_limit: '%{number} monthly posts'
+      stores_limit: '%{number} Branchs Stores'
+    popular: Popular
+    product_deleted: Product was deleted.
+    seller: 'Sales Representatives:'
+    upload_picture: Upload Image
+
+  menu:
+    contact: Contact
+    features: Features
+    home: Home
+    price: Pricing
+    registration: Register
+    sign_in: Sign in
+
+  menus:
+    account: Account
+    corporate: Companies or Enterprises
+    customize_app: Customize your App
+    image: App Logo
+    profile: User's Profile
+    report: Report
+    reports: Reports
+    sandbox: App Sandbox
+    schedules: Schedules Report
+    seller_profile: Profile
+    notifications: Message Board
+
+  countries:
+    brazil: Português
+    spain: Español
+    usa: English
+
+  messages:
+    accept_terms: The terms of use have changed, please accept the current terms.
+    accepted_terms: The terms of use was successfully accepted.
+    app_pendent: 'Your current status prevents you from publishing and scheduling listings
+      in your App until Google and/or Apple approval. At which time you will be notified.'
+    branch_store_link_html: 'Please distribute the following link to people in your organization,
+      who plan to register for a VEx App as a branch of your company. Branches in
+      your organization, who plan to register for an App on their own do not require
+      this link: <br><br>%{link}'
+    category:
+      publish: 'Only categories with at least one corresponding posted product are
+        displayed'
+    confirm:
+      default: 'Are You Certain?'
+      publish_all: This product will be posted in all the branches. Branches are unable
+        to delete corporate postings.
+    delayed_invoices: You own invoice (s) open, to re-use the system pay the bills late.
+    empty: No records found.
+    ending_of_trial_period: Your trial period has ended.
+    images:
+      help_html: 'Logo upload process: <br>To comply with Google and Apple requirements,
+        please upload a logo in the following size and format: <b>2048x1536 PNG</b>
+        format. '
+      select_logo_html: In the event you do not have a logo, please choose one of the following
+        logos. Your logo may be changed once at no cost to you. A processing time
+        of a month should be expected.
+    limit_of_publishes: You have reached the limit of your plan's allowable number
+      of postings.
+    maps: Click on the map to change the position of your store.
+    not_authorized: You are not authorized to perform this action.
+    payment: Payment made successfully!
+    plan:
+      change_limit_html: Plan change limit exceeded. Only one plan change permitted per month.
+      payment: Please select your plan of choice among the following and enter your credit card information.
+    recurring_pendent_html: 'Please click the button below to update your credit card information.
+      You will not be able to post the scheduled products list until credit information is updated. <br><br> %{link}'
+    seller:
+      link_html: '<span>Supply your account number&nbsp; <b>%{number}</b> to your customer
+        before registering. <br></span>Provide the following link to your customer
+        for use in registering: %{link}<br><span></span>'
+    setup_payment: 'Before you continue, please select the form of payment:'
+    trial_period: 'Days remaining in your trial period: %{days} day(s)'
+    paypal_html: 'To setup a PayPal merchant account, please do the following:
+      <br><br><b>1 - Payflow Pro (Paypal Pro)</b><br><br>Click the link below and complete PayPal registration form.
+      <br><b>%{link}</b><br><br>
+      <b>2- After registration follow the steps below to set an API user</b><br><br>
+      <b>Step 1</b> - Login to <b>%{manager_link}</b> <br>
+      <b>Step 2</b> - Click on "Account Administration" <br>
+      <b>Step 3</b> - Click on "manager Users" <br>
+      <b>Step 4</b> - Click on "Add user" <br>
+      <b>Step 5</b> - Create a user and under "Assign privilege to User”  select: API_FULL_TRANSACTIONS <br>
+      <b>Step 6</b> - Enter in the form that follows, the credentials you created during PayPal registration. <br>'
+    publish_ending_html: Based on your current plan you have %{total} allowable postings remaining. %{link}
+    chat_empty: No message history
+    message_sended: Your message was delivered
+    message_failed: Message Failed
+
+  tables:
+    plan:
+      individual_price: Individual Price
+      name: Plan
+      price: Price
+      products: Monthly Posts
+      stores: Branch Stores Limit
+
+  title:
+    sign_up:
+      address: Address
+      corporate: ENTER COMPANY PROFILE DATA
+      seller: Sales Representative
+      store: ENTER BRANCH STORE PROFILE DATA
+      user: ENTER YOUR PERSONAL PROFILE DATA
+  titles:
+    account: Account
+    corporate: Company or Enterprise
+    corporates: Companies
+    current_plan: Your Current Plan
+    customize_app: Customize your App
+    edit: Edit %{model}
+    filter: Filter
+    new: New %{model}
+    payment: Setup Payment Option
+    profile: User's Profile
+    recurring: Setup Payment
+    reports: Reports
+    seller_profile: Profile
+    sellers: Sellers
+    setup_app_cover: Chose your App cover page ( optional)
+    stores: Branch Stores
+    upload_logo: Upload Logo
+
+  reports:
+    app_pendent: App Pendent
+    changes: Corporate Changes
+    publishes: Post Products
+    images: Images Size Invalid
+
+
+  # Views
+  admin:
+    report:
+      apps:
+        index:
+          titles: Pending Apps
+    sandbox:
+      android_pushes:
+        new:
+          title: Android push notification test.
+      ios_pushes:
+        new:
+          title: IOS push notification test.
+  admins:
+    passwords:
+      edit:
+        title: Please change your password.
+      new:
+        title: Forgot your password ?
+    sessions:
+      new:
+        title: Log into your account.
+  branch_stores:
+    new:
+      title: Branch Store Registration
+  pages:
+    contact:
+      description: 'Please complete the following form in the event you desire to
+        contact us:'
+      email: support@vexapps.com
+      phone: Phone
+    index:
+      plans: 'Plan Choices - Custom Plans Available on Request '
+  shared:
+    panel:
+      app_info: App Info
+      info: Information
+  store:
+    report:
+      products:
+        index:
+          titles: Published Products
+    schedules:
+      modal:
+        title: Schedule
+  users:
+    registrations:
+      new:
+        title: Registration for New Account
+    sessions:
+      new:
+        title: Login

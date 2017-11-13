@@ -1,0 +1,15 @@
+== simple_form_for([:admin, @department]) do |f|
+  == f.error_notification
+
+  .form-inputs
+    == f.association :department, collection: Department.super.order('name ASC'), prompt: true
+    == f.input :name
+    == f.input :title_en
+    == f.input :title_pt_br
+    == f.input :title_es
+
+  hr
+
+  .form-actions
+    == f.button :submit, class: 'btn-success'
+    == link_to_back admin_departments_path

@@ -1,0 +1,20 @@
+en:
+  flash_messages:
+    already_published: This product has already been published
+    created: '%{model} was successfully created!'
+    deleted: '%{model} was successfully deleted!'
+    featured: '%{model} was successfully featured!'
+    download_error: Image not found
+    error:
+      recurring: Whoops try again, That card information you have entered did not
+        go thru.
+    job_retry: 'The work was scheduled to run for 1 minute.'
+    published: '%{model} was successfully published!'
+    registration_finish_html: "Congratulations! You have successfully registered. <br>
+      You may begin to create product categories and corresponding products in each category,
+      as well as, uploading photos for each product."
+    success:
+      recurring: Payment was successfully saved.
+    unpublished: '%{model} was successfully unpublished!'
+    updated: '%{model} was successfully updated!'
+    recurring_cancel: Payment was successfully canceled

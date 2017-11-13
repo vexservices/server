@@ -1,0 +1,17 @@
+== simple_form_for([:admin, @corporate, @app], url: admin_corporate_app_path(@corporate)) do |f|
+  == f.error_notification
+
+  .form-inputs
+    == f.input :name
+    == f.input :google_api_key
+    == f.input :apple_certificate
+    == f.input :google_play_url
+    == f.input :apple_store_url
+    == f.input :invalid_name
+    == f.input :test_mode
+
+    hr
+
+    .form-actions
+      == f.button :submit, class: 'btn-success'
+      == link_to_back admin_corporate_path(@corporate)

@@ -1,0 +1,28 @@
+== content_for :page_header do
+  h1.col-xs-12.col-sm-4== hnp Device
+
+
+== pane hnp Device do
+  == display_when_present @devices do
+    table.table.table-bordered.table-striped
+      thead
+        tr
+          th== ta(Device, 'name')
+          th== ta(Device, 'email')
+          th== ta(Device, 'phone')
+          th== ta(Device, 'kind')
+          th== ta(Device, 'push_token')
+          th== ta(Device, 'created_at')
+          th== ta(Device, 'updated_at')
+      tbody
+        == content_tag_for :tr, @devices, class: 'text-center' do |device|
+            td== device.friendly_name
+            td== device.email
+            td== device.phone
+            td== device.android? ? 'Android' : 'IOS'
+            td== device.push_token
+            td== l device.created_at
+            td== l device.updated_at
+
+    .table-footer
+      == paginate @devices, theme: 'twitter-bootstrap-3'

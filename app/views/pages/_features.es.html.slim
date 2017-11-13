@@ -1,0 +1,42 @@
+.item.col-md-4.col-sm-6.col-xs-12.text-center
+  .icon-img
+    == image_tag 'home/reli_icon.png'
+  .content
+    h2.title Confiable
+
+    p.text
+      | Ud. tendras una pantalla de control para gerenciar sus entradas en sus App(s).
+      br
+      | Esta facilidad estará disponible 24/7 y sus entradas aparecerán immediatamente en
+        sus App(s).
+
+    p.text-right
+      == link_to t('buttons.read_more'), '#', class: 'btn btn-lg', data: { target: "#reliability", toggle: "modal" }
+
+.item.col-md-4.col-sm-6.col-xs-12.text-center
+  .icon-img
+    == image_tag 'home/easy_icon.png'
+  .content
+    h2.title Fácil
+
+    p.text
+      | #{ franchise_name } tendrá su App en marcha y funcionando en pocos días.
+      br
+      | #{ franchise_name } es fácil de instalar, fácil de usar y fácil de adaptar a las
+        diversidades de sus negocios.
+
+    p.text-right
+      == link_to t('buttons.read_more'), '#', class: 'btn btn-lg', data: { target: "#easy", toggle: "modal" }
+
+.item.col-md-4.col-sm-6.col-xs-12.text-center
+  .icon-img
+    == image_tag 'home/afford_icon.png'
+  .content
+    h2.title Asequible
+
+    p.text
+      | Mientras que algunos pagan un precio elevado por un app personalizado,
+        #{ franchise_name } ofrece Apps gratis y personalizados para cada suscriptor. 
+
+    p.text-right
+      == link_to t('buttons.read_more'), '#', class: 'btn btn-lg', data: { target: "#affordable", toggle: "modal" }

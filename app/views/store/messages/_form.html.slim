@@ -1,0 +1,6 @@
+== simple_form_for [@device, @store, Message.new], remote: true do |f|
+  .input-group
+    == f.input :message, as: :string, wrapper: :chat, input_html: { id: 'message_input' }
+
+    span.input-group-btn
+      == f.submit t('buttons.send'), class: 'btn btn-primary'

@@ -1,0 +1,32 @@
+<%- if current_store.plan_chat_support? %>
+
+<!--Start of Zopim Live Chat Script-->
+<script type="text/javascript">
+  function zopim_chat(){
+    window.$zopim = null;
+    $('[__jx__id], embed#__zopnetworkswf').remove();
+
+    (function(d,s){var z=$zopim=function(c){z._.push(c)},$=z.s=
+    d.createElement(s),e=d.getElementsByTagName(s)[0];z.set=function(o){z.set.
+    _.push(o)};z._=[];z.set._=[];$.async=!0;$.setAttribute('charset','utf-8');
+    $.src='//v2.zopim.com/?2VGia487qMao5KnqQIkDl2V47NE6muuK';z.t=+new Date;$.
+    type='text/javascript';e.parentNode.insertBefore($,e)})(document,'script');
+  };
+
+  function zopim_locale() {
+    $zopim(function() {
+      var locale = '<%= I18n.locale.to_s.downcase.gsub('-', '_') %>';
+
+      $zopim.livechat.setLanguage(locale);
+    });
+  };
+
+  function zopim_start() {
+    zopim_chat();
+    zopim_locale();
+  };
+
+  $(window).off('page:change.zopim').on('page:change.zopim', zopim_start);
+</script>
+
+<% end %>

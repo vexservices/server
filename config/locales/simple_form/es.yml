@@ -1,0 +1,52 @@
+es:
+  simple_form:
+    "yes": 'Si'
+    "no": 'No'
+    required:
+      text: 'obligatoria'
+      mark: '*'
+    error_notification:
+      default_message: "Por favor, consulte los siguientes artículos:"
+    labels:
+      user:
+        about: 'Acerca de: Por favor déjenos conocerlos mejor. Usted puede
+          hacer un breve comentario acerca de su empresa, acerca de su trabajo y sobre
+          los contactos clave y sus datos de correspondiente.'
+        app_name: 'Nombre de Aplicación Móvil (Este nombre se mostrará debajo de su
+          logotipo en un dispositivo móvil y debe ayudar a describir su aplicación.
+          Sin embargo, debido a limitaciones de espacio no debe superar 20 caracteres.)'
+        business: Tipo de Negocios
+        cell_phone: Teléfono Móvil
+        city: Ciudad
+        contact: Contacto Clave en Su Cia.
+        corporate_name: 'Nombre de Empresa (Individuos pueden ingresar el nombre utilizado
+          para los negocios.)'
+        country: Pais
+        department: Categoría Aplicaciones
+        keywords: 'Palabras Clave - Introduzca las palabras clave asociadas con la
+          aplicación. Palabras o frases clave deben estar separadas por una coma (por
+          ejemplo, libro raro, Restaurante, Bar Música)'
+        name: Nombre y Apellido
+        official_email: Correo Electrónico
+        password: La contraseña - debe tener al menos (8) ocho caracteres.
+        password_confirmation: Confirmación de la Contraseña
+        payment_option: Forma de Pago
+        phone: Teléfono Adicional
+        plan: Plan
+        plan_id: Plan
+        seller_name: Seller name
+        seller_number: Nombre del Vendedor
+        short_description: Short description
+        state: Estado
+        street: Dirección
+        subdepartment: Subdepartment
+        time_zone: Zona Horaria
+        website: Sitio WEB
+        zip: Codigo ZIP
+      notification:
+        message: Mensaje
+    hints:
+      banner:
+        image: El tamaño de banner debe ser al menos 1500x500px
+      picture:
+        file: 'Tamaño máximo: 5MB'

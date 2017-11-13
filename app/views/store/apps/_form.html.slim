@@ -1,0 +1,20 @@
+h4.title== t('titles.setup_app_cover')
+
+br
+
+== image_helper_message
+
+== simple_form_for(@app, url: app_url,) do |f|
+  == f.error_notification
+
+  .form-inputs
+    == f.input :app_cover
+
+    fieldset
+      legend Authentication
+      
+      == f.input :require_authentication
+
+  .form-actions
+    == f.button :submit, t('buttons.upload_logo'), class: 'btn-success'
+    == link_to_skip_app_cover(@app)

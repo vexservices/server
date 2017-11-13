@@ -1,0 +1,38 @@
+#main-navbar-collapse.collapse.navbar-collapse.main-navbar-collapse
+  - if current_admin.master_admin?
+    ul.nav.navbar-nav
+      li.dropdown
+        == link_to '#', class: 'dropdown-toggle user-menu', data: { toggle: "dropdown" } do
+          span==t('menus.reports')
+          i.fa.fa-angle-down
+
+        ul.dropdown-menu
+          li== link_to t('reports.publishes'),   admin_report_publishes_path
+
+          - unless current_franchise
+            li== link_to t('reports.app_pendent'), admin_report_apps_path
+            li== link_to t('reports.changes'),     admin_report_changes_path
+            li== link_to t('reports.images'),      admin_report_images_path
+
+  .right.clearfix
+    ul.nav.navbar-nav.pull-right.right-navbar-nav
+      == render 'layouts/menus/locales'
+
+      li.dropdown
+        == link_to '#', class: 'dropdown-toggle user-menu', data: { toggle: "dropdown" } do
+          span== current_admin.name
+          i.fa.fa-angle-down
+
+        ul.dropdown-menu
+          - if current_franchise.present? && current_admin.master_admin?
+            li== link_to edit_admin_account_path do
+              i.dropdown-icon.fa.fa-book
+              == " #{t('menus.account')}"
+
+          li== link_to edit_admin_profile_path do
+            i.dropdown-icon.fa.fa-user
+            == " #{t('menus.profile')}"
+
+          li== link_to destroy_admin_session_path, method: :delete do
+            i.dropdown-icon.fa.fa-power-off
+            == " #{t('buttons.device.log_out')}"

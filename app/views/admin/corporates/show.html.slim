@@ -1,0 +1,205 @@
+== content_for :page_header do
+  h1.col-xs-12.col-sm-4== t('titles.corporates')
+
+== pane @corporate.name do
+  .row
+    .col-sm-6
+      table.table.table-striped
+        thead
+          tr
+            th[colspan='2']== t('.info')
+        tbody
+          tr
+            td
+              strong== hn(Franchise)
+            td== @corporate.franchise_name
+          tr
+            td
+              strong== ta(Store, 'number')
+            td== @corporate.number
+          tr
+            td
+              strong== ta(Store, 'department')
+            td== @corporate.department_name
+          tr
+            td
+              strong== ta(Store, 'name')
+            td== @corporate.name
+          tr
+            td
+              strong== ta(Store, 'phone')
+            td== @corporate.phone
+          tr
+            td
+              strong== ta(Store, 'cell_phone')
+            td== @corporate.cell_phone
+          tr
+            td
+              strong== ta(Store, 'contact')
+            td== @corporate.contact
+          tr
+            td
+              strong== ta(Store, 'official_email')
+            td== @corporate.official_email
+          tr
+            td
+              strong== ta(Store, 'website')
+            td== @corporate.website
+          tr
+            td
+              strong== ta(Store, 'plan_name')
+            td== @corporate.plan_name
+          tr
+            td
+              strong== ta(Store, 'payment_option')
+            td== @corporate.payment_option_humanize
+          tr
+            td
+              strong== ta(Store, 'trial_at')
+            td== l @corporate.trial_at
+          tr
+            td
+              strong== ta(Store, 'blocked')
+            td== boolean_span @corporate.blocked
+          tr
+            td
+              strong== ta(Store, 'free_payment')
+            td== boolean_span @corporate.free_payment
+          tr
+            td
+              strong== ta(Store, 'active')
+            td== boolean_span @corporate.active
+          tr
+            td
+              strong== ta(Store, 'seller')
+            td== @corporate.seller_name
+          tr
+            td
+              strong== ta(Store, 'vender_name')
+            td== @corporate.vender_name
+
+    .col-sm-6
+      table.table.table-striped
+        thead
+          tr
+            th[colspan='2']== t('.app_info')
+        tbody
+          tr
+            td
+              strong== ta(Store, 'token')
+            td== @corporate.token
+          tr
+            td
+              strong== ta(Store, 'app_name')
+            td== @corporate.app_name
+          tr
+            td
+              strong== ta(App, 'apple_certificate')
+            td
+              == filename(@corporate.app_apple_certificate.path) if @corporate.app.present?
+          tr
+            td
+              strong== ta(App, 'google_api_key')
+            td== @corporate.app_google_api_key
+          tr
+            td
+              strong== ta(App, 'apple_store_url')
+            td== @corporate.app_apple_store_url
+          tr
+            td
+              strong== ta(App, 'google_play_url')
+            td== @corporate.app_google_play_url
+          tr
+            td
+              strong== ta(App, 'language')
+            td== @corporate.address_country
+          tr
+            td
+              strong== ta(App, 'authenticate')
+            td== boolean_span @corporate.app_authenticate?
+          tr
+            td
+              strong== ta(App, 'test_mode')
+            td== boolean_span @corporate.app_test_mode?
+          tr
+            td
+              strong Download
+            td
+              - if @corporate.app_app_cover.present?
+                == link_to 'Download App Cover', download_admin_corporate_app_path(@corporate), class: 'btn btn-sm btn-info',
+                  'data-no-turbolink' => true
+
+              == link_to 'Download Images', download_admin_corporate_image_path(@corporate), class: 'btn btn-sm btn-info',
+                'data-no-turbolink' => true, target: :_blank
+
+
+      table.table.table-striped
+        thead
+          tr
+            th[colspan='2']== hn(Address)
+        tbody
+          tr
+            td
+              strong== ta(Address, 'country')
+            td== @corporate.address_country
+          tr
+            td
+              strong== ta(Address, 'state')
+            td== @corporate.address_state
+          tr
+            td
+              strong== ta(Address, 'city')
+            td== @corporate.address_city
+          tr
+            td
+              strong== ta(Address, 'street')
+            td== @corporate.address_street
+          tr
+            td
+              strong== ta(Address, 'zip')
+            td== @corporate.address_zip
+
+
+  .row
+    .col-md-6
+      h4== ta(Store, 'short_description')
+
+      == simple_format @corporate.short_description || '...'
+
+    .col-md-6
+      h4== ta(Store, 'keywords')
+
+      == simple_format @corporate.keywords
+
+  .row
+    .col-md-12
+      h4== ta(Store, 'about')
+
+      == simple_format @corporate.about || '...'
+
+  .row
+    .col-md-12
+      == render '/admin/shared/users', users: @corporate.users
+
+  .clearfix
+  hr
+
+  .actions
+    .col-xs-12.col-sm-auto
+      == link_with_icon t('buttons.edit'), edit_admin_corporate_path(@corporate), icon: 'pencil'
+
+    .col-xs-12.col-sm-auto
+      == link_with_icon t('buttons.edit_app'), edit_admin_corporate_app_path(@corporate), icon: 'tablet'
+
+    - if @corporate.image.present?
+      .col-xs-12.col-sm-auto
+        == link_with_icon hn(Image), edit_admin_corporate_image_path(@corporate), icon: 'image'
+
+    .col-xs-12.col-sm-auto
+      == link_to hnp(Job), admin_store_jobs_path(@corporate), class: 'btn btn-default'
+
+    .col-xs-12.col-sm-auto
+      == link_to hnp(Store), admin_corporate_stores_path(@corporate), class: 'btn btn-default'
+
+    .col-xs-12.col-sm-auto
+      == link_to hnp(Recurring), admin_store_recurrings_path(@corporate), class: 'btn btn-default'

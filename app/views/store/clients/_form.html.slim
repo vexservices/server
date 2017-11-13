@@ -1,0 +1,19 @@
+== simple_form_for(@client) do |f|
+  == f.error_notification
+
+  .form-inputs
+    == f.input :name, autofocus: true
+    == f.input :username
+    == f.input :password
+    == f.input :blocked
+    == f.input :admin
+    == f.input :store_ids, as: :hidden, input_html: { value: @client.store_ids.join(',') }
+
+    ==f.label :stores
+    #stores_tree data-client='#{ @client.id || 0 }'
+
+  hr
+
+  .form-actions
+    == f.button :submit, class: 'btn btn-success'
+    == link_to_back clients_path

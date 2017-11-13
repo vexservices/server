@@ -1,0 +1,318 @@
+pt-BR:
+  active_record:
+    models:
+      admin:
+        other: Administradores
+      app:
+        other: Aplicativos
+      banner:
+        other: Banners
+      business:
+        other: Negócios
+      category:
+        other: Categorias de Produtos
+      client:
+        other: Clientes
+      contact:
+        other: Contatos
+      device:
+        other: Aparelhos
+      department:
+        other: Departamentos
+      franchise:
+        other: Franquias
+      image:
+        other: Imagens
+      invoice:
+        other: Faturas
+      job:
+        other: Serviços
+      picture:
+        other: Imagens
+      plan:
+        other: Planos
+      product:
+        other: Produtos
+      property:
+        other: Atributos
+      recurring:
+        other: Recurring
+      schedule:
+        other: Agendamentos
+      seller:
+        other: Distribuidores
+      store:
+        other: Lojas
+      term:
+        other: Termos de Serviço
+      user:
+        other: Usuários
+      video:
+        other: Vídeos
+
+      chambers_of_commerce:
+        product:
+          one: Produto
+          other: Produtos
+      church:
+        product:
+          one: Entrada
+          other: Entradas
+
+    attributes:
+      chambers_of_commerce:
+        product:
+          show_all: 'Exibir para todos'
+      church:
+        product:
+          show_all: 'Exibir para todos'
+
+  activerecord:
+    models:
+      address: Endereço
+      admin: Admininstrador
+      app: Aplicativo
+      bank: Informações Bancárias
+      banner: Banner
+      business: Negócio
+      category: Categoria de Produtos
+      change: Alteração
+      client: Client
+      contact: Contato
+      department: Departamento
+      franchise: Franquia
+      image: Logomarca do Aplicativo
+      invoice: Fatura
+      job: Serviço
+      paypal: Paypal
+      picture: Imagem
+      plan: Plano
+      price: Preço
+      product: Produto
+      property: Atributo
+      schedule: Agendamento
+      seller: Distribuidor
+      store: Loja
+      term: Termos de Serviço
+      user: Usuário
+      video: Video
+
+    attributes:
+      address:
+        address: Endereço
+        city: Cidade
+        country: País
+        state: Estado
+        street: Rua
+        zip: CEP
+      admin:
+        email: Email
+        name: Nome
+        password: Senha
+        password_confirmation: Confirmação de Senha
+        remember_me: Lembrar-se
+      app:
+        app_cover: App cover
+        apple_certificate: Certificado da Apple
+        apple_store_url: Url Apple Store
+        google_api_key: Google api key
+        google_play_url: Url Google play
+        has_invalid_name: Has invalid name
+        invalid_name: Nome do Aplicativo Inválido
+        language: Language
+        name: Nome do Aplicativo
+        use_logo: Use logo
+        test_mode: Modo de Teste
+      bank:
+        account: Numero da Conta
+        agency: Agência
+        name: Banco
+        number: Número da Conta
+      banner:
+        image: Image
+        locale: Idioma
+      business:
+        key: Chave
+        name: Nome
+        name_en: Nome (Inglés)
+        name_es: Nome (Espanhol)
+        name_pt_br: Nome
+      category:
+        category: Categoria
+        name: Nome
+      change:
+        corporate: Corporate
+        created_at: Created at
+        log: Log
+      client:
+        name: Nome
+        username: Login
+        password: Senha
+        blocked: Bloqueado
+        admin: Pode visualizar todas as Lojas?
+        stores: Por favor, escolha as lojas que o usuário irá visualizar no Aplicativo
+      contact:
+        created_at: Criado em
+        email: E-mail
+        message: Messagem
+        name: Nome
+      department:
+        department: Department
+        name: Nome
+        title: Title
+        title_en: Title en
+        title_es: Title es
+        title_pt_br: Title pt br
+      franchise:
+        domain: Domain
+        email: E-mail
+        id: Id
+        logo: Logo
+        name: Name
+        subdomain: Subdomain
+        sudomain: Sudomain
+        trial_period: Periodo de Teste
+      image:
+        file: Logo
+      invoice:
+        created_at: Criado em
+        number: Número
+        paid_at: Pago em
+        value: Valor
+      job:
+        closed: Fechado
+        created_at: Criado em
+        file: File
+        import_type: Tipo de Trabalho
+        log: Log
+        name: Name
+        status: Status
+        success: Sucesso
+      order:
+        card_brand: Bandeira do Cartão
+        card_expires_on: Vencimento do Cartão
+        card_number: Numero do Cartão
+        card_verification: Codigo de Segurança
+        first_name: Primeiro Nome
+        last_name: Sobrenome
+      paypal:
+        country: País
+        login: Login
+        partner: Sócio
+        password: Senha
+        sandbox: Sandbox
+        user: User
+      picture:
+        File: Arquivo
+        file: Arquivo
+      plan:
+        chat_support: Suporte por Chat
+        email_support: Suporte por e-mail
+        individual_price: Preço
+        monthly_posts: Postagens mensais
+        name: Nome
+        popular: Popular
+        price: Preço
+        price_real: Price real
+        stores_limit: Limite de lojas
+        visible: Visível
+      price:
+        price: Preço de Venda
+        regular_price: Preço
+      product:
+        category: Categoria
+        category_name: Nome da Categoria
+        code: Codigo
+        contact_info: Informações de Contato
+        created_at: Criado em
+        description: Descrição
+        image: Imagem
+        name: Nome
+        payment_option: Opções de Pagamento
+        price: Preço de Venda
+        regular_price: Preço
+        show_all: Exibir para todas as lojas
+        stores: Lojas
+      property:
+        name: Nome
+        value: Valor
+      publish:
+        created-at: Criado em
+      schedule:
+        final: Data final
+        initial: Data inicial
+        initial_date: Data inicial
+        products_count: Total de produtos
+        run_at: Executado em
+      seller:
+        cell_phone: Celular
+        commission: Comissão
+        created_at: Created at
+        document: CPF
+        email: E-mail
+        link: Link
+        master: Master
+        name: Nome
+        number: Numero
+        password: Senha
+        password_confirmation: Confirmação da Senha
+        phone: Telefone
+        seller: Representante
+        sellers_count: Representantes
+      store:
+        about: Sobre
+        active: Ativo
+        admin_update: Admin update
+        app_name: Nome do Aplicativo
+        blocked: Blocked
+        cell_phone: Celular
+        business: Ramo de Atividade
+        contact: Contato
+        country: País
+        created_at: Criado em
+        currency: Moeda
+        department: Department
+        departments: 'Departamentos de Lojas: Escolha quais departamentos sua
+          loja possui.'
+        keywords: Keywords
+        free_payment: Sem Cobranças
+        logo: Logo
+        name: Nome
+        number: Número
+        official_email: E-mail
+        payment_option: Forma de pagamento
+        phone: Telefone
+        plan: Plano
+        plan_name: Plano
+        seller: Vendedor
+        short_description: Descrição curta
+        stores_count: Lojas
+        sub_department: Sub department
+        time_zone: Fuso horário
+        token: Token
+        trial_at: Data limite demostração
+        vender_name: Nome do Representante (Cliente)
+        website: Site
+      term:
+        text: Termo de uso
+        version: Versão
+      user:
+        blocked: Blocked
+        email: E-mail
+        name: Nome
+        password: Senha
+        password_confirmation: Confirmação de senha
+        reset_password_token: Reset password token
+      video:
+        html: Html
+        locale: Idioma
+        external_link: Link Externo
+
+  attributes:
+    cell_phone: Celular
+    created_at: Criado em
+    email: E-mail
+    password: Senha
+    password_confirmation: Confirmação de Senha
+    stores_count: Lojas
+    zip: CEP

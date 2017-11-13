@@ -1,0 +1,15 @@
+== simple_form_for(:notification, url: notifications_path, method: :post) do |f|
+  == f.error_notification
+
+  .form-inputs
+    == f.input :message
+
+    hr
+
+  .form-actions
+    == f.button :submit, t('buttons.send'), class: 'btn-success'
+
+
+hr
+
+== render 'notifications'

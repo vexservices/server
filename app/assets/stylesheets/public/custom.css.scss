@@ -1,0 +1,38 @@
+h1.logo {
+  span { padding: 10px 0px; display: inline-block; }
+
+  @media (min-width: 320px) and (max-width: 480px) { img { width: 220px; } }
+}
+
+.help-block.red { color: #b94a48; }
+
+.control-group > .form-group > textarea.form-control { height: 200px !important; }
+
+img.banner { width: 100% !important; }
+
+.offset-header { padding-top: 80px; }
+
+.features .content .title { font-size: 24px; }
+
+.header .main-nav .nav .nav-item a { padding: 15px 10px; }
+
+.blue { color: #072C61 }
+.text { font-size: 14px; }
+
+.how-text {
+  font-size: 16px;
+  padding-right: 22px;
+  padding-top: 16px;
+}
+
+.padding-bottom { margin-bottom: 20px; }
+
+#features {
+  p.text { min-height: 100px; }
+}
+
+ul{
+  &.flag {
+    > li > a > img { margin-right: 4px; }
+  }
+}

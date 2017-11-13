@@ -1,0 +1,80 @@
+== content_for :page_header do
+  h1.col-xs-12.col-sm-4== hn(Store)
+
+== pane @store.name do
+  .col-sm-6
+    table.table.table-striped
+      thead
+        tr
+          th[colspan='2']== t('.info') 
+      tbody
+        tr
+          td
+            strong== ta(Store, 'number')
+          td== @store.number
+        tr
+          td
+            strong== ta(Store, 'name')
+          td== @store.name
+        tr
+          td
+            strong== ta(Store, 'phone')
+          td== @store.phone
+        tr
+          td
+            strong== ta(Store, 'cell_phone')
+          td== @store.cell_phone
+        tr
+          td
+            strong== ta(Store, 'contact')
+          td== @store.contact
+        tr
+          td
+            strong== ta(Store, 'official_email')
+          td== @store.official_email
+        tr
+          td
+            strong== ta(Store, 'website')
+          td== @store.website
+
+
+  .col-sm-6
+    table.table.table-striped
+      thead
+        tr
+          th[colspan='2']== hn(Address) 
+      tbody
+        tr
+          td
+            strong== ta(Address, 'country')
+          td== @store.address_country
+        tr
+          td
+            strong== ta(Address, 'state')
+          td== @store.address_state
+        tr
+          td
+            strong== ta(Address, 'city')
+          td== @store.address_city
+        tr
+          td
+            strong== ta(Address, 'street')
+          td== @store.address_street
+        tr
+          td
+            strong== ta(Address, 'zip')
+          td== @store.address_zip
+
+  .col-md-12
+    h4== ta(Store, 'about')
+
+    == simple_format @store.about
+
+  .col-md-12
+    == render 'users', users: @store.users
+
+  .clearfix
+  hr
+
+  .actions
+    == link_to_back stores_path

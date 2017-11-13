@@ -1,0 +1,26 @@
+== simple_form_for([:admin, @franchise]) do |f|
+  == f.error_notification
+
+  .form-inputs
+    == f.input :name
+    == f.input :email
+    == f.input :mx_record, as: :string
+    == f.input :subdomain
+    == f.input :domain
+    == f.input :logo
+    == f.input :trial_period
+
+    - if @franchise.new_record?
+      h3== hn(Admin)
+
+      == f.simple_fields_for :admins do |a|
+        == a.input :name
+        == a.input :email
+        == a.input :password
+        == a.input :password_confirmation
+
+    hr
+
+    .form-actions
+      == f.button :submit, class: 'btn-success'
+      == link_to_back

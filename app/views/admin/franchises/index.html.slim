@@ -1,0 +1,40 @@
+== content_for :page_header do
+  h1.col-xs-12.col-sm-4== hnp(Franchise)
+
+  .col-xs-12.col-sm-8
+    .row
+      .pull-right.col-xs-12.col-sm-auto
+        == link_to_new Franchise, new_admin_franchise_path
+
+== pane hnp(Franchise) do
+  == display_when_present @franchises do
+
+    table.table.table-bordered.table-striped
+      thead
+        tr
+          th== ta(Franchise, 'id')
+          th== ta(Franchise, 'name')
+          th== ta(Franchise, 'link')
+          th== ta(Franchise, 'domain')
+          th== ta(Franchise, 'created_at')
+          th== ta(Franchise, 'admin')
+            th== t('labels.action')
+      tbody
+        == content_tag_for :tr, @franchises, class: 'text-center' do |franchise|
+          td== franchise.id
+          td== link_to franchise.name, admin_franchise_path(franchise)
+          td== link_to franchise.subdomain, root_url(subdomain: franchise.subdomain)
+          td== link_to franchise.domain, root_url(domain: franchise.domain)
+          td== l franchise.created_at, format: :long
+          td== franchise.admin_name
+          td
+            == link_to_edit edit_admin_franchise_path(franchise)
+            == link_to_destroy admin_franchise_path(franchise)
+
+    .table-footer
+      == paginate @franchises, theme: 'twitter-bootstrap-3'
+
+  br
+
+  .col-xs-12.col-sm-auto
+    == link_to_new Franchise, new_admin_franchise_path

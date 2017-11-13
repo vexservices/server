@@ -1,0 +1,94 @@
+== content_for :page_header do
+  h1.col-xs-12.col-sm-4== t('titles.sellers')
+
+== pane @seller.name do
+  .col-sm-6
+    table.table.table-striped
+      thead
+        tr
+          th[colspan='2']== t('.info')
+      tbody
+        tr
+          td
+            strong== t('labels.link')
+          td== link_to(seller_url(@seller.number), seller_url(@seller.number), target: '_blank')
+        tr
+          td
+            strong== ta(Seller, 'seller')
+          td== @seller.seller_name
+        tr
+          td
+            strong== ta(Seller, 'number')
+          td== @seller.number
+        tr
+          td
+            strong== ta(Seller, 'name')
+          td== @seller.name
+        tr
+          td
+            strong== ta(Seller, 'email')
+          td== @seller.email
+        tr
+          td
+            strong== ta(Seller, 'phone')
+          td== @seller.phone
+        tr
+          td
+            strong== ta(Seller, 'cell_phone')
+          td== @seller.cell_phone
+        tr
+          td
+            strong== ta(Seller, 'master')
+          td== boolean_span @seller.master?
+        tr
+          td
+            strong== ta(Seller, 'document')
+          td== @seller.document
+        tr
+          td
+            strong== ta(Seller, 'sellers_count')
+          td== link_to @seller.sellers_count, admin_seller_sellers_path(@seller)
+        tr
+          td
+            strong== ta(Seller, 'commission')
+          td== number_to_percentage @seller.commission, precision: 1
+
+  .col-sm-6
+    table.table.table-striped
+      thead
+        tr
+          th[colspan='2']== hn(Address)
+      tbody
+        tr
+          td
+            strong== ta(Address, 'country')
+          td== @seller.address_country
+        tr
+          td
+            strong== ta(Address, 'state')
+          td== @seller.address_state
+        tr
+          td
+            strong== ta(Address, 'city')
+          td== @seller.address_city
+        tr
+          td
+            strong== ta(Address, 'street')
+          td== @seller.address_street
+        tr
+          td
+            strong== ta(Address, 'zip')
+          td== @seller.address_zip
+
+  - if @seller.bank.present?
+    .col-sm-6
+      = render '/shared/bank', bank: @seller.bank
+
+  .clearfix
+  hr
+
+  .actions
+    .col-xs-12.col-sm-auto
+      == link_to_back
+    .col-xs-12.col-sm-auto
+      == link_with_icon t('buttons.edit'), edit_admin_seller_path(@seller), icon: 'pencil'

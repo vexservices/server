@@ -1,0 +1,43 @@
+.item.col-md-4.col-sm-6.col-xs-12.text-center
+  .icon-img
+    == image_tag 'home/reli_icon.png'
+  .content
+    h2.title Reliable
+
+
+    p.text
+      | Your mobile App dashboard control panel is available 24/7;
+        postings immediately appear in your mobile App.
+
+    p.text-right
+      == link_to t('buttons.read_more'), '#', class: 'btn btn-lg', data: { target: "#reliability", toggle: "modal" }
+
+.item.col-md-4.col-sm-6.col-xs-12.text-center
+  .icon-img
+    == image_tag 'home/easy_icon.png'
+  .content
+    h2.title Easy
+
+    p.text
+      | #{ franchise_name } will have your App up
+        and running within days. You’ll find the
+        #{ franchise_name } approach easy to install,
+        easy to use and easily adaptably to the
+        diversity of your business.
+
+    p.text-right
+      == link_to t('buttons.read_more'), '#', class: 'btn btn-lg', data: { target: "#easy", toggle: "modal" }
+
+.item.col-md-4.col-sm-6.col-xs-12.text-center
+  .icon-img
+    == image_tag 'home/afford_icon.png'
+  .content
+    h2.title Affordable
+
+    p.text
+      | While some pay thousands for a branded
+        App, #{ franchise_name } supplies a free App
+        to each subscriber.
+
+    p.text-right
+      == link_to t('buttons.read_more'), '#', class: 'btn btn-lg', data: { target: "#affordable", toggle: "modal" }

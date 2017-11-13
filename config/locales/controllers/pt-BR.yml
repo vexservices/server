@@ -1,0 +1,20 @@
+pt-BR:
+  flash_messages:
+    already_published: O Produto já esta publicado!
+    created: '%{model} criado com sucesso!'
+    deleted: '%{model} apagado com sucesso!'
+    featured: '%{model} foi destacado com sucesso!'
+    download_error: Imagem não encontrada
+    error:
+      recurring: 'Whoops tente novamente, ocorreu um erro com as informações do cartão
+        de crédito.'
+    job_retry: 'O trabalho foi agendado para ser executado em 1 minuto.'
+    published: '%{model} foi publicado!'
+    registration_finish_html: "Parabéns! Você se registrou com sucesso.<br>
+      Você pode começar a criar categorias de produtos e os produtos correspondentes em cada categoria,
+      bem como, fazer upload de fotos para cada produto."
+    success:
+      recurring: Pagamento salvo com sucesso!
+    unpublished: '%{model} foi removido das publicações!'
+    updated: '%{model} atualizado com sucesso!'
+    recurring_cancel: Pagamento foi cancelado com sucesso

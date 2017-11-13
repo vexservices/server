@@ -1,0 +1,20 @@
+es:
+  flash_messages:
+    already_published: Este producto ya ha sido publicado
+    created: '%{model} fue creado con éxito!'
+    deleted: '%{model} se eliminó con éxito!'
+    featured: '%{model} fue presentado con éxito!'
+    download_error: La imagen no encontrado
+    error:
+      recurring: '¡Vaya inténtelo de nuevo, Que información de la tarjeta que ha introducido
+        no ir a través.'
+    job_retry: 'El trabajo fue programado para ejecutarse durante 1 minuto.'
+    published: '%{modelo} fue publicado correctamente!'
+    registration_finish_html: "¡Enhorabuena! Has registrado correctamente. <br>
+      Usted puede comenzar a crear categorías de productos y los productos correspondientes en cada categoría,
+      así como, subir fotos para cada producto."
+    success:
+      recurring: El pago se ha guardado correctamente.
+    unpublished: '%{model} fue éxito inédito!'
+    updated: '%{model} se ha actualizado correctamente!'
+    recurring_cancel: El pago se canceló con éxito

@@ -1,0 +1,7 @@
+== content_for :page_header do
+  h1== t('titles.dashboard')
+
+== pane t('titles.dashboard') do
+  == content_tag :div, class: "note note-info" do
+    == t('messages.seller.link_html', number: current_seller.number,
+      link: link_to(seller_url(current_seller.number), seller_url(current_seller.number), target: '_blank'))

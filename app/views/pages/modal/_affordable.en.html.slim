@@ -1,0 +1,26 @@
+#affordable.modal.fade
+  .modal-dialog
+    .modal-content
+      .modal-header
+        button[type="button" class="close" data-dismiss="modal"]
+          span[aria-hidden="true"] &times;
+          span.sr-only Close
+
+        h4.modal-title Affordable
+
+      .modal-body
+        p Included with your free App is a 30 day free trail subscription to road test your App.
+
+        p For a limited time your 30 day free trial period includes:
+
+        ul
+          li No credit card requirement.
+          li No development, installation or maintenance costs.
+          li No Internet fees.
+          li Cancel at end of any month.
+
+        p For details click on the 'Pricing' button on the top of the Home page.
+
+
+      .modal-footer
+        == link_to t('buttons.close'), '#', class: "btn btn-default", data: { dismiss: 'modal' }

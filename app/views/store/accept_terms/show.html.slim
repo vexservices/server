@@ -1,0 +1,12 @@
+== content_for :page_header do
+  h1.col-xs-12.col-sm-4== hn(Term)
+
+.alert.alert-warnning
+  == t('messages.accept_terms')
+
+== pane  hn(Term) do
+  == simple_format @term.with_franchise_name(franchise_name)
+
+  hr
+
+  == link_to t('buttons.accept_terms'), accept_term_path, method: :put, class: 'btn btn-success'

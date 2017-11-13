@@ -1,0 +1,32 @@
+== content_for :page_header do
+  h1.col-xs-12.col-sm-4== hnp Invoice
+
+== pane hnp Invoice do
+  == delayed_invoices_message
+
+  - cache [cache_key_for_store_invoices, locale: I18n.locale, page: params[:page] || 1] do
+    == display_when_present @invoices do
+
+      table.table.table-bordered
+        thead
+          tr
+            th== ta(Invoice, 'number')
+            th== ta(Invoice, 'created_at')
+            th== ta(Invoice, 'paid_at')
+            th== ta(Invoice, 'value')
+            th== t('labels.action')
+        tbody
+          = content_tag_for :tr, @invoices, class: 'text-center' do |invoice|
+            - cache [invoice, locale: I18n.locale] do
+              tr.text-center
+                td== invoice.number
+                td== l invoice.created_at, format: :date
+                td== l invoice.paid_at, format: :date if invoice.paid_at
+                td== number_to_currency invoice.value_by_locale
+                td.text-center
+                  - if current_store.manual_payment && !invoice.paid?
+                    == link_to t('buttons.pay'), payment_invoice_path(invoice), class: 'btn btn-sm btn-success'
+
+                  == link_to_show invoice_path(invoice, format: :pdf)
+      .table-footer
+        == paginate @invoices, theme: 'twitter-bootstrap-3'

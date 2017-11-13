@@ -1,0 +1,17 @@
+h1.form-header== t('.title')
+
+== simple_form_for(resource, 
+    as: resource_name, 
+    url: password_path(resource_name), 
+    html: { method: :post, :role => 'form', class: 'panel', id: 'signin-form_id' }) do |f|
+
+  == flash_message
+  
+  .form-inputs 
+    == f.input :email, autofocus: true, placeholder: t('attributes.email'), label: false,
+      input_html: { class: 'form-control input-lg' }
+
+  .form-actions
+    == f.submit t('buttons.devise.reset_password'), :class => 'btn btn-primary btn-block btn-lg'
+    hr
+    == link_to t('menu.sign_in'), new_user_session_path, :class => 'btn btn-default btn-block btn-lg'

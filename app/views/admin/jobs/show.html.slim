@@ -1,0 +1,38 @@
+== content_for :page_header do
+  h1.col-xs-12.col-sm-4== hn Job
+
+== pane @job.name do
+  .col-sm-12
+    table.table.table-striped
+      tbody
+        tr
+          td
+            strong== ta(Job, 'name')
+          td== @job.name
+        tr
+          td
+            strong== ta(Job, 'import_type')
+          td== @job.import_type
+        tr
+          td
+            strong== ta(Job, 'closed')
+          td== boolean_span @job.closed
+        tr
+          td
+            strong== ta(Job, 'success')
+          td== boolean_span @job.success
+        tr
+          td
+            strong== ta(Job, 'created_at')
+          td== l @job.created_at
+
+  .col-md-12
+    h4== ta(Job, 'log')
+
+    == simple_format @job.log
+
+  .clearfix
+  hr
+
+  .actions
+    == link_to_back admin_store_jobs_path(@store)

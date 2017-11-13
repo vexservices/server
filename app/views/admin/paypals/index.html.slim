@@ -1,0 +1,42 @@
+== content_for :page_header do
+  h1.col-xs-12.col-sm-4== hn Paypal
+
+  .col-xs-12.col-sm-8
+    .row
+      .pull-right.col-xs-12.col-sm-auto
+        == link_to_new Paypal, new_admin_paypal_path
+
+== pane hn Paypal do
+
+  == paypal_message
+
+  == display_when_present @paypals do
+
+    table.table.table-bordered.table-striped
+      thead
+        tr
+          th== hn(Franchise)
+          th== ta(Paypal, 'user')
+          th== ta(Paypal, 'login')
+          th== ta(Paypal, 'partner')
+          th== ta(Paypal, 'sandbox')
+          th== ta(Paypal, 'country')
+          th== t('labels.action')
+      tbody
+        == content_tag_for :tr, @paypals, class: 'text-center' do |paypal|
+          td== paypal.franchise_name
+          td== paypal.user
+          td== paypal.login
+          td== paypal.partner
+          td== boolean_span paypal.sandbox
+          td== paypal.country
+          td.text-center
+            == link_to_edit edit_admin_paypal_path(paypal)
+            == link_to_destroy [:admin, paypal]
+    .table-footer
+      == paginate @paypals, theme: 'twitter-bootstrap-3'
+
+  br
+
+  .col-xs-12.col-sm-auto
+    == link_to_new Paypal, new_admin_paypal_path

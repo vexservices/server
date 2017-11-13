@@ -1,0 +1,22 @@
+h3== hnp(User)
+
+== display_when_present users do
+
+  table#users.table.table-bordered.table-striped
+    thead
+      tr
+        th== ta(User, 'name')
+        th== ta(User, 'email')
+        th== ta(User, 'blocked')
+        th Actions
+    tbody
+      == content_tag_for :tr, users do |user|
+        td== user.name
+        td== user.email
+        td.text-center
+          == boolean_span user.blocked
+        td.text-center
+          == link_to t('buttons.login'), login_admin_user_path(user), target: '_blank',
+              class: 'btn btn-sm'
+          == link_to_edit edit_admin_user_path(user)
+          == link_to_destroy [:admin, user]

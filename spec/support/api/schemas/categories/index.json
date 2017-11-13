@@ -1,0 +1,25 @@
+{
+  "type": "object",
+  "properties" : {
+    "categories" : {
+      "required" : ["id", "name" ],
+      "type": "array",
+      "items": [
+        { "id"   : { "type" : "integer" } },
+        { "name" : { "type" : "string"  } },
+
+        {
+          "actions" : {
+            "required" : ["edit", "delete"],
+            "type": "object",
+            "properties" : {
+              "edit"   : { "type" : ["boolean", "string"] },
+              "delete" : { "type" : ["boolean", "string"] }
+            }
+          }
+        }
+
+      ]
+    }
+  }
+}

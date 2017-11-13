@@ -1,0 +1,40 @@
+.item.col-md-4.col-sm-6.col-xs-12.text-center
+  .icon-img
+    == image_tag 'home/reli_icon.png'
+  .content
+    h2.title Confiabilidade
+
+    p.text
+      | Painel de gerenciamento disponível 24/7.
+        Suas postagens aparecem imediatamente na sua App.
+
+    p.text-right
+      == link_to t('buttons.read_more'), '#', class: 'btn btn-lg', data: { target: "#reliability", toggle: "modal" }
+
+.item.col-md-4.col-sm-6.col-xs-12.text-center
+  .icon-img
+    == image_tag 'home/easy_icon.png'
+  .content
+    h2.title Fácil
+
+    p.text
+      | No #{ franchise_name } você terá seu App instalado e funcionando em poucos dias.
+      br
+      | #{ franchise_name } é fácil de instalar, fácil de usar e fácil de adaptar
+        às diversidades dos seus negócios.
+
+    p.text-right
+      == link_to t('buttons.read_more'), '#', class: 'btn btn-lg', data: { target: "#easy", toggle: "modal" }
+
+.item.col-md-4.col-sm-6.col-xs-12.text-center
+  .icon-img
+    == image_tag 'home/afford_icon.png'
+  .content
+    h2.title Acessível
+
+    p.text
+      | Enquanto alguns pagam muito caro para um aplicativo customizado,
+        a #{ franchise_name } fornece aplicativos gratuito e customizado para cada assinante.
+
+    p.text-right
+      == link_to t('buttons.read_more'), '#', class: 'btn btn-lg', data: { target: "#affordable", toggle: "modal" }

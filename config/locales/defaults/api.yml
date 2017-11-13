@@ -1,0 +1,36 @@
+api:
+  errors:
+    format: ! '%{attribute} %{message}'
+    messages:
+      accepted: must_be_accepted
+      blank: cant_be_blank
+      present: must_be_blank
+      confirmation: doesnt_match
+      empty: cant_be_blank
+      equal_to: must_be_equal_to
+      even: must_be_even
+      exclusion: is_reserved
+      greater_than: greater_than
+      greater_than_or_equal_to: greater_than_or_equal_to
+      inclusion: is not included in the list
+      invalid: is_invalid
+      invalid_dimensions: invalid_dimensions
+      less_than: must_be_less_than
+      less_than_or_equal_to: must_be_less_or_equal
+      not_a_number: not_a_number
+      not_an_integer: not_an_integer
+      odd: must_be_odd
+      restrict_dependent_destroy:
+        one: "Cannot delete record because a dependent %{record} exists"
+        many: "Cannot delete record because dependent %{record} exist"
+      taken: already_been_taken
+      too_long:
+        one: is too long (maximum is 1 character)
+        other: is too long (maximum is %{count} characters)
+      too_short:
+        one: is too short (minimum is 1 character)
+        other: is too short (minimum is %{count} characters)
+      wrong_length:
+        one: is the wrong length (should be 1 character)
+        other: is the wrong length (should be %{count} characters)
+      other_than: "must_be_other_than"

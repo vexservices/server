@@ -1,0 +1,16 @@
+{
+  "type": "object",
+  "properties" : {
+    "messages" : {
+      "required" : ["id", "message", "kind", "read_at"],
+      "type": "array",
+      "items": [
+        { "id"         : { "type" : "integer"  }},
+        { "message"    : { "type" : "string"   }},
+        { "kind"       : { "type" : "integer"  }},
+        { "read_at"    : { "type" : "datetime" }},
+        { "created_at" : { "type" : "datetime" }}
+      ]
+    }
+  }
+}

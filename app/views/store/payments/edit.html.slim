@@ -1,0 +1,15 @@
+== content_for :page_header do
+  h1== t('titles.payment')
+
+== pane t('titles.payment') do
+
+  == alert_message t('messages.setup_payment')
+
+  == simple_form_for(@store, url: payment_path) do |f|
+    == f.error_notification
+
+    .form-inputs
+      == f.input :payment_option, collection: PaymentOptions.to_a, include_blank: false
+
+    .form-actions
+      == f.button :submit, t('buttons.payment'), class: 'btn-success'

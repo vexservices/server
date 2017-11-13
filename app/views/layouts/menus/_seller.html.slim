@@ -1,0 +1,18 @@
+.menu-content.top
+  .text-bg
+    span.text-slim== t('labels.seller')
+    br
+    span.text-semibold== current_seller.name
+    br
+    span.text-slim== t('labels.account_number')
+    br
+    span.text-semibold== "##{current_seller.number }"
+
+== tabs_tag(builder: MenuTabBuilder, open_tabs: { class:'navigation' }) do |tab|
+  == tab.dashboard tab_item(t('menus.dashboard'), 'tachometer '), seller_root_path
+  == tab.profile   tab_item(t('menus.seller_profile'),   'user'), edit_seller_profile_path
+
+  - if Seller::SellerPolicy.new(current_seller, Seller).index?
+    == tab.sellers   tab_item(hnp(Seller), 'users'), seller_sellers_path
+
+  == tab.reports   tab_item(t('menus.reports'),   'file-text-o'), seller_reports_path

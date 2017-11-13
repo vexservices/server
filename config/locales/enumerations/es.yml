@@ -1,0 +1,5 @@
+es:
+  enumerations:
+    payment_options:
+      all: Los pagos relacionada a las aplicaciones móvil serán hecho al nivel empresa.
+      individually: Individualmente

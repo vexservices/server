@@ -1,0 +1,11 @@
+== simple_form_for @contact, remote: true do |f|
+  == f.input :franchise_id, as: :hidden
+
+  .form-group.name
+    == f.input :name, label_html: { class: 'sr-only' }, placeholder: ta(Contact, 'name'), errors: false
+  .form-group.email
+    == f.input :email, label_html: { class: 'sr-only' }, placeholder: ta(Contact, 'email'), errors: false
+  .form-group.message
+    == f.input :message, label_html: { class: 'sr-only' }, placeholder: ta(Contact, 'message'), errors: false
+
+  == f.button :submit, t('buttons.send_message'), class: "btn btn-lg btn-theme", data: { disable_with: t('buttons.submitting') }

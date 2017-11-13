@@ -1,0 +1,253 @@
+es:
+  views:
+    pagination:
+      first: '&laquo; Primero'
+      last: Último &raquo;
+      next: Próximo &rsaquo;
+      previous: '&lsaquo; Anterior'
+      truncate: '&hellip;'
+
+  'false': 'No'
+  'true': 'Si'
+
+  pdf:
+    invoice:
+      from: DE
+      summary: RESUMEN
+      to: A
+      value:
+        info: '*Valor aproximado a cobrança de %{value}.'
+
+  buttons:
+    actions: Acciones
+    accept_terms: Acepto los términos de servicio
+    add_image: Agrega Un Imagen
+    add: Añadir
+    all: Todos
+    back: De Vuelta
+    cancel_recurring: Cancelar Pago
+    clear: Borrar
+    close: Cerrar
+    current_plan: Plan Actual
+    device:
+      forgot: Olvidó
+      log_out: Cierre de Sesión
+      sign_in: Entrar
+      sign_up: Registrarse
+    devise:
+      change_password: Cambiar mi contraseña.
+      reset_password: Restablecer la Contraseña
+    edit: Edite
+    edit_app: Edite la configuración de su aplicación móvil.
+    feature: Despegar
+    franchise_link: Prueba de enlace interno
+    login: Entrar
+    new: Novo %{model}
+    pay: Pagar
+    payment: Guarde
+    publish_all: Publicación de las tiendas
+    read_more: Lea más
+    recurring: Enviar
+    remove_image: Quite
+    save: "Guardar %{model}"
+    schedule: Programar
+    search: Búsqueda
+    searching: Investigando...
+    select: Selecione
+    select_all:
+      stores: Seleccione Todas las tiendas
+    selecting: Selecionando...
+    seller_link: Enlace al Distribuidor
+    send: Enviar
+    send_message: Enviar Mensaje
+    sign_up_free: Regístrese Gratis Por %{days} Días de Prueba
+    sign_up: Regístrese
+    skip_step: Skip this Step
+    submitting: Enviando...
+    unpublish: Despublicar
+    unpublish_all: Darse de baja de todas las Tiendas
+    update_credit_card: Hasta la fecha la tarjeta de crédito ahora
+    upgrade: actualización
+    upload_image: Logo de Carga
+    upload_logo: Haga clic aquí para cargar el archivo de logotipo.
+
+  labels:
+    account_number: 'Número de Cuenta:'
+    action: Acciones
+    anonymous: Anónimo
+    completed: Completado?
+    branch_store: 'Alamacen y Sucursal:'
+    corporate: 'Empresa:'
+    corporate_product: Producto Corporativo
+    credit_card_number: Número de Tarjeta de Crédito
+    free_app: Aplicaciones Móviles Apple y Google Instaladas con Su Propia Marca
+    logo: Logo
+    no_cost: Sin Costo Inicial de Desarrollo, Instalación y Mantenimiento
+    or: o
+    payment: Opción de pago
+    plan:
+      chat_support: Soporte Atravez Chat
+      email_support: Soporte por Correo Electrónico
+      posts_limit: '%{number}  Publicaciones de Productos por Mes'
+    popular: Popular
+    product_deleted: Suprime Producto
+    seller: 'Vendedor:'
+    upload_picture: Carga de Imágenes
+    upgrade_plan: Por favor, actualice su plan.
+
+  menu:
+    contact: Contacto
+    features: Características
+    home: Pagina de Inicio
+    price: Precios
+    registration: Registrar
+    sign_in: Entrar
+
+  menus:
+    account: Cuenta
+    corporate: Empresa
+    image: Logo
+    profile: Perfil
+    report: Informe
+    reports: Informes
+    sandbox: Sandbox(PayPal)
+    schedules: Informes Horarios
+    notifications: Tablero de mensajes
+
+  countries:
+    brazil: Português
+    spain: Español
+    usa: English
+
+  messages:
+    accept_terms: 'Los términos de uso han cambiado, por favor, acepta los términos actuales.'
+    accepted_terms: 'Los términos de uso fue aceptada con éxito.'
+    app_pendent: 'Su estado actual le impide anuncios editoriales y programación en
+      su App hasta Google y / o aprobación de Apple. Momento en el que se le notificará.'
+    branch_store_link_html: '<p>Por favor distribuyan el siguiente enlace a personas de
+      su organización, que planean inscribirse en un App VEx como una rama de su empresa.
+      Las ramas de la organización, que planean registrar por su propio aplicación
+      móvil no requieren este enlace:</p><p>%{link}<br></p>'
+    category:
+      publish:' Sólo categorías con al menos un correspondiente producto publicado
+        se muestran'
+    confirm:
+      default: Estás seguro?
+      publish_all: 'Este producto será fijado en todas las ramas. Las ramas son incapaces
+        de eliminar publicaciones corporativas.'
+    delayed_invoices: Eres dueño de factura (s) abierto, para volver a utilizar el sistema de pago de las facturas tarde.
+    images:
+      help_html: '<p>Proceso para carga su logo:&nbsp;</p><p>Para cumplir con los requisitos
+        de Google y Apple, por favor cargar un logo en el siguiente tamaño y formato:
+        <b>2048x1536 en formato PNG</b>.</p>'
+      select_logo_html: 'En el caso de que usted no tiene un logotipo, por favor elija uno
+        de los siguientes logotipos. Su logotipo puede ser modificado una vez, sin
+        costo para usted. Se debe esperar un tiempo de procesamiento de un mes.'
+    maps: Haga clic en el mapa para cambiar la posición de su tienda.
+    not_authorized: Usted no está autorizado para realizar esta acción.
+    payment: El pago realizado con éxito!
+    plan:
+      change_limit_html: 'Límite de cambio de plan superó. Sólo un cambio de plan permite al mes.'
+      payment: Por favor elija su plan y luego ingrese su información de tarjeta de crédito.
+    seller:
+      link_html: 'Proporcione su número de cuenta <b>%{number}</b> a su cliente antes de
+        registrar.<br>Proporcionar el siguiente enlace a su cliente para su uso en
+        el registro: %{link}'
+    recurring_pendent_html: 'Por favor, haga clic en el botón de abajo para actualizar su información de tarjeta de crédito.
+       Usted no será capaz de publicar la lista de productos prevista hasta que se actualice la información de crédito. <br><br> %{link}'
+    trial_period: 'Días restantes en el periodo de prueba: %{days} día'
+    paypal_html: 'Para configurar una cuenta de comerciante de PayPal, por favor haga lo siguiente:
+      <br><br><b>1 - Payflow Pro (Paypal Pro)</b><br><br>Haga clic en el siguiente para registrar y configurar su cuenta PayPal
+      <br><b>%{link}</b><br><br>
+      <b>2- Después del registro, siga los pasos a continuación para configurar un usuario de la API</b><br><br>
+      <b>Step 1</b> - Inicia sesión para <b>%{manager_link}</b> <br>
+      <b>Step 2</b> - Hacer clic en "Account Administration" <br>
+      <b>Step 3</b> - Hacer clic en "manager Users" <br>
+      <b>Step 4</b> - Hacer clic en "Add user" <br>
+      <b>Step 5</b> - Crear un usuario y bajo "Assign privilege to User”  seleccionar: API_FULL_TRANSACTIONS <br>
+      <b>Step 6</b> - Introduzca en el formulario que sigue, las credenciales que creó durante el registro de PayPal. <br>'
+    publish_ending_html: Obre la base de su plan actual tiene %{total} mensajes admisibles restantes. %{link}
+    chat_empty: sin historial de mensajes
+    message_sended: Su mensaje fue enviado con éxito
+    message_failed: Por favor, introduzca el mensaje
+
+  tables:
+    plan:
+      individual_price: Precio Individual
+      products: Publicaciones Mensuales
+      stores: Límite de Sucursales o Almacenes
+
+  title:
+    sign_up:
+      address: Dirección
+      corporate: INGRESE LOS DATOS CORRESPONDIENTE A LA EMPRESA
+      seller: Representante de Ventas
+      store: INGRESE LOS DATOS CORRESPONDIENTE A LA TIENDA
+      user: INGRESE LOS DATOS DE SU PERFIL PERSONAL
+
+  titles:
+    account: Cuenta
+    corporate: Empresa
+    corporates: Empresas
+    current_plan: Su Plan
+    edit: Editar %{model}
+    filter: Filtrar
+    new: Crear %{model}
+    payment: Escoja el Método de Pago
+    profile: Perfil
+    recurring: Configuración de Pago
+    sellers: Vendedores
+    stores: Almacenes
+    upload_logo: Subir Logo
+
+  reports:
+    app_pendent: A la espera de la aplicación
+    changes: Cambios corporativos
+    publishes: Publica por Tienda
+    images: Imágenes Tamaño no válido
+
+  #Views
+  admin:
+    report:
+      apps:
+        index:
+          titles: Aplicaciones Pendiente
+    sandbox:
+      android_pushes:
+        new:
+          title: Prueba de notificación "Push" en el Android.
+      ios_pushes:
+        new:
+          title: Prueba de notificación push en Apple.
+  admins:
+    passwords:
+      edit:
+        title: Por favor cambie su&nbsp;contraseña.
+      new:
+        title: ¿Olvidó su contraseña?
+    sessions:
+      new:
+        title: Inicie sesión en su cuenta.
+  branch_stores:
+    new:
+      title: Registro de Alamacen y Sucursal
+  pages:
+    contact:
+      description: 'Por favor complete el siguiente formulario en caso de que desee
+        ponerse en contacto con nosotros:'
+      email: support@vexapps.com
+  store:
+    report:
+      products:
+        index:
+          titles: Productos Publicados
+    schedules:
+      modal:
+        title: Programar
+  users:
+    registrations:
+      new:
+        title: Registro para Nuevas Cuentas
+    sessions:
+      new:
+        title: Entrar

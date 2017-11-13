@@ -1,0 +1,305 @@
+es:
+  active_record:
+    models:
+      admin:
+        other: Administradores
+      app:
+        other: Apps (Aplicaciónes Móvils)
+      banner:
+        other: Banners
+      business:
+        other: Negocios
+      category:
+        other: Categorías de Productos
+      client:
+        other: Cliente
+      contact:
+        other: Contactos
+      device:
+        other: Aparatos
+      department:
+        other: Departamentos
+      franchise:
+        other: Franquicias
+      image:
+        other: Imágenes
+      invoice:
+        other: Facturas
+      picture:
+        other: Imágenes
+      plan:
+        other: Planes
+      product:
+        other: Productos
+      property:
+        other: Atributos
+      schedule:
+        other: Horarios
+      seller:
+        other: Vendedores
+      store:
+        other: Almacenes y Sucursales
+      term:
+        other: Términos de Servicio
+      user:
+        other: Usuarios
+      video:
+        other: Vídeos
+
+      chambers_of_commerce:
+        product:
+          one: Producto
+          other: Productos
+      church:
+        product:
+          one: Entrada
+          other: Entradas
+
+    attributes:
+      chambers_of_commerce:
+        product:
+          show_all: 'Mostrar a todos los sitios'
+      church:
+        product:
+          show_all: 'Mostrar a todos los sitios'
+
+  activerecord:
+    models:
+      address: Dirección
+      admin: Administrador
+      app: App (Aplicación Móvil)
+      bank: Bank
+      banner: Banner
+      business: Business
+      category: Categoría de Producto
+      change: Change
+      client: Cliente
+      contact: Contacto
+      department: Departmento
+      franchise: Franquicia
+      image: Logo
+      invoice: Factura
+      job: Job
+      paypal: Paypal
+      picture: Foto
+      plan: Plan
+      price: Precio
+      product: Producto
+      property: Atributo
+      schedule: Fijar el Horario
+      seller: Vendedor
+      store: Almacen
+      term: Términos de Servicio
+      user: Usuario
+      video: Vídeo
+
+    attributes:
+      address:
+        address: Dirección
+        city: Ciudad
+        country: Pais
+        state: Estado
+        street: Dirección
+        zip: Codigo Zip
+      admin:
+        email: Correo Electrónico
+        name: Nombre y Apellido
+        password: Contraseña
+        password_confirmation: Confirme Contraseña
+        remember_me: Acuérdate de mí.
+      app:
+        app_cover: App cover
+        apple_certificate: Certificado de Apple
+        apple_store_url: URL del Apple Store
+        google_api_key: Clave API de Google
+        google_play_url: URL de Google Play
+        invalid_name: Nombre  de aplicación inválido
+        name: Nombre de la Aplicación
+        use_logo: Use logo
+        test_mode: Modo de prueba
+      bank:
+        account: Account
+        agency: Agency
+        name: Name
+        number: Number
+      banner:
+        image: Image
+        locale: Idioma
+      business:
+        key: Clave
+        name: Nombre
+        name_en: Nombre (Inglés)
+        name_es: Nombre
+        name_pt_br: Nombre (Portugués)
+      category:
+        category: Categoria
+        name: Nombre
+      change:
+        corporate: Corporate
+        created_at: Created at
+        log: Log
+      client:
+        name: Nombre
+        username: Nombre de usuario
+        password: Contraseña
+        blocked: Bloqueado
+        admin: Puedes ver todas las tiendas?
+        stores: Por favor, elija las tiendas que el usuario va a ver la Aplicación
+      contact:
+        created_at: Creado En
+        email: Correo Electronico
+        message: Mensaje
+        name: Nombre
+      department:
+        department: Department
+        name: Nombre del Departamento
+        title: Title
+        title_en: Title en
+        title_es: Title es
+        title_pt_br: Title pt br
+      franchise:
+        domain: Domain
+        email: E-mail
+        id: Id
+        logo: Logo
+        name: Name
+        subdomain: Subdomain
+        sudomain: Sudomain
+        trial_period: Periodo de prueba
+      image:
+        file: Logo
+      invoice:
+        created_at: Creado En
+        number: Numero
+        paid_at: Pagado En
+        value: Valor
+      job:
+        closed: Cerrado
+        created_at: Creado en
+        file: Archivo
+        import_type: Tipo
+        log: Log
+        name: Name
+        status: Status
+        success: Éxito
+      order:
+        card_brand: Marca de la Tarjeta de Crédito
+        card_expires_on: Fecha de Vencimiento de la Tarjeta de Crédito
+        card_number: Número de la Tarjeta de Crédito
+        card_verification: Código de Verificación de la Tarjeta de Crédito
+        first_name: Nombre
+        last_name: Apellido
+      paypal:
+        country: Pais
+        login: Entrar (Login)
+        partner: Socio (PayPal)
+        password: Contraseña
+        sandbox: Sandbox (PayPal)
+        user: User
+      picture:
+        File: Archivo
+        file: Archivo
+      plan:
+        chat_support: Soporte Chat
+        email_support: Soporte por Correo Electrónico
+        individual_price: Precio Individual
+        monthly_posts: Publicaciones Mensuales
+        name: Nombre
+        popular: Más Popular
+        price: Pricio
+        price_real: Price real
+        stores_limit: Límite de Almacénes
+        visible: Visible
+      price:
+        price: Precio de Venta
+        regular_price: Precio Actual
+      product:
+        category: Categoría
+        category_name: Nombre de la Categoría
+        code: Codigo
+        contact_info: Información del Contacto
+        created_at: Creado En
+        description: Descripción
+        image: Imagen
+        name: Nombre
+        payment_option: Opciones de Pago
+        price: Precio de Venta
+        regular_price: Precio Actual
+        show_all: Mostrar a todos los almacenes y sucursales.
+        stores: Almacenes
+      property:
+        name: Nombre
+        value: Valor
+      publish:
+        created-at: Creado En
+      schedule:
+        final: Definitivo
+        initial: Inicial
+        initial_date: Fecha Inicial
+        products_count: Total de Productos Publicados
+        run_at: 'Actualización a Las:'
+      seller:
+        cell_phone: Teléfono Móvil
+        commission: Commission
+        created_at: Created at
+        email: Correo Electrónico
+        link: Link
+        master: Master
+        name: Nombre
+        number: Numero
+        password: Contraseña
+        password_confirmation: Confirme Contraseña
+        phone: Teléfono
+        seller: Seller
+        sellers_count: Sellers count
+      store:
+        about: Acerca
+        active: Activo
+        admin_update: Aactualización Administrativa
+        app_name: Nombre de la Aplicación Móvil
+        blocked: Blocked
+        business: Tipo de Negocios
+        cell_phone: Teléfono Móvil
+        contact: Contacto
+        country: Pais
+        created_at: Created at
+        currency: Moneda
+        departments: Departamentos
+        free_payment: No hay cargos
+        logo: Logo
+        name: Nombre
+        number: Numero
+        official_email: Correo Electrónico
+        payment_option: 'Por favor seleccione una opción de pago:'
+        phone: Teléfono
+        plan: Plano
+        plan_name: Nombre del Plano
+        seller: Vendedor
+        short_description: Descripción breve
+        sub_department: Sub department
+        time_zone: Zona Horaria
+        token: Ficha (Token)
+        trial_at: Prueba En
+        vender_name: Vender name
+        website: Website
+      term:
+        text: Texto
+        version: Version
+      user:
+        blocked: Blocked
+        email: Correo Electrónico
+        name: Nombre
+        password: Contraseña
+        password_confirmation: Confirme Contraseña
+        reset_password_token: Reset password token
+      video:
+        html: Html
+        locale: Idioma
+        external_link: Enlace externo
+
+  attributes:
+    email: Correo Electrónico
+    password: Contraseña
+    password_confirmation: Confirmación de la Contraseña
+    value: Monto
+    zip: Código ZIP

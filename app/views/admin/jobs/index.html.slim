@@ -1,0 +1,42 @@
+== content_for :page_header do
+  h1.col-xs-12.col-sm-4== hnp Job
+
+  .col-xs-12.col-sm-8
+    .row
+      .pull-right.col-xs-12.col-sm-auto
+        == link_to_new Job, new_admin_store_job_path(@store)
+
+== pane @store.name do
+  == link_to 'Download CSV', download_admin_jobs_path, class: 'btn btn-success', 'data-no-turbolink' => true
+  .clearfix
+  br
+
+  == display_when_present @jobs do
+    table.table.table-bordered.table-striped
+      thead
+        tr
+          th== ta(Job, 'name')
+          th== ta(Job, 'import_type')
+          th== ta(Job, 'closed')
+          th== ta(Job, 'success')
+          th== ta(Job, 'created_at')
+          th== t('labels.action')
+      tbody
+        == content_tag_for :tr, @jobs, class: 'text-center' do |job|
+          td== job.name
+          td== job.import_type
+          td== boolean_span job.closed
+          td== boolean_span job.success
+          td== l job.created_at
+          td.text-center
+            == link_to_retry retry_admin_job_path(job) if job.closed?
+            == link_to_show admin_store_job_path(@store, job)
+            == link_to_destroy admin_store_job_path(@store, job)
+    .table-footer
+      == paginate @jobs, theme: 'twitter-bootstrap-3'
+
+  br
+
+  == link_to_back :back
+  .col-xs-12.col-sm-auto
+    == link_to_new Job, new_admin_store_job_path(@store)

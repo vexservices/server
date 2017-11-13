@@ -1,0 +1,63 @@
+== content_for :page_header do
+  h1.col-xs-12.col-sm-4== hnp(Seller)
+
+  .col-xs-12.col-sm-8
+    .row
+      .pull-right.col-xs-12.col-sm-auto
+        == link_to_new Seller, new_admin_seller_path
+
+== pane hnp(Seller) do
+  - if @seller.present?
+    h3= @seller.name
+    hr
+
+  .col-xs-12.col-sm-auto
+    == seller_link
+
+  .clearfix
+  br
+
+  == display_when_present @sellers do
+
+    table.table.table-bordered.table-striped
+      thead
+        tr
+          th== hn(Franchise)
+          th== ta(Seller, 'number')
+          th== ta(Seller, 'name')
+          th== ta(Seller, 'phone')
+          th== ta(Address, 'state')
+          th== ta(Seller, 'commission')
+          th== ta(Seller, 'sellers_count')
+          th Apps
+          th== t('labels.link')
+          th== ta(Seller, 'created_at')
+          th== t('labels.action')
+      tbody
+        == content_tag_for :tr, @sellers, class: 'text-center' do |seller|
+          td== seller.franchise_name
+          td== seller.number
+          td== link_to seller.name, admin_seller_path(seller)
+          td== seller.phone
+          td== seller.address_state
+          td== number_to_percentage seller.commission, precision: 1
+          td== link_to seller.sellers_count, admin_seller_sellers_path(seller)
+          td== link_to "#{ seller.stores_count }/#{ seller.apps_count }", admin_seller_apps_path(seller)
+          td== link_to(seller_url(seller.number), seller_url(seller.number), target: '_blank')
+          td== l seller.created_at, format: :long
+          td
+            == link_to t('buttons.login'), login_admin_seller_path(seller), class: 'btn btn-sm btn-default',
+                target: '_blank'
+
+            == link_to_edit edit_admin_seller_path(seller)
+            == link_to_destroy admin_seller_path(seller)
+
+    .table-footer
+      == paginate @sellers, theme: 'twitter-bootstrap-3'
+
+  br
+
+  .col-xs-12.col-sm-auto
+    == link_to_back
+  .col-xs-12.col-sm-auto
+    == link_to_new Seller, new_admin_seller_path

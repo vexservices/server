@@ -1,0 +1,22 @@
+== content_for :title do
+  | We're sorry, but something went wrong (500)
+
+body.page-500
+
+  .header
+    == link_to root_path, class: 'logo' do
+      == image_tag 'logo_full.png'
+
+  .error-code 500
+
+  .error-text
+    span.oops OUCH!
+    br
+
+    span class="hr"
+    br
+    
+    |  SOMETHING IS NOT QUITE RIGHT
+    br
+    
+    span.solve We hope to solve it shortly

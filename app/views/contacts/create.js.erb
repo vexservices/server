@@ -1,0 +1,6 @@
+<% unless @contact.errors.present? %>
+  $('#message').html('<%= j flash_message %>');
+  <% @contact = Contact.new %>
+<% end %>
+
+$('#contact_form').html('<%= j render "pages/contact_form" %>');

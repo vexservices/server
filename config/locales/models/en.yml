@@ -1,0 +1,311 @@
+en:
+  active_record:
+    models:
+      admin:
+        other: Administrators
+      app:
+        other: Apps
+      banner:
+        other: Banners
+      business:
+        other: Businesses
+      category:
+        other: Categories
+      client:
+        other: Clients
+      contact:
+        other: Contacts
+      device:
+        other: Devices
+      department:
+        other: Departments
+      franchise:
+        other: Franchises
+      image:
+        other: Images
+      invoice:
+        other: Invoices
+      job:
+        other: Jobs
+      picture:
+        other: Images
+      plan:
+        other: Plans
+      product:
+        other: Products
+      property:
+        other: Properties
+      recurring:
+        other: Recurrings
+      schedule:
+        other: Schedules
+      seller:
+        other: Distributors
+      store:
+        other: Branch Stores
+      term:
+        other: Terms of Service
+      user:
+        other: Users
+      video:
+        other: Videos
+
+      chambers_of_commerce:
+        product:
+          one: Product
+          other: Product
+      church:
+        product:
+          one: Listing
+          other: Listings
+
+    attributes:
+      chambers_of_commerce:
+        product:
+          show_all: 'Display to all locations'
+      church:
+        product:
+          show_all: 'Display to all locations'
+
+  activerecord:
+    models:
+      address: Address
+      admin: Admininstrator
+      app: App
+      bank: Bank
+      banner: Banner
+      business: Business
+      category: Category
+      client: Client
+      change: Change
+      contact: Contact
+      department: Department
+      franchise: Franchise
+      image: App Logo
+      invoice: Invoice
+      job: Job
+      paypal: PayPal
+      picture: Picture
+      plan: Plan
+      price: Price
+      product: Product
+      property: Property
+      schedule: Schedule
+      seller: Distributor
+      store: Store
+      term: Term
+      user: User
+      video: Video
+
+    attributes:
+      address:
+        address: Street Address
+        city: City
+        country: Country
+        state: State
+        street: Street Address
+        zip: ZIP Code
+      admin:
+        email: E-mail
+        name: First and Last Name
+        password: Password
+        password_confirmation: Password Confirmation
+        remember_me: Remember me.
+      app:
+        app_cover: App cover
+        apple_certificate: Apple Certificate
+        apple_store_url: Apple Store URL
+        google_api_key: Google API Key
+        google_play_url: Google Play URL
+        invalid_name: Invalid App Name
+        name: App Name
+        use_logo: use logo
+        test_mode: Test mode
+      bank:
+        account: Account
+        agency: Agency
+        name: Bank Name
+        number: Number
+      banner:
+        image: Image
+        locale: Language
+      business:
+        key: Key
+        name: Name
+        name_en: Name
+        name_es: Name (Espanish)
+        name_pt_br: Name (Portuguese)
+      category:
+        category: Category
+        name: Name
+      change:
+        corporate: Corporate
+        created_at: Created at
+        log: Log
+      client:
+        name: Name
+        username: Username
+        password: Password
+        blocked: Blocked
+        admin: Can see all branch stores?
+        stores: Please, select the branch stores that client will see in app
+      contact:
+        created_at: Created At
+        email: E-mail
+        message: Message
+        name: Name
+      department:
+        department: Department
+        name: Department Name
+        title: Title
+        title_en: Title en
+        title_es: Title es
+        title_pt_br: Title pt br
+      franchise:
+        domain: Domain
+        email: Support E-mail
+        id: Id
+        logo: Logo
+        link: Franchise Link
+        name: Company Name
+        subdomain: Subdomain
+        sudomain: Sudomain
+        created_at: Set up date
+      image:
+        file: Logo
+      invoice:
+        created_at: Created At
+        number: Number
+        paid_at: Paid At
+        value: Value
+      job:
+        closed: Closed
+        created_at: Created at
+        file: File
+        log: Log
+        name: Name
+        status: Status
+      order:
+        card_brand: Credit Card Brand
+        card_expires_on: Credit Card Expiration Date
+        card_number: Credit Card Number
+        card_verification: Credit Card Verification Code
+        first_name: First Name
+        last_name: Last Name
+      paypal:
+        country: Country
+        login: Login
+        partner: Partner (PayPal)
+        password: Password
+        sandbox: Sandbox (PayPal)
+        user: User
+      picture:
+        File: File
+        file: File
+      plan:
+        chat_support: Chat Support
+        email_support: E-mail Support
+        individual_price: Individual Price
+        monthly_posts: Monthly Posts
+        name: Name
+        popular: Popular
+        price: Price
+        price_real: Price real
+        stores_limit: Stores Limit
+        visible: Visible
+      price:
+        price: Sale Price
+        regular_price: Regular Price
+      product:
+        category: Category
+        category_name: Category Name
+        code: Code
+        contact_info: Contact Information
+        created_at: Created At
+        description: Description
+        image: Image
+        name: Name
+        payment_option: Payment Options
+        price: Sale Price
+        regular_price: Regular Price
+        show_all: Display to all branch stores.
+        stores: Stores
+      property:
+        name: Name
+        value: Value
+      publish:
+        created-at: Created At
+      schedule:
+        final: End
+        initial: Begin
+        initial_date: Initial Date
+        products_count: Published Products
+        run_at: Update At
+      seller:
+        cell_phone: Mobile Phone
+        commission: Commission
+        created_at: Created at
+        document: SSN or EIN
+        email: E-mail
+        link: Link
+        master: Master
+        name: Name
+        number: Number
+        password: Password
+        password_confirmation: Password Confirmation
+        phone: Telephone
+        seller: Seller
+        sellers_count: Sales Rep
+      store:
+        about: About
+        active: Active
+        admin_update: Admin Update
+        app_name: App Name
+        business: Business Type
+        blocked: Blocked
+        cell_phone: Mobile Telephone
+        contact: Contact
+        country: Country
+        created_at: Created at
+        currency: Currency
+        departments: Departments
+        logo: Logo
+        name: Name
+        number: Number
+        official_email: E-mail
+        payment_option: 'Please select a payment option:'
+        phone: Phone
+        plan: Plan
+        plan_name: Plan Name
+        seller: Seller
+        stores_count: Branch Stores
+        sub_department: Sub department
+        time_zone: Time Zone
+        token: Token
+        trial_at: Trial At
+        vender_name: Seller Name(Customer)
+        website: Website
+      term:
+        text: Text
+        version: Version
+      user:
+        blocked: Blocked
+        email: E-mail
+        name: Name
+        password: Password
+        password_confirmation: Password Confirmation
+        reset_password_token: Reset password token
+      video:
+        html: Html
+        locale: Language
+
+  attributes:
+    cell_phone: Cellphone
+    created_at: Created at
+    email: E-mail
+    name: Name
+    password: Password
+    password_confirmation: Password Confirmation
+    stores_count: Branch Stores
+    value: Amount
+    zip: Zip Code

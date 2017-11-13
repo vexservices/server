@@ -1,0 +1,42 @@
+== content_for :page_header do
+  h1== t('titles.seller_profile')
+
+== pane t('titles.edit', model: t('titles.seller_profile')) do
+
+    == simple_form_for(@seller, url: seller_profile_path) do |f|
+      == f.error_notification
+
+      .form-inputs
+        == f.input :name
+        == f.input :email
+        == f.input :password
+        == f.input :password_confirmation
+        == f.input :cell_phone
+        == f.input :phone
+        == f.input :commission, disabled: true
+        == f.input :document
+
+        - if current_seller.is_brazilian?
+
+          h3== hn(Bank)
+
+          == f.simple_fields_for :bank do |b|
+            == b.input :name,   required: false
+            == b.input :agency, required: false
+            == b.input :number, required: false
+
+        - if current_seller.address.present?
+
+          h3== hn(Address)
+
+          == f.simple_fields_for :address do |a|
+            == a.input :country, only: ["US", "BR"], prompt: true, input_html: { data: { js: 'options-toggle', target: '#states' } }
+            == a.input :state
+            == a.input :street
+            == a.input :city
+            == a.input :zip
+
+      hr
+
+      .form-actions
+        == f.button :submit, class: 'btn-success'

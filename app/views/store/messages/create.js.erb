@@ -1,0 +1,5 @@
+<% unless @message.new_record? %>
+  $('#chat').append('<%= j render("message", message: @message) %>');
+  $('#message_input').val('');
+  $("#chat").animate({ scrollTop: $('#chat')[0].scrollHeight}, 1000);
+<% end %>

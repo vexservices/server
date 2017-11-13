@@ -1,0 +1,6 @@
+== content_tag :div, id: "picture_#{ picture.id }", class: 'dz-preview dz-image-preview' do
+  == image_tag picture.file.url(:medium)
+
+  == link_to t('buttons.remove'), product_picture_path(@product, picture), method: :delete,
+    data: { confirm: t('messages.confirm.default'), disable_with: t('buttons.removing') },
+    class: 'dz-remove', remote: true

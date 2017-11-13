@@ -1,0 +1,13 @@
+h3== hnp(User)
+
+== display_when_present users do
+
+  table.table.table-bordered.table-striped
+    thead
+      tr
+        th== ta(User, 'name')
+        th== ta(User, 'email')
+    tbody
+      == content_tag_for :tr, users do |user|
+        td== user.name
+        td== user.email

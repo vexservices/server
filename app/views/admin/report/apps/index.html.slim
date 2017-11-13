@@ -1,0 +1,29 @@
+== content_for :page_header do
+  h1.col-xs-12.col-sm-4== t('reports.app_pendent')
+
+== pane t('reports.app_pendent') do
+  == display_when_present @apps do
+    table.table.table-bordered.table-striped
+      thead
+        tr
+          th== ta(Store, 'name')
+          th== ta(Store, 'app_name')
+          th== ta(App, 'apple_certificate')
+          th== ta(App, 'google_api_key')
+          th== ta(App, 'invalid_name')
+          th== ta(App, 'authenticate')
+          th== t('label.completed')
+          th== t('labels.action')
+      tbody
+        == content_tag_for :tr, @apps, class: 'text-center' do |app|
+          td== link_to app.store_name, admin_corporate_path(app.store)
+          td== app.name
+          td== boolean_span app.has_apple_certificate?
+          td== boolean_span app.has_google_api_key?
+          td== boolean_span app.invalid_name?
+          td== boolean_span app.authenticate?
+          td== boolean_span app.store_has_app_image?
+          td
+            == link_to_edit edit_admin_corporate_app_path(app.store_id)
+    .table-footer
+        == paginate @apps, theme: 'twitter-bootstrap-3'

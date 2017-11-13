@@ -1,0 +1,96 @@
+Virtual Exchange
+================
+
+API Documentation
+
+== Session
+
+  Create
+    curl -X POST -H "Content-Type: application/json" "http://localhost:3000/api/sessions" -d '{ "user": { "email": "user@mail.com", "password":"12345678" } }'
+
+    => {"success":"true","auth_token":"zcAyQTmCwpJuF7n7xm3a","email":"user@mail.com"}
+    => {"success":false,"message":"missing user_login parameter"}
+
+    Login Fail will return:
+    => {"error":"You need to sign in or sign up before continuing."}
+
+== Categories
+  params: category_id, name
+
+  Index
+    curl -g http://localhost:3000/api/categories -H 'X-User-Email: user@mail.com' -H 'X-User-Token: zcAyQTmCwpJuF7n7xm3a'
+  New
+    curl -g http://localhost:3000/api/categories/new -H 'X-User-Email: user@mail.com' -H 'X-User-Token: zcAyQTmCwpJuF7n7xm3a'
+  Create
+    curl -X POST -H "Content-Type: application/json" -H 'X-User-Email: user@mail.com' -H 'X-User-Token: zcAyQTmCwpJuF7n7xm3a' "http://localhost:3000/api/categories" -d '{ "category": { "name":"Category by API" } }'
+  Edit
+    curl -g http://localhost:3000/api/categories/25/edit -H 'X-User-Email: user@mail.com' -H 'X-User-Token: zcAyQTmCwpJuF7n7xm3a'
+  Update
+    curl -X PUT -H "Content-Type: application/json" -H 'X-User-Email: user@mail.com' -H 'X-User-Token: zcAyQTmCwpJuF7n7xm3a' "http://localhost:3000/api/categories/25" -d '{ "category": { "name":"Category- API" } }'
+  Delete
+    curl -X DELETE -H "Content-Type: application/json" -H 'X-User-Email: user@mail.com' -H 'X-User-Token: zcAyQTmCwpJuF7n7xm3a' "http://localhost:3000/api/categories/25"
+
+
+== Products
+  params: :name, :description, :regular_price, :price, :contact_info,
+    :code, :show_all, :category_id, :payment_option
+
+  Index
+    curl -g http://localhost:3000/api/products -H 'X-User-Email: user@mail.com' -H 'X-User-Token: zcAyQTmCwpJuF7n7xm3a'
+  Show
+    curl -g http://localhost:3000/api/products/1 -H 'X-User-Email: user@mail.com' -H 'X-User-Token: zcAyQTmCwpJuF7n7xm3a'
+  New
+    curl -g http://localhost:3000/api/products/new -H 'X-User-Email: user@mail.com' -H 'X-User-Token: zcAyQTmCwpJuF7n7xm3a'
+  Create
+    curl -X POST -H "Content-Type: application/json" -H 'X-User-Email: user@mail.com' -H 'X-User-Token: zcAyQTmCwpJuF7n7xm3a' "http://localhost:3000/api/products" -d '{ "product": { "name":"Product By API", "description":"Description here", "regular_price":"100", "price":"50" } }'
+  Edit
+    curl -g http://localhost:3000/api/products/1/edit -H 'X-User-Email: user@mail.com' -H 'X-User-Token: zcAyQTmCwpJuF7n7xm3a'
+  Delete
+    curl -X DELETE http://localhost:3000/api/products/27 -H 'X-User-Email: user@mail.com' -H 'X-User-Token: zcAyQTmCwpJuF7n7xm3a'
+  Update
+    curl -X PUT -H "Content-Type: application/json" -H 'X-User-Email: user@mail.com' -H 'X-User-Token: zcAyQTmCwpJuF7n7xm3a' "http://localhost:3000/api/products/27" -d '{ "product": { "name":"Product - API", "description":"Description here", "regular_price":"100", "price":"50" } }'
+  Publish
+    curl -X POST -H "Content-Type: application/json" -H 'X-User-Email: user@mail.com' -H 'X-User-Token: zcAyQTmCwpJuF7n7xm3a' "http://localhost:3000/api/products/27/publish" -d ''
+  Unpublish
+    curl -X POST -H "Content-Type: application/json" -H 'X-User-Email: user@mail.com' -H 'X-User-Token: zcAyQTmCwpJuF7n7xm3a' "http://localhost:3000/api/products/27/unpublish" -d ''
+  Post All
+    curl -X POST -H "Content-Type: application/json" -H 'X-User-Email: user@mail.com' -H 'X-User-Token: zcAyQTmCwpJuF7n7xm3a' "http://localhost:3000/api/products/27/publish_all" -d ''
+  Unpost All
+    curl -X POST -H "Content-Type: application/json" -H 'X-User-Email: user@mail.com' -H 'X-User-Token: zcAyQTmCwpJuF7n7xm3a' "http://localhost:3000/api/products/27/unpublish_all" -d ''
+  Feature
+    curl -X POST -H "Content-Type: application/json" -H 'X-User-Email: user@mail.com' -H 'X-User-Token: zcAyQTmCwpJuF7n7xm3a' "http://localhost:3000/api/publish/16/feature" -d ''
+
+== Images
+  params: :file
+
+  Show
+    curl -g http://localhost:3000/api/products/3/pictures/2 -H 'X-User-Email: user@mail.com' -H 'X-User-Token: zcAyQTmCwpJuF7n7xm3a'
+  Create
+    curl -X POST -H 'Content-Type: multipart/form-data' -H "Content-Type: application/json" -H 'X-User-Email: user@mail.com' -H 'X-User-Token: zcAyQTmCwpJuF7n7xm3a' "http://localhost:3000/api/products/16/pictures" -F "picture[file]=@/home/eduardo/Imagens/ferrari.jpg"
+  Delete
+    curl -X DELETE http://localhost:3000/api/products/16/pictures/49 -H 'X-User-Email: user@mail.com' -H 'X-User-Token: zcAyQTmCwpJuF7n7xm3a'
+
+== Schedules
+  params: :initial, :final, :run_at, product_ids: []
+
+  Index
+    curl -g http://localhost:3000/api/schedules -H 'X-User-Email: user@mail.com' -H 'X-User-Token: zcAyQTmCwpJuF7n7xm3a'
+  Show
+    curl -g http://localhost:3000/api/schedules/1 -H 'X-User-Email: user@mail.com' -H 'X-User-Token: zcAyQTmCwpJuF7n7xm3a'
+  Create
+    curl -X POST -H "Content-Type: application/json" -H 'X-User-Email: user@mail.com' -H 'X-User-Token: zcAyQTmCwpJuF7n7xm3a' "http://localhost:3000/api/schedules" -d '{ "schedule": { "initial":"2015-01-01 14:00:00", "final":"2015-01-05 14:00:00", "run_at":"2015-01-01 15:00:00", "product_ids":["16"] } }'
+  Destroy
+    curl -X DELETE http://localhost:3000/api/schedules/1 -H 'X-User-Email: user@mail.com' -H 'X-User-Token: zcAyQTmCwpJuF7n7xm3a'
+
+== Messages
+  Index
+    - With Device
+      curl -g http://localhost:3000/api/devices/6/messages -H 'X-User-Email: user@mail.com' -H 'X-User-Token: zcAyQTmCwpJuF7n7xm3a'
+    - Without Device
+      curl -g http://localhost:3000/api/messages -H 'X-User-Email: user@mail.com' -H 'X-User-Token: zcAyQTmCwpJuF7n7xm3a'
+  Show
+    curl -g http://localhost:3000/api/messages/74 -H 'X-User-Email: user@mail.com' -H 'X-User-Token: zcAyQTmCwpJuF7n7xm3a'
+  Create
+    curl -X POST -H "Content-Type: application/json" -H 'X-User-Email: user@mail.com' -H 'X-User-Token: zcAyQTmCwpJuF7n7xm3a' "http://localhost:4000/api/devices/6/messages" -d '{ "message": {"message":"Send by API."} }'
+  Unread
+    curl -g http://localhost:3000/api/devices/6/messages/unread -H 'X-User-Email: user@mail.com' -H 'X-User-Token: zcAyQTmCwpJuF7n7xm3a'

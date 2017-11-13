@@ -1,0 +1,16 @@
+{
+  "type": "object",
+  "properties" : {
+    "devices" : {
+      "required" : ["id", "name"],
+      "type": "array",
+      "items": [
+        { "id"             : { "type" : "integer" } },
+        { "name"           : { "type" : ["string", "null"] } },
+        { "email"          : { "type" : ["string", "null"] } },
+        { "phone"          : { "type" : ["string", "null"] } },
+        { "messages_count" : { "type" : "integer" } }
+      ]
+    }
+  }
+}

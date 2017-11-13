@@ -1,0 +1,64 @@
+== content_for :page_header do
+  h1== t('titles.account')
+
+== pane t('titles.edit', model: t('titles.account')) do
+  == simple_form_for(@store, url: account_path) do |f|
+    == f.error_notification
+
+    .form-inputs
+      == f.input :name, autofocus: true
+
+      .col-md-12
+        == image_tag @store.logo_or_default_url(:medium), class: "img-thumbnail image-sample"
+
+      == f.input :logo
+
+      == f.input :cell_phone
+      == f.input :phone
+      == f.input :contact
+      == f.input :official_email
+      == f.input :website
+      == f.input :time_zone, prompt: true, priority: /US/
+
+      - if @store.corporate?
+        == f.association :business, collection: Business.includes(:translations), prompt: true
+        == f.input :currency, collection: money_collection, prompt: false
+
+      == f.input :about
+
+      - if @store.corporate?
+        == f.input :keywords
+        == f.input :short_description
+
+        h3== hn(App)
+
+        == f.simple_fields_for :app do |a|
+          == a.input :name
+
+      == f.association :departments, as: :check_boxes, collection: current_store.corporate.sections.order('name ASC')
+
+      h3== hn(Address)
+
+      == f.simple_fields_for :address do |a|
+        == a.input :country, priority: ["US", "BR"]
+        == a.input :state
+        == a.input :street
+        == a.input :city
+        == a.input :zip
+        == a.input :latitude, as: :hidden, input_html: { id: 'latitude' }
+        == a.input :longitude, as: :hidden, input_html: { id: 'longitude' }
+
+        p
+          strong== t('messages.maps')
+
+        .col-md-12
+          input id="pac-input" class="map-controls" type="text"
+          #map[ style='height: 400px;']
+
+        .clearfix
+        hr
+
+    .form-actions
+      == f.button :submit, class: 'btn-success'
+
+== render 'shared/map', store: @store

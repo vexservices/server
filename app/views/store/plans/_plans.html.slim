@@ -1,0 +1,25 @@
+table.table.table-striped
+    thead
+      tr
+        th
+          == t('tables.plan.name')
+        th
+          == t('tables.plan.products')
+        th
+          == t('tables.plan.price')
+        th
+          == t('labels.action')
+    tdoby
+       == content_tag_for :tr, @plans do |plan|
+        td
+          == plan.name
+        td.text-center
+          == plan.monthly_posts
+        td.text-center
+          == number_to_currency plan.price_by_locale
+        td.text-center
+          - if plan.id == @plan.id
+            == link_to t('buttons.current_plan'), '#', class: 'btn btn-sm btn-default'
+          - elsif current_store.can_update_plan?
+            == link_to t('buttons.select_plan'), plan_path(plan_id: plan.id), method: :put, class: 'btn btn-sm btn-success',
+              data: { confirm: t('messages.confirm.default') }

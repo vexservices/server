@@ -1,0 +1,18 @@
+== simple_form_for([@product, @price]) do |f|
+  == f.error_notification
+
+  .form-inputs
+    p
+      strong== "#{ ta(Product, 'name') }"
+      br
+      == @product.name
+
+    == f.input :product_id, as: :hidden, input_html: { value: @product.id } if @price.new_record?
+    == f.input :regular_price, as: :string, autofocus: true
+    == f.input :price, as: :string
+
+    hr
+
+    .form-actions
+      == f.button :submit, class: 'btn-success'
+      == link_to_back products_path

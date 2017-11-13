@@ -1,0 +1,50 @@
+== content_for :page_header do
+  h1.col-xs-12.col-sm-4== hnp(Department)
+
+  .col-xs-12.col-sm-8
+    .row
+      .pull-right.col-xs-12.col-sm-auto
+        == link_to_new Department, new_admin_department_path
+
+== pane hnp(Department) do
+  == display_when_present @departments do
+
+    table.table.table-bordered
+      thead
+        tr
+          th[rowspan='2']== ta(Department, 'name')
+          th[colspan='3']== ta(Department, 'title')
+          th[rowspan='2']== t('labels.action')
+        tr
+          th English
+          th Português
+          th Español
+      tbody
+        - @departments.each do |department|
+          tr
+            td== department.name
+            td== department.title_en
+            td== department.title_pt_br
+            td== department.title_es
+            td.text-center
+              == link_to_edit edit_admin_department_path(department)
+              == link_to_destroy admin_department_path(department)
+
+          - department.departments.each do |sub_department|
+            tr.sub-category
+              td== sub_department.name
+              td== sub_department.title_en
+              td== sub_department.title_pt_br
+              td== sub_department.title_es
+              td.text-center
+                == link_to_edit edit_admin_department_path(sub_department)
+                == link_to_destroy admin_department_path(sub_department)
+
+
+    .table-footer
+      == paginate @departments, theme: 'twitter-bootstrap-3'
+
+  br
+
+  .col-xs-12.col-sm-auto
+    == link_to_new Department, new_admin_department_path

@@ -1,0 +1,96 @@
+h1.form-header== t('.title')
+
+== simple_form_for(@signed_up,
+    as: resource_name,
+    url: registration_path(resource_name),
+    html: { :role => 'form', class: 'panel panel-signup', id: 'signin-form_id' }) do |f|
+
+  == f.error_notification
+
+  .form-inputs
+
+    h3.title==t('title.sign_up.user')
+
+    .row
+      .col-md-6
+        == f.input :name, autofocus: true
+      .col-md-6
+        == f.input :email
+
+    .row
+      .col-md-6
+         == f.input :password
+      .col-md-6
+         == f.input :password_confirmation, required: true
+
+    .clearfix
+    br
+
+    h3.title==t('title.sign_up.corporate')
+
+    .row
+      .col-md-6
+        == f.input :corporate_name
+      .col-md-6
+        == f.input :app_name
+
+    .row
+      .col-md-6
+        == f.input :department, collection: Department.super, label_method: :title, prompt: true
+
+      .col-md-6
+        == f.input :business, collection: Business.includes(:translations), prompt: true
+
+    .row
+      .col-md-6
+        == f.input :country, priority: ["US", "BR"]
+      .col-md-6
+        == f.input :state
+
+    .row
+      .col-md-6
+        == f.input :city
+      .col-md-6
+        == f.input :street
+
+    .row
+      .col-md-6
+        == f.input :zip
+      .col-md-6
+        == f.input :cell_phone
+
+    .row
+      .col-md-6
+        == f.input :phone
+      .col-md-6
+        == f.input :contact
+
+    .row
+      .col-md-6
+        == f.input :official_email
+      .col-md-6
+        == f.input :time_zone, prompt: true, priority: /US/
+
+    .row
+      .col-md-6
+        == f.input :keywords
+      .col-md-6
+        == f.input :short_description
+
+    .row
+      .col-md-12
+        == f.input :about, as: :text
+
+    .row
+      .col-md-12
+        == f.input :seller_name, input_html: { value: search_seller_by_cookie }
+        == f.input :seller_number, as: :hidden, input_html: { value: cookies[:seller_id] }
+        == f.input :subdomain, as: :hidden, input_html: { value: request.subdomain }
+        == f.input :domain, as: :hidden, input_html: { value: request.domain }
+
+    .clearfix
+    br
+
+  .form-actions
+    == f.submit t('buttons.device.sign_up'), :class => 'btn btn-primary btn-block btn-lg'
+    == link_to_back root_path, class: 'btn btn-default btn-block btn-lg'

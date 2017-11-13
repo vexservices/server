@@ -1,0 +1,45 @@
+== simple_form_for([:admin, @store], url: admin_corporate_store_path(@corporate, @store)) do |f|
+  == f.error_notification
+
+  .form-inputs
+    == f.input :name
+    == f.input :cell_phone
+    == f.input :phone
+    == f.input :contact
+    == f.input :official_email
+    == f.input :website
+    == f.input :time_zone, prompt: true, priority: /US/
+    == f.input :trial_at
+
+    == f.association :plan, prompt: false, label_method: :name_with_price,
+      collection: plans_by_franchise(@corporate.franchise)
+
+    == f.input :blocked
+    == f.input :free_payment
+
+    h3== hn(Address)
+
+    == f.simple_fields_for :address do |a|
+      == a.input :country, priority: ["US", "BR"], prompt: true
+      == a.input :state, collection: states_collection, prompt: true
+      == a.input :street
+      == a.input :city
+      == a.input :zip
+      == a.input :latitude, as: :hidden, input_html: { id: 'latitude' }
+      == a.input :longitude, as: :hidden, input_html: { id: 'longitude' }
+
+      p
+        strong== t('messages.maps')
+
+      .col-md-12
+        input id="pac-input" class="map-controls" type="text"
+        #map[ style='height: 400px;']
+
+    .clearfix
+    hr
+
+    .form-actions
+      == f.button :submit, class: 'btn-success'
+      == link_to_back admin_corporate_stores_path(@corporate)
+
+== render 'shared/map', store: @store

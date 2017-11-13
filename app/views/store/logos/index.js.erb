@@ -1,0 +1,6 @@
+$('#logos').html('');
+$('#logos').append('<hr>');
+
+<% @images.each do |image| %>
+  $('#logos').append('<%= j render image %>');
+<% end %>

@@ -1,0 +1,53 @@
+== content_for :page_header do
+  h1.col-xs-12.col-sm-4== t('titles.sellers')
+
+== pane @seller.name do
+  .col-sm-12
+    table.table.table-striped
+      thead
+        tr
+          th[colspan='2']== t('.info')
+      tbody
+        tr
+          td
+            strong== t('labels.link')
+          td== link_to(seller_url(@seller.number), seller_url(@seller.number), target: '_blank')
+        tr
+          td
+            strong== ta(Seller, 'number')
+          td== @seller.number
+        tr
+          td
+            strong== ta(Seller, 'name')
+          td== @seller.name
+        tr
+          td
+            strong== ta(Seller, 'email')
+          td== @seller.email
+        tr
+          td
+            strong== ta(Seller, 'phone')
+          td== @seller.phone
+        tr
+          td
+            strong== ta(Seller, 'cell_phone')
+          td== @seller.cell_phone
+        tr
+          td
+            strong== ta(Seller, 'commission')
+          td== number_to_percentage @seller.commission
+
+  .clearfix
+
+  - if @seller.bank.present?
+    .col-sm-12
+      = render '/shared/bank', bank: @seller.bank
+
+  .clearfix
+  hr
+
+  .actions
+    .col-xs-12.col-sm-auto
+      == link_with_icon t('buttons.edit'), edit_seller_seller_path(@seller), icon: 'pencil'
+    .col-xs-12.col-sm-auto
+      == link_to_back seller_sellers_path

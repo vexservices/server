@@ -1,0 +1,24 @@
+#reliability.modal.fade
+  .modal-dialog
+    .modal-content
+      .modal-header
+        button[type="button" class="close" data-dismiss="modal"]
+          span[aria-hidden="true"] &times;
+          span.sr-only Close
+
+        h4.modal-title Reliable
+
+      .modal-body
+        p
+          | We make no compromise when it comes to bringing you a useful and secure product. Your mobile App links seamlessly to your dashboard control panel; postings immediately appear in your mobile App.
+        p
+          | Your information travels instantly around the world; our cloud servers use over 200 global edge locations.
+        p
+          | Your data is protected in off-site locations; our automated RAID backup safeguards you data.
+        p
+          | Your data is secured from authorized access; we employ leading-edge services to provide firewalls, virus protection and SSL certificates compliant with Payment Card Industry (PCI) standards - all to ensure the security of your data.
+        p
+          | We engineered our environment by carefully selecting Amazon S3 data storage services; you may grow to the scale you need, have the performance you need and depend on the best-in-class data host services.
+
+      .modal-footer
+        == link_to t('buttons.close'), '#', class: "btn btn-default", data: { dismiss: 'modal' }

@@ -1,0 +1,17 @@
+== content_for :title do
+  | The page you were looking for doesn't exist (404)
+
+body.page-404
+
+  .header
+    == link_to root_path, class: 'logo' do
+      == image_tag 'logo_full.png'
+
+  .error-code 404
+
+  .error-text
+    span.oops OOPS!
+    br
+    span class="hr"
+    br
+    | SOMETHING WENT WRONG, OR THAT PAGE DOESN'T EXIST... YET

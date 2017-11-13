@@ -1,0 +1,37 @@
+== content_for :page_header do
+  h1.col-xs-12.col-sm-4== hnp Business
+
+  .col-xs-12.col-sm-8
+    .row
+      .pull-right.col-xs-12.col-sm-auto
+        == link_to_new Business, new_admin_business_path
+
+== pane hnp Business do
+  == display_when_present @businesses do
+
+    table.table.table-bordered
+      thead
+        tr
+          th== ta(Business, 'name_en')
+          th== ta(Business, 'name_es')
+          th== ta(Business, 'name_pt_br')
+          th== ta(Business, 'key')
+          th== t('labels.action')
+      tbody
+        - @businesses.each do |business|
+          tr
+            td== business.name_en
+            td== business.name_es
+            td== business.name_pt_br
+            td== business.key
+            td.text-center
+              == link_to_show admin_business_path(business)
+              == link_to_edit edit_admin_business_path(business)
+              == link_to_destroy [:admin, business]
+    .table-footer
+      == paginate @businesses, theme: 'twitter-bootstrap-3'
+
+  br
+
+  .col-xs-12.col-sm-auto
+    == link_to_new Business, new_admin_business_path

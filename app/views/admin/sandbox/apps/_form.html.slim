@@ -1,0 +1,13 @@
+== simple_form_for([:admin, :sandbox, @app]) do |f|
+  == f.error_notification 
+
+  .form-inputs
+    == f.input :name
+    == f.input :google_api_key
+    == f.input :apple_certificate
+
+    hr
+
+    .form-actions
+      == f.button :submit, class: 'btn-success'
+      == link_to_back admin_sandbox_apps_path

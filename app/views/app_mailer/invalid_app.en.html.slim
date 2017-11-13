@@ -1,0 +1,13 @@
+doctype html
+html
+  head
+    meta content=("text/html; charset=UTF-8") http-equiv="Content-Type"
+  body
+
+  h3 You App name is invalid
+
+  p
+    | Your App name #{ @app.name } is taken and not available to from our App service providers, Apple and Google.
+    | Please click on the link below and enter a different App name.
+
+  p== link_to 'Change App Name', edit_account_url(locale: :en, host: @host)
