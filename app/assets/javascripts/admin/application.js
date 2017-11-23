@@ -16,7 +16,7 @@
 //= require bootstrap-sprockets
 //= require jquery_nested_form
 //= require select2-full
-//= require jquery-ui/datepicker
+//= require jquery-ui/widgets/datepicker
 //= require admin/lightbox.min
 //= require admin/underscore.min
 //= require jquery-fileupload/basic

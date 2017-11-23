@@ -1,4 +1,5 @@
 class Importer
+  require 'open-uri'
   attr_reader :job, :store, :spreadsheet, :log, :header
 
   def initialize(job)

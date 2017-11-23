@@ -1,11 +1,11 @@
 source 'https://rubygems.org'
 
-ruby '2.2.0'
+ruby '2.4.2'
 
 # Rails
-gem 'rails', '4.1.15'
+gem 'rails'
 gem 'rails-observers'
-gem 'sdoc', '~> 0.4.0', group: :doc
+gem 'sdoc'
 gem 'spring', group: :development
 
 # Javascript
@@ -22,16 +22,16 @@ gem 'bootstrap-sass'
 gem 'ancestry'
 
 # SASS - Coffee
-gem 'coffee-rails', '~> 4.0.0'
-gem 'sass-rails', '~> 4.0.3'
-gem 'uglifier', '>= 1.3.0'
+gem 'coffee-rails'
+gem 'sass-rails'
+gem 'uglifier'
 
 # Paypal Gateway
 gem 'activemerchant'
 # PagSeguro Gateway
 gem "pagseguro-oficial", git: "git://github.com/pagseguro/ruby.git"
 
-gem 'jbuilder', '~> 2.0'
+gem 'jbuilder'
 gem 'pg'
 gem 'pundit', github: 'elabs/pundit'
 gem 'slim-rails'
@@ -39,7 +39,7 @@ gem 'therubyracer', :platform=>:ruby
 
 # Authentication
 gem 'devise'
-gem 'simple_token_authentication', '~> 1.0'
+gem 'simple_token_authentication'
 
 # Email Validator
 gem 'email_validator'
@@ -48,7 +48,7 @@ gem 'email_validator'
 gem 'bullet', :group => 'development'
 
 # Data Translations
-gem 'globalize', '~> 4.0.2'
+gem 'globalize'
 gem 'globalize-accessors'
 gem 'i18n_data'
 gem 'http_accept_language'
@@ -65,7 +65,7 @@ gem 'carrierwave_backgrounder'
 gem 'fastimage'
 
 # Jobs
-gem 'sinatra', require: false
+#gem 'sinatra', require: false
 gem 'sidekiq'
 
 # Tabs
@@ -90,7 +90,6 @@ gem 'asset_sync'
 gem 'fog'
 
 # NewRelic
-gem 'newrelic_rpm'
 
 # PDF
 gem 'prawn'
@@ -101,17 +100,18 @@ gem 'gcm'
 gem 'houston', github: 'nomad/Houston'
 
 # Import XLS
-gem 'roo'
+# https://github.com/roo-rb/roo/issues/378
+gem 'roo', '2.6.0'
 
 # Create Zip
 gem 'rubyzip'
-gem 'httparty', '~> 0.13.1'
+gem 'httparty'
 
 # Geocoder
 gem 'geocoder'
 
 # PaperTrail
-gem 'paper_trail', '~> 3.0.6'
+gem 'paper_trail'
 
 # Money
 gem 'money'
@@ -120,7 +120,7 @@ gem 'money'
 gem 'gmaps4rails'
 
 # Search engine
-gem 'ransack', github: 'activerecord-hackery/ransack', branch: 'rails-4.1'
+gem 'ransack'
 
 # Encrypt password
 gem 'bcrypt'
@@ -130,7 +130,7 @@ group :production, :staging do
   gem 'dalli'
 
   #Webserver
-  gem 'puma'
+  #gem 'puma'
   gem 'rack-timeout'
 end
 
@@ -147,13 +147,15 @@ group :development, :test do
 end
 
 group :test do
-  gem 'capybara', '< 2.6.0'
-  gem 'selenium-webdriver', '>= 2.49.0'
-  gem 'capybara-webkit', '>= 1.7.1'
+  gem 'capybara'
+  gem 'selenium-webdriver'
+  gem 'capybara-webkit'
   gem 'factory_girl_rails'
-  gem 'rb-inotify', '~> 0.9'
+  gem 'rb-inotify'
   gem 'database_cleaner'
   gem 'shoulda-matchers'
   gem 'faker'
   gem 'json-schema'
 end
+
+gem 'figaro'

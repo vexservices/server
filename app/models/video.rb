@@ -5,7 +5,7 @@ class Video < ActiveRecord::Base
 
   before_validation :setup_html
 
-  validate :html, :locale, presence: true
+  validates :html, :locale, presence: true
 
   delegate :name, to: :franchise, prefix: true, allow_nil: true
 

@@ -16,7 +16,7 @@ ActiveRecord::Schema.define(version: 20161121140044) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "addresses", force: true do |t|
+  create_table "addresses", force: :cascade do |t|
     t.integer  "store_id"
     t.string   "street"
     t.string   "city"
@@ -34,7 +34,7 @@ ActiveRecord::Schema.define(version: 20161121140044) do
   add_index "addresses", ["seller_id"], name: "index_addresses_on_seller_id", using: :btree
   add_index "addresses", ["store_id"], name: "index_addresses_on_store_id", using: :btree
 
-  create_table "admins", force: true do |t|
+  create_table "admins", force: :cascade do |t|
     t.string   "email",                  default: "",    null: false
     t.string   "encrypted_password",     default: "",    null: false
     t.string   "reset_password_token"
@@ -57,7 +57,7 @@ ActiveRecord::Schema.define(version: 20161121140044) do
   add_index "admins", ["franchise_id"], name: "index_admins_on_franchise_id", using: :btree
   add_index "admins", ["reset_password_token"], name: "index_admins_on_reset_password_token", unique: true, using: :btree
 
-  create_table "apps", force: true do |t|
+  create_table "apps", force: :cascade do |t|
     t.integer  "store_id"
     t.string   "name"
     t.datetime "created_at"
@@ -77,7 +77,7 @@ ActiveRecord::Schema.define(version: 20161121140044) do
 
   add_index "apps", ["store_id"], name: "index_apps_on_store_id", using: :btree
 
-  create_table "banks", force: true do |t|
+  create_table "banks", force: :cascade do |t|
     t.integer  "seller_id"
     t.string   "name"
     t.string   "number"
@@ -88,7 +88,7 @@ ActiveRecord::Schema.define(version: 20161121140044) do
 
   add_index "banks", ["seller_id"], name: "index_banks_on_seller_id", using: :btree
 
-  create_table "banners", force: true do |t|
+  create_table "banners", force: :cascade do |t|
     t.integer  "franchise_id"
     t.string   "image"
     t.string   "locale"
@@ -98,24 +98,24 @@ ActiveRecord::Schema.define(version: 20161121140044) do
 
   add_index "banners", ["franchise_id"], name: "index_banners_on_franchise_id", using: :btree
 
-  create_table "business_translations", force: true do |t|
+  create_table "business_translations", force: :cascade do |t|
     t.integer  "business_id", null: false
     t.string   "locale",      null: false
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
     t.string   "name"
   end
 
   add_index "business_translations", ["business_id"], name: "index_business_translations_on_business_id", using: :btree
   add_index "business_translations", ["locale"], name: "index_business_translations_on_locale", using: :btree
 
-  create_table "businesses", force: true do |t|
+  create_table "businesses", force: :cascade do |t|
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "key"
   end
 
-  create_table "categories", force: true do |t|
+  create_table "categories", force: :cascade do |t|
     t.integer  "category_id"
     t.integer  "store_id"
     t.string   "name"
@@ -126,7 +126,7 @@ ActiveRecord::Schema.define(version: 20161121140044) do
   add_index "categories", ["category_id"], name: "index_categories_on_category_id", using: :btree
   add_index "categories", ["store_id"], name: "index_categories_on_store_id", using: :btree
 
-  create_table "changes", force: true do |t|
+  create_table "changes", force: :cascade do |t|
     t.integer  "changeable_id"
     t.string   "changeable_type"
     t.text     "log"
@@ -135,7 +135,7 @@ ActiveRecord::Schema.define(version: 20161121140044) do
     t.datetime "updated_at"
   end
 
-  create_table "clients", force: true do |t|
+  create_table "clients", force: :cascade do |t|
     t.integer  "store_id"
     t.string   "name"
     t.string   "username"
@@ -149,7 +149,7 @@ ActiveRecord::Schema.define(version: 20161121140044) do
 
   add_index "clients", ["store_id"], name: "index_clients_on_store_id", using: :btree
 
-  create_table "clients_stores", force: true do |t|
+  create_table "clients_stores", force: :cascade do |t|
     t.integer "client_id"
     t.integer "store_id"
   end
@@ -157,7 +157,7 @@ ActiveRecord::Schema.define(version: 20161121140044) do
   add_index "clients_stores", ["client_id"], name: "index_clients_stores_on_client_id", using: :btree
   add_index "clients_stores", ["store_id"], name: "index_clients_stores_on_store_id", using: :btree
 
-  create_table "contacts", force: true do |t|
+  create_table "contacts", force: :cascade do |t|
     t.string   "name"
     t.string   "email"
     t.text     "message"
@@ -168,18 +168,18 @@ ActiveRecord::Schema.define(version: 20161121140044) do
 
   add_index "contacts", ["franchise_id"], name: "index_contacts_on_franchise_id", using: :btree
 
-  create_table "department_translations", force: true do |t|
+  create_table "department_translations", force: :cascade do |t|
     t.integer  "department_id", null: false
     t.string   "locale",        null: false
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
     t.string   "title"
   end
 
   add_index "department_translations", ["department_id"], name: "index_department_translations_on_department_id", using: :btree
   add_index "department_translations", ["locale"], name: "index_department_translations_on_locale", using: :btree
 
-  create_table "departments", force: true do |t|
+  create_table "departments", force: :cascade do |t|
     t.string   "name"
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -191,7 +191,7 @@ ActiveRecord::Schema.define(version: 20161121140044) do
   add_index "departments", ["department_id"], name: "index_departments_on_department_id", using: :btree
   add_index "departments", ["store_id"], name: "index_departments_on_store_id", using: :btree
 
-  create_table "departments_devices", force: true do |t|
+  create_table "departments_devices", force: :cascade do |t|
     t.integer "device_id"
     t.integer "department_id"
   end
@@ -199,7 +199,7 @@ ActiveRecord::Schema.define(version: 20161121140044) do
   add_index "departments_devices", ["department_id"], name: "index_departments_devices_on_department_id", using: :btree
   add_index "departments_devices", ["device_id"], name: "index_departments_devices_on_device_id", using: :btree
 
-  create_table "departments_stores", force: true do |t|
+  create_table "departments_stores", force: :cascade do |t|
     t.integer "department_id"
     t.integer "store_id"
   end
@@ -207,7 +207,7 @@ ActiveRecord::Schema.define(version: 20161121140044) do
   add_index "departments_stores", ["department_id"], name: "index_departments_stores_on_department_id", using: :btree
   add_index "departments_stores", ["store_id"], name: "index_departments_stores_on_store_id", using: :btree
 
-  create_table "devices", force: true do |t|
+  create_table "devices", force: :cascade do |t|
     t.integer  "store_id"
     t.string   "token"
     t.string   "push_token"
@@ -227,7 +227,7 @@ ActiveRecord::Schema.define(version: 20161121140044) do
   add_index "devices", ["store_id"], name: "index_devices_on_store_id", using: :btree
   add_index "devices", ["user_id"], name: "index_devices_on_user_id", using: :btree
 
-  create_table "devices_stores", force: true do |t|
+  create_table "devices_stores", force: :cascade do |t|
     t.integer "device_id"
     t.integer "store_id"
   end
@@ -235,7 +235,7 @@ ActiveRecord::Schema.define(version: 20161121140044) do
   add_index "devices_stores", ["device_id"], name: "index_devices_stores_on_device_id", using: :btree
   add_index "devices_stores", ["store_id"], name: "index_devices_stores_on_store_id", using: :btree
 
-  create_table "franchises", force: true do |t|
+  create_table "franchises", force: :cascade do |t|
     t.string   "name"
     t.string   "subdomain"
     t.string   "domain"
@@ -250,7 +250,7 @@ ActiveRecord::Schema.define(version: 20161121140044) do
 
   add_index "franchises", ["admin_id"], name: "index_franchises_on_admin_id", using: :btree
 
-  create_table "images", force: true do |t|
+  create_table "images", force: :cascade do |t|
     t.integer  "store_id"
     t.string   "file"
     t.datetime "created_at"
@@ -267,7 +267,7 @@ ActiveRecord::Schema.define(version: 20161121140044) do
   add_index "images", ["category_id"], name: "index_images_on_category_id", using: :btree
   add_index "images", ["store_id"], name: "index_images_on_store_id", using: :btree
 
-  create_table "invoices", force: true do |t|
+  create_table "invoices", force: :cascade do |t|
     t.integer  "store_id"
     t.string   "number"
     t.string   "plan_name"
@@ -284,7 +284,7 @@ ActiveRecord::Schema.define(version: 20161121140044) do
 
   add_index "invoices", ["store_id"], name: "index_invoices_on_store_id", using: :btree
 
-  create_table "jobs", force: true do |t|
+  create_table "jobs", force: :cascade do |t|
     t.integer  "store_id"
     t.text     "log"
     t.boolean  "closed",      default: false, null: false
@@ -298,7 +298,7 @@ ActiveRecord::Schema.define(version: 20161121140044) do
 
   add_index "jobs", ["store_id"], name: "index_jobs_on_store_id", using: :btree
 
-  create_table "logs", force: true do |t|
+  create_table "logs", force: :cascade do |t|
     t.text     "description"
     t.integer  "recurring_id"
     t.datetime "created_at"
@@ -307,7 +307,7 @@ ActiveRecord::Schema.define(version: 20161121140044) do
 
   add_index "logs", ["recurring_id"], name: "index_logs_on_recurring_id", using: :btree
 
-  create_table "messages", force: true do |t|
+  create_table "messages", force: :cascade do |t|
     t.integer  "store_id"
     t.integer  "device_id"
     t.text     "message"
@@ -320,7 +320,7 @@ ActiveRecord::Schema.define(version: 20161121140044) do
   add_index "messages", ["device_id"], name: "index_messages_on_device_id", using: :btree
   add_index "messages", ["store_id"], name: "index_messages_on_store_id", using: :btree
 
-  create_table "notifications", force: true do |t|
+  create_table "notifications", force: :cascade do |t|
     t.integer  "store_id"
     t.integer  "user_id"
     t.text     "message"
@@ -331,7 +331,7 @@ ActiveRecord::Schema.define(version: 20161121140044) do
   add_index "notifications", ["store_id"], name: "index_notifications_on_store_id", using: :btree
   add_index "notifications", ["user_id"], name: "index_notifications_on_user_id", using: :btree
 
-  create_table "orders", force: true do |t|
+  create_table "orders", force: :cascade do |t|
     t.integer  "store_id"
     t.date     "card_expires_on"
     t.decimal  "value",           precision: 8, scale: 2
@@ -349,7 +349,7 @@ ActiveRecord::Schema.define(version: 20161121140044) do
 
   add_index "orders", ["store_id"], name: "index_orders_on_store_id", using: :btree
 
-  create_table "paypals", force: true do |t|
+  create_table "paypals", force: :cascade do |t|
     t.string   "login"
     t.string   "password"
     t.string   "partner",      default: "PayPal"
@@ -363,7 +363,7 @@ ActiveRecord::Schema.define(version: 20161121140044) do
 
   add_index "paypals", ["franchise_id"], name: "index_paypals_on_franchise_id", using: :btree
 
-  create_table "pictures", force: true do |t|
+  create_table "pictures", force: :cascade do |t|
     t.string   "file"
     t.integer  "imageable_id"
     t.string   "imageable_type"
@@ -373,7 +373,7 @@ ActiveRecord::Schema.define(version: 20161121140044) do
     t.string   "file_tmp"
   end
 
-  create_table "pins", force: true do |t|
+  create_table "pins", force: :cascade do |t|
     t.integer  "store_id"
     t.integer  "device_id"
     t.integer  "publish_id"
@@ -394,7 +394,7 @@ ActiveRecord::Schema.define(version: 20161121140044) do
   add_index "pins", ["publish_id"], name: "index_pins_on_publish_id", using: :btree
   add_index "pins", ["store_id"], name: "index_pins_on_store_id", using: :btree
 
-  create_table "plans", force: true do |t|
+  create_table "plans", force: :cascade do |t|
     t.string   "name"
     t.integer  "monthly_posts"
     t.integer  "stores_limit"
@@ -413,7 +413,7 @@ ActiveRecord::Schema.define(version: 20161121140044) do
 
   add_index "plans", ["franchise_id"], name: "index_plans_on_franchise_id", using: :btree
 
-  create_table "prices", force: true do |t|
+  create_table "prices", force: :cascade do |t|
     t.integer  "store_id"
     t.integer  "product_id"
     t.decimal  "regular_price", precision: 16, scale: 2
@@ -425,7 +425,7 @@ ActiveRecord::Schema.define(version: 20161121140044) do
   add_index "prices", ["product_id"], name: "index_prices_on_product_id", using: :btree
   add_index "prices", ["store_id"], name: "index_prices_on_store_id", using: :btree
 
-  create_table "products", force: true do |t|
+  create_table "products", force: :cascade do |t|
     t.integer  "store_id"
     t.string   "name"
     t.integer  "category_id"
@@ -446,7 +446,7 @@ ActiveRecord::Schema.define(version: 20161121140044) do
   add_index "products", ["category_id"], name: "index_products_on_category_id", using: :btree
   add_index "products", ["store_id"], name: "index_products_on_store_id", using: :btree
 
-  create_table "products_schedules", force: true do |t|
+  create_table "products_schedules", force: :cascade do |t|
     t.integer "product_id"
     t.integer "schedule_id"
   end
@@ -454,7 +454,7 @@ ActiveRecord::Schema.define(version: 20161121140044) do
   add_index "products_schedules", ["product_id"], name: "index_products_schedules_on_product_id", using: :btree
   add_index "products_schedules", ["schedule_id"], name: "index_products_schedules_on_schedule_id", using: :btree
 
-  create_table "products_stores", force: true do |t|
+  create_table "products_stores", force: :cascade do |t|
     t.integer "product_id"
     t.integer "store_id"
   end
@@ -462,7 +462,7 @@ ActiveRecord::Schema.define(version: 20161121140044) do
   add_index "products_stores", ["product_id"], name: "index_products_stores_on_product_id", using: :btree
   add_index "products_stores", ["store_id"], name: "index_products_stores_on_store_id", using: :btree
 
-  create_table "properties", force: true do |t|
+  create_table "properties", force: :cascade do |t|
     t.integer  "product_id"
     t.string   "name"
     t.string   "value"
@@ -472,7 +472,7 @@ ActiveRecord::Schema.define(version: 20161121140044) do
 
   add_index "properties", ["product_id"], name: "index_properties_on_product_id", using: :btree
 
-  create_table "publishes", force: true do |t|
+  create_table "publishes", force: :cascade do |t|
     t.integer  "store_id"
     t.integer  "product_id"
     t.integer  "user_id"
@@ -490,7 +490,7 @@ ActiveRecord::Schema.define(version: 20161121140044) do
   add_index "publishes", ["store_id"], name: "index_publishes_on_store_id", using: :btree
   add_index "publishes", ["user_id"], name: "index_publishes_on_user_id", using: :btree
 
-  create_table "pushes", force: true do |t|
+  create_table "pushes", force: :cascade do |t|
     t.integer  "store_id"
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -498,7 +498,7 @@ ActiveRecord::Schema.define(version: 20161121140044) do
 
   add_index "pushes", ["store_id"], name: "index_pushes_on_store_id", using: :btree
 
-  create_table "recurrings", force: true do |t|
+  create_table "recurrings", force: :cascade do |t|
     t.integer  "store_id"
     t.string   "profile_id"
     t.decimal  "value",              precision: 8, scale: 2
@@ -511,7 +511,7 @@ ActiveRecord::Schema.define(version: 20161121140044) do
 
   add_index "recurrings", ["store_id"], name: "index_recurrings_on_store_id", using: :btree
 
-  create_table "schedules", force: true do |t|
+  create_table "schedules", force: :cascade do |t|
     t.integer  "store_id"
     t.date     "initial"
     t.date     "final"
@@ -525,7 +525,7 @@ ActiveRecord::Schema.define(version: 20161121140044) do
 
   add_index "schedules", ["store_id"], name: "index_schedules_on_store_id", using: :btree
 
-  create_table "sellers", force: true do |t|
+  create_table "sellers", force: :cascade do |t|
     t.string   "name"
     t.string   "cell_phone"
     t.string   "phone"
@@ -556,7 +556,7 @@ ActiveRecord::Schema.define(version: 20161121140044) do
   add_index "sellers", ["reset_password_token"], name: "index_sellers_on_reset_password_token", unique: true, using: :btree
   add_index "sellers", ["seller_id"], name: "index_sellers_on_seller_id", using: :btree
 
-  create_table "stores", force: true do |t|
+  create_table "stores", force: :cascade do |t|
     t.integer  "plan_id"
     t.string   "name"
     t.string   "phone"
@@ -608,7 +608,7 @@ ActiveRecord::Schema.define(version: 20161121140044) do
   add_index "stores", ["store_id"], name: "index_stores_on_store_id", using: :btree
   add_index "stores", ["sub_department_id"], name: "index_stores_on_sub_department_id", using: :btree
 
-  create_table "streets", force: true do |t|
+  create_table "streets", force: :cascade do |t|
     t.integer  "device_id"
     t.string   "address"
     t.float    "latitude"
@@ -619,24 +619,24 @@ ActiveRecord::Schema.define(version: 20161121140044) do
 
   add_index "streets", ["device_id"], name: "index_streets_on_device_id", using: :btree
 
-  create_table "term_translations", force: true do |t|
+  create_table "term_translations", force: :cascade do |t|
     t.integer  "term_id",    null: false
     t.string   "locale",     null: false
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.text     "text"
   end
 
   add_index "term_translations", ["locale"], name: "index_term_translations_on_locale", using: :btree
   add_index "term_translations", ["term_id"], name: "index_term_translations_on_term_id", using: :btree
 
-  create_table "terms", force: true do |t|
+  create_table "terms", force: :cascade do |t|
     t.integer  "version",    default: 0, null: false
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  create_table "users", force: true do |t|
+  create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "",    null: false
     t.string   "encrypted_password",     default: "",    null: false
     t.string   "reset_password_token"
@@ -660,7 +660,7 @@ ActiveRecord::Schema.define(version: 20161121140044) do
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
   add_index "users", ["store_id"], name: "index_users_on_store_id", using: :btree
 
-  create_table "versions", force: true do |t|
+  create_table "versions", force: :cascade do |t|
     t.string   "item_type",  null: false
     t.integer  "item_id",    null: false
     t.string   "event",      null: false
@@ -671,7 +671,7 @@ ActiveRecord::Schema.define(version: 20161121140044) do
 
   add_index "versions", ["item_type", "item_id"], name: "index_versions_on_item_type_and_item_id", using: :btree
 
-  create_table "videos", force: true do |t|
+  create_table "videos", force: :cascade do |t|
     t.text     "html"
     t.string   "locale"
     t.integer  "franchise_id"
