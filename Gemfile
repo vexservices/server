@@ -158,4 +158,10 @@ group :test do
   gem 'json-schema'
 end
 
+#Environment variables
 gem 'figaro'
+
+#Capistrano
+gem 'capistrano'
+gem 'capistrano-rails'
+gem 'capistrano-bundler'
