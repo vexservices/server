@@ -5,7 +5,7 @@ development:
   adapter: postgresql
   database: <%= ENV["DB_NAME"] %> 
 production:
-  host: localhost
+  host: <%= ENV["DB_HOST"] %>
   username: <%= ENV["DB_USERNAME"] %> 
   password: <%= ENV["DB_PASSWORD"] %>
   adapter: postgresql
