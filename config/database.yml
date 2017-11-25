@@ -1,13 +1,13 @@
 development:
-  host: localhost
+  host: <%= ENV["DB_HOST"] %> 
   username: <%= ENV["DB_USERNAME"] %> 
   password: <%= ENV["DB_PASSWORD"] %>
   adapter: postgresql
-  database: vex-development
+  database: <%= ENV["DB_NAME"] %> 
 production:
   host: localhost
   username: <%= ENV["DB_USERNAME"] %> 
   password: <%= ENV["DB_PASSWORD"] %>
   adapter: postgresql
-  database: vex-production
+  database: <%= ENV["DB_NAME"] %> 
 
