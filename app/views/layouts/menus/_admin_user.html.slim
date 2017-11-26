@@ -2,7 +2,7 @@
   - if current_admin.master_admin?
     ul.nav.navbar-nav
       li.dropdown
-        == link_to '#', class: 'dropdown-toggle user-menu', data: { toggle: "dropdown"}, data: { no-turbolink: "true" } do
+        == link_to '#', class: 'dropdown-toggle user-menu', :data => { :toggle => "dropdown", :'no-turbolink' => "true" } do
           span==t('menus.reports')
           i.fa.fa-angle-down
 
@@ -19,7 +19,7 @@
       == render 'layouts/menus/locales'
 
       li.dropdown
-        == link_to '#', class: 'dropdown-toggle user-menu', data: { toggle: "dropdown"}, data: { no-turbolink: "true" } do
+        == link_to '#', class: 'dropdown-toggle user-menu', :data => { :toggle => "dropdown", :'no-turbolink' => "true" } do
           span== current_admin.name
           i.fa.fa-angle-down
 
