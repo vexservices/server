@@ -114,6 +114,9 @@ GEM
       capistrano-bundler (~> 1.1)
     capistrano-rails-db (0.0.2)
       capistrano-rails (~> 1.1)
+    capistrano-sidekiq (0.20.0)
+      capistrano (>= 3.9.0)
+      sidekiq (>= 3.4)
     capybara (2.13.0)
       addressable
       mime-types (>= 1.16)
@@ -638,6 +641,7 @@ DEPENDENCIES
   capistrano-bundler
   capistrano-rails
   capistrano-rails-db
+  capistrano-sidekiq
   capybara
   capybara-webkit
   carrierwave
