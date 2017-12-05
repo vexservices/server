@@ -20,7 +20,7 @@ Rails.application.configure do
   # config.action_dispatch.rack_cache = true
 
   # Disable Rails's static asset server (Apache or nginx will already do this).
-  config.serve_static_assets = true
+  config.serve_static_files = true
   config.static_cache_control = "public, max-age=#{1.month.to_i}"
 
   # Compress JavaScripts and CSS.
@@ -46,7 +46,7 @@ Rails.application.configure do
 
   # Set to :debug to see everything in the log.
   # config.logger = Logger.new(STDOUT)
-  config.log_level = :info
+  config.log_level = :debug
 
   # Prepend all log lines with the following tags.
   # config.log_tags = [ :subdomain, :uuid ]
@@ -64,8 +64,8 @@ Rails.application.configure do
       :socket_failure_delay => 0.2 }
 
   # Enable serving of images, stylesheets, and JavaScripts from an asset server.
-  config.action_controller.asset_host = "//#{ ENV['CLOUDFRONT'] }.cloudfront.net"
-  config.assets.prefix = "/production/assets"
+  #config.action_controller.asset_host = "//#{ ENV['CLOUDFRONT'] }.cloudfront.net"
+  #config.assets.prefix = "/production/assets"
 
   # Precompile additional assets.
   # application.js, application.css, and all non-JS/CSS in app/assets folder are already added.
@@ -94,4 +94,16 @@ Rails.application.configure do
   # Default Url in Mailer
   config.action_mailer.default_url_options = { host: ENV['HOST_NAME'] }
   Rails.application.routes.default_url_options[:host] = ENV['HOST_NAME']
+
+config.action_mailer.delivery_method = :smtp
+  config.action_mailer.smtp_settings = {
+    address: 'smtpout.secureserver.net',
+    domain: 'vex.phowma.com',
+    port: 465,
+    user_name: ENV['MAIL_USER'],
+    password: ENV['MAIL_PASS'],
+    authentication: :plain,
+    enable_starttls_auto: true,
+    ssl: true
+  }
 end
