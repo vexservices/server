@@ -87,7 +87,7 @@ gem 'enumerate_it'
 
 # Heroku
 gem 'asset_sync'
-gem 'fog'
+gem 'fog-aws'
 
 # NewRelic
 
