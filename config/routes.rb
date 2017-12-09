@@ -6,9 +6,9 @@ Rails.application.routes.draw do
   get "/500", to: 'errors#server_error'
 
   namespace :api, defaults: { format: 'json' } do
-    resources :sessions, only: [:create]
-    resource  :sessions, only: [:destroy]
-
+    resources :sessions, only: [:create, :destroy] do
+      collection {post :register}
+    end
     resources :categories
     resources :devices, only: [:show, :create, :update]
     resources :schedules, only: [:index, :show, :create, :destroy]

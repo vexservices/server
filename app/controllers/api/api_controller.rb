@@ -1,5 +1,6 @@
 class Api::ApiController < ApplicationController
   protect_from_forgery with: :null_session
+  skip_before_action :verify_authenticity_token
   respond_to :json
 
   around_filter :user_time_zone, if: :current_store
