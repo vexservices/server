@@ -7,6 +7,7 @@
 
     .form-inputs
       == f.input :name, autofocus: true
+      == f.input :short_name
 
       .col-md-12
         == image_tag @store.logo_or_default_url(:medium), class: "img-thumbnail image-sample"
@@ -19,12 +20,14 @@
       == f.input :official_email
       == f.input :website
       == f.input :time_zone, prompt: true, priority: /US/
+      == f.input :register
 
       - if @store.corporate?
         == f.association :business, collection: Business.includes(:translations), prompt: true
         == f.input :currency, collection: money_collection, prompt: false
 
       == f.input :about
+      == f.input :keywords
 
       - if @store.corporate?
         == f.input :keywords

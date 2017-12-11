@@ -39,4 +39,29 @@ namespace :stores do
       end
     end
   end
+
+  task create_search_name: :environment do
+    Store.find_each do |store|
+      name = store.name
+      name_array = name.split('**')
+      len = name_array.length
+      if (len > 2)
+        name = name_array[len-1]
+      end
+      name_array = name.split('<br>')
+      start_br = name.index('<br>')
+      if (start_br == 0)
+        name = name_array[1]
+      else
+        name = name_array[0]
+      end 
+      if (!name || name.empty?)
+        puts "store_name: #{store.name}"
+      else
+        puts "name: #{name}"
+      end 
+      store.short_name = name
+      store.save
+    end
+  end
 end

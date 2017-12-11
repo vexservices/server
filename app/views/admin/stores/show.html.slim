@@ -18,6 +18,10 @@
           td== @store.name
         tr
           td
+            strong== ta(Store, 'short_name')
+          td== @store.short_name
+        tr
+          td
             strong== ta(Store, 'phone')
           td== @store.phone
         tr
@@ -52,6 +56,10 @@
           td
             strong== ta(Store, 'active')
           td== boolean_span @store.active
+        tr
+          td
+            strong== ta(Store, 'register')
+          td== boolean_span @store.register ? @store.register : false
 
   .col-sm-6
     table.table.table-striped
@@ -84,6 +92,10 @@
     h4== ta(Store, 'about')
 
     == simple_format @store.about
+
+  .col-md-12
+    h4== ta(Store, 'keywords')
+    == @store.keywords
 
   .col-md-12
     == render '/admin/shared/users', users: @store.users

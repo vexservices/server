@@ -1,4 +1,4 @@
-== simple_form_for [@device, @store, Message.new], remote: true do |f|
+== simple_form_for [@device, @store, Message.new] do |f|
   .input-group
     == f.input :message, as: :string, wrapper: :chat, input_html: { id: 'message_input' }
 

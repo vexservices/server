@@ -104,7 +104,9 @@ class Importer
       official_email: row['official_email'],
       website: row['website'],
       about: row['about'],
-
+      register: row['register'],
+      keywords: row['keywords'],
+      short_name: row['short_name'],
       address_attributes: {
         country: row['country'],
         state: row['state'],
