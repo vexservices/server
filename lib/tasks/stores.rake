@@ -64,4 +64,40 @@ namespace :stores do
       store.save
     end
   end
+  task :generate_csv, [:corporate_id] => [:environment] do |t, args|
+    corporate_store = Store.where(id: args[:corporate_id]).first
+    stores = corporate_store.subtree
+    temp_file = File.open('/tmp/stores.csv','w')
+    temp_file.write("id, parent id, number,level,name,short_name,keywords,cell_phone, phone,contact,official_email,website, time_zone, about,department,country,state,city,address,zip,register,user_name,email,image\n")
+    stores.find_each do |store|
+      user = store.users.first
+      temp_file.write( 
+"#{store.id},\
+#{store.store_id},\
+#{store.number},\
+L#{store.ancestry_depth},\
+\"#{store.name}\",\
+\"#{store.short_name}\",\
+\"#{store.keywords}\",\
+#{store.cell_phone},\
+#{store.phone},\
+\"#{store.contact}\",\
+#{store.official_email},\
+#{store.website},\
+#{store.time_zone},\
+\"#{store.about}\",\
+#{store.department_name},\
+#{store.address_country},\
+#{store.address_state},\
+#{store.address_city},\
+\"#{store.address_street}\",\
+#{store.address_zip},\
+#{store.register},\
+#{user.name},\
+#{user.email},\
+#{store.logo.url(:original)}")
+      temp_file.write("\n")
+    end
+    temp_file.close
+  end
 end
