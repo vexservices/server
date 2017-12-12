@@ -40,6 +40,15 @@ namespace :stores do
     end
   end
 
+  task fix_time_zone: :environment do
+    Store.find_each do |store|
+      if (store.time_zone == "Eastern Standard Time")
+        store.time_zone = "Eastern Time (US & Canada)"
+        store.save
+      end
+    end
+  end
+
   task create_search_name: :environment do
     Store.find_each do |store|
       name = store.name
@@ -71,6 +80,11 @@ namespace :stores do
     temp_file.write("id, parent id, number,level,name,short_name,keywords,cell_phone, phone,contact,official_email,website, time_zone, about,department,country,state,city,address,zip,register,user_name,email,image\n")
     stores.find_each do |store|
       user = store.users.first
+      if (store.about)
+        about = store.about.squish
+      else
+        about = ""
+      end
       temp_file.write( 
 "#{store.id},\
 #{store.store_id},\
@@ -85,7 +99,7 @@ L#{store.ancestry_depth},\
 #{store.official_email},\
 #{store.website},\
 #{store.time_zone},\
-\"#{store.about}\",\
+\"#{about}\",\
 #{store.department_name},\
 #{store.address_country},\
 #{store.address_state},\
