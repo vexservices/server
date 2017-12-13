@@ -3,7 +3,7 @@ namespace :stores do
     corporates = Store.corporates
 
     corporates.find_each do |corporate|
-      corporate.stores.find_each do |store|
+      corporate.subtree.find_each do |store|
         store.plan_id ||= corporate.plan_id
         store.save
       end
