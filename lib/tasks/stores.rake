@@ -80,18 +80,29 @@ namespace :stores do
     temp_file.write("id, parent id, number,level,name,short_name,keywords,cell_phone, phone,contact,official_email,website, time_zone, about,department,country,state,city,address,zip,register,user_name,email,image\n")
     stores.find_each do |store|
       user = store.users.first
+      about = ""
       if (store.about)
         about = store.about.squish
-      else
-        about = ""
+        about = about.gsub('"',"'")
+        puts "about: #{about}"
+      end
+      name = ""
+      if (store.name)
+        name = store.name
+        name = name.gsub('"',"'")
+      end
+      short_name = ""
+      if (store.short_name)
+        short_name = store.short_name
+        short_name = short_name.gsub('"',"'")
       end
       temp_file.write( 
 "#{store.id},\
 #{store.store_id},\
 #{store.number},\
 L#{store.ancestry_depth},\
-\"#{store.name}\",\
-\"#{store.short_name}\",\
+\"#{name}\",\
+\"#{short_name}\",\
 \"#{store.keywords}\",\
 #{store.cell_phone},\
 #{store.phone},\
