@@ -107,6 +107,7 @@ class Importer
       register: row['register'],
       keywords: row['keywords'],
       short_name: row['short_name'],
+      search: row['search'],
       address_attributes: {
         country: row['country'],
         state: row['state'],

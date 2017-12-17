@@ -1,10 +1,10 @@
 module Moneyable
   def normalize_money(value)
-    value = value.to_s
+    #value = value.to_s
 
-    if value && value =~ /[,.]/
-      value = value.gsub(/[,.]/, '').to_f / 100
-    end
+    #if value && value =~ /[,.]/
+    #  value = value.gsub(/[,.]/, '').to_f / 100
+    #end
 
     value
   end

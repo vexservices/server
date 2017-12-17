@@ -35,9 +35,9 @@ class BranchStoresController < ApplicationController
 
     def store_params
       params.require(:store).permit(
-        :name, :cell_phone, :app_name, :time_zone, :payment_option,
+        :name, :short_name, :cell_phone, :app_name, :time_zone, :payment_option,
         :plan_id, :phone, :official_email, :website, :contact, :about, :logo,
-        :department_id, :sub_department_id,
+        :department_id, :sub_department_id, :register, :search,
         users_attributes: [:id, :name, :email, :password, :password_confirmation],
         address_attributes: [ :id, :country, :state, :city, :street, :zip ]
       )

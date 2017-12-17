@@ -55,9 +55,9 @@ class Admin::StoresController < Admin::AdminController
 
     def store_params
       params.require(:store).permit(
-        :name, :cell_phone, :app_name, :time_zone, :payment_option,
+        :name, :short_name, :cell_phone, :app_name, :time_zone, :payment_option,
         :plan_id, :phone, :official_email, :website, :contact, :trial_at,
-        :blocked, :free_payment,
+        :blocked, :free_payment, :register, :search,
         address_attributes: [
           :id, :country, :state, :city, :street, :zip, :latitude, :longitude
         ]

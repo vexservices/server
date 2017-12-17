@@ -12,7 +12,8 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require bootstrap-sprockets
+//= require bootstrap
+//= require turbolinks
 //= require public/detectmobilebrowser
 //= require public/jquery.easing.1.3
 //= require public/jquery.flexslider-min

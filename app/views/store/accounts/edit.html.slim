@@ -21,6 +21,7 @@
       == f.input :website
       == f.input :time_zone, prompt: true, priority: /US/
       == f.input :register
+      == f.input :search
 
       - if @store.corporate?
         == f.association :business, collection: Business.includes(:translations), prompt: true

@@ -11,9 +11,9 @@
 // about supported directives.
 //
 //= require jquery
-//= require jquery.turbolinks
 //= require jquery_ujs
-//= require bootstrap-sprockets
+//= require bootstrap
+//= require turbolinks
 //= require jquery_nested_form
 //= require select2-full
 //= require jquery-ui/widgets/datepicker

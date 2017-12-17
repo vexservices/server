@@ -60,6 +60,10 @@
           td
             strong== ta(Store, 'register')
           td== boolean_span @store.register ? @store.register : false
+        tr
+          td
+            strong== ta(Store, 'search')
+          td== boolean_span @store.search ? @store.search : false
 
   .col-sm-6
     table.table.table-striped
