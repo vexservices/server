@@ -34,7 +34,7 @@ class Product < ActiveRecord::Base
         price: self.price_by_store(store),
         regular_price: self.regular_price_by_store(store),
         user: user,
-        published_until: DateTime.current + 23.50.hours
+        published_until: DateTime.current + 5.years
       )
     else
       return false
@@ -61,5 +61,13 @@ class Product < ActiveRecord::Base
   def regular_price_by_store(store)
     record = product_or_price_by_store(store)
     record.present? ? record.regular_price : regular_price
+  end
+  def publish_until
+    publish = Publish.where({product_id: self.id}).order(:published_until).published.active.first
+    if (publish)
+      publish.published_until
+    else
+      nil
+    end
   end
 end
