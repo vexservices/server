@@ -33,6 +33,9 @@
           == f.input :logo
       .row
         .col-md-6
+          == f.input :short_name
+      .row
+        .col-md-6
           == f.input :cell_phone
         .col-md-6
           == f.input :phone
@@ -71,7 +74,20 @@
       .row
         .col-md-12
           == f.input :about
+      .row
+        .col-md-12
+          == f.input :keywords
+      .row
+        .col-md-3
+          == f.input :search
+        .col-md-3
+          == f.input :register
 
+      .row
+        .col-md-6
+          == f.input :paid
+        .col-md-6
+          == f.input :price
       .form-actions
         == f.submit t('buttons.device.sign_up'), class: 'btn btn-primary btn-block btn-lg'
   - else

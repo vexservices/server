@@ -30,6 +30,9 @@
       == f.input :about
       == f.input :keywords
 
+      == f.input :paid
+      == f.input :price
+
       - if @store.corporate?
         == f.input :keywords
         == f.input :short_description

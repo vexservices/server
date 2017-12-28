@@ -65,6 +65,16 @@
             strong== ta(Store, 'search')
           td== boolean_span @store.search ? @store.search : false
 
+        tr
+          td
+            strong== ta(Store,'paid')
+          td== boolean_span @store.paid ? @store.paid : false
+
+      
+        tr
+          td
+            strong== ta(Store, 'price')
+          td== @store.price
   .col-sm-6
     table.table.table-striped
       thead

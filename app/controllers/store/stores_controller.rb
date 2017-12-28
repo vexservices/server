@@ -69,10 +69,10 @@ class Store::StoresController < Store::StoreController
 
     def stores_params
       params.require(:store).permit(
-        :name, :cell_phone, :app_name, :time_zone, :payment_option,
+        :name, :short_name, :cell_phone, :app_name, :time_zone, :payment_option,
         :plan_id, :phone, :official_email, :website, :contact, :active,
         :about, :logo, :department_id, :sub_department_id, :register, :keywords,
-        :search,
+        :search, :paid, :price,
         department_ids: [],
         users_attributes: [:id, :name, :email, :password, :password_confirmation],
         address_attributes: [

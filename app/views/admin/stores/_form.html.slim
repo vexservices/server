@@ -11,6 +11,7 @@
     == f.input :website
     == f.input :time_zone, prompt: true, priority: /US/
     == f.input :trial_at
+    == f.input :about
     == f.input :keywords
 
     == f.association :plan, prompt: false, label_method: :name_with_price,
@@ -20,7 +21,8 @@
     == f.input :free_payment
     == f.input :register
     == f.input :search
-
+    == f.input :paid
+    == f.input :price
     h3== hn(Address)
 
     == f.simple_fields_for :address do |a|
