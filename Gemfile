@@ -11,8 +11,6 @@ gem 'spring', group: :development
 # Javascript
 gem 'jquery-rails'
 gem 'jquery-ui-rails'
-gem 'jquery-turbolinks'
-gem 'turbolinks'
 gem 'jquery-fileupload-rails'
 
 # HTML Framework
@@ -167,3 +165,5 @@ gem 'capistrano-rails'
 gem 'capistrano-bundler'
 gem 'capistrano-rails-db'
 gem 'capistrano-sidekiq'
+
+gem 'jstree-rails-4'

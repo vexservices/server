@@ -13,7 +13,6 @@
 //= require jquery
 //= require jquery_ujs
 //= require bootstrap
-//= require turbolinks
 //= require jquery_nested_form
 //= require select2-full
 //= require jquery-ui/widgets/datepicker
@@ -22,8 +21,6 @@
 //= require jquery-fileupload/basic
 //= require jquery-fileupload/vendor/tmpl
 //= require gmaps/google
-//= require jstree/jstree.min
-//= require turbolinks
+//= require jstree
 //= require nprogress
-//= require nprogress-turbolinks
 //= require_tree .
