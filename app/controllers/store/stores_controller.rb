@@ -55,7 +55,7 @@ class Store::StoresController < Store::StoreController
       @client = Client.find(params[:client_id]) 
     end
 
-    @stores = current_corporate.subtree.order(corporate: :desc, store_id: :asc, name: :asc)
+    @stores = current_corporate.subtree.order(corporate: :desc, store_id: :asc, short_name: :asc)
   end
 
   private

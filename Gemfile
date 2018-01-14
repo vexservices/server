@@ -65,6 +65,8 @@ gem 'fastimage'
 # Jobs
 #gem 'sinatra', require: false
 gem 'sidekiq'
+gem 'sidekiq-status'
+gem 'redis-namespace'
 
 # Tabs
 gem 'tabs_on_rails'
