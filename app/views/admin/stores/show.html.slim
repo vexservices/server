@@ -120,6 +120,7 @@
   .actions
     == link_to_back admin_corporate_stores_path(@corporate)
     == link_to hnp(Job), admin_store_jobs_path(@store), class: 'btn btn-default'
+    == link_to "Reports", download_admin_store_reports_url(@store), class: 'btn btn-default'
     == link_to t('buttons.edit'), edit_admin_corporate_store_path(@corporate, @store), class: 'btn btn-default'
     == link_to hnp(Store), admin_corporate_stores_path(@store), class: 'btn btn-default'
     == link_to hnp(Recurring), admin_store_recurrings_path(@store), class: 'btn btn-default'

@@ -184,6 +184,9 @@ Rails.application.routes.draw do
       resources :stores, only: [] do
         resources :recurrings, only: [:index, :show]
         resources :jobs, except: [:update, :edit]
+        resources :reports do
+          get :download, on: :collection
+        end
       end
 
       resources :corporates do
@@ -198,7 +201,6 @@ Rails.application.routes.draw do
           get :download
         end
       end
-
       resources :jobs, only: [] do
         get :download, on: :collection
         get :retry,    on: :member
