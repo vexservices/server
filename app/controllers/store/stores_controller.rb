@@ -72,7 +72,7 @@ class Store::StoresController < Store::StoreController
         :name, :short_name, :cell_phone, :app_name, :time_zone, :payment_option,
         :plan_id, :phone, :official_email, :website, :contact, :active,
         :about, :logo, :department_id, :sub_department_id, :register, :keywords,
-        :search, :paid, :price,
+        :search, :paid, :price, :free,
         department_ids: [],
         users_attributes: [:id, :name, :email, :password, :password_confirmation],
         address_attributes: [

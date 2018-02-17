@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161121140044) do
+ActiveRecord::Schema.define(version: 20180215152243) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -144,9 +144,21 @@ ActiveRecord::Schema.define(version: 20161121140044) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "token"
-    t.boolean  "admin",         default: false, null: false
+    t.boolean  "admin",                  default: false, null: false
+    t.string   "email"
+    t.string   "encrypted_password",     default: "",    null: false
+    t.string   "reset_password_token"
+    t.datetime "reset_password_sent_at"
+    t.datetime "remember_created_at"
+    t.integer  "sign_in_count",          default: 0,     null: false
+    t.datetime "current_sign_in_at"
+    t.datetime "last_sign_in_at"
+    t.inet     "current_sign_in_ip"
+    t.inet     "last_sign_in_ip"
   end
 
+  add_index "clients", ["email"], name: "index_clients_on_email", unique: true, using: :btree
+  add_index "clients", ["reset_password_token"], name: "index_clients_on_reset_password_token", unique: true, using: :btree
   add_index "clients", ["store_id"], name: "index_clients_on_store_id", using: :btree
 
   create_table "clients_stores", force: :cascade do |t|
@@ -568,34 +580,40 @@ ActiveRecord::Schema.define(version: 20161121140044) do
     t.string   "token"
     t.string   "number"
     t.integer  "payment_option"
-    t.boolean  "corporate",           default: false, null: false
+    t.boolean  "corporate",                                   default: false, null: false
     t.date     "trial_at"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "store_id"
-    t.integer  "users_count",         default: 0,     null: false
-    t.integer  "stores_count",        default: 0,     null: false
+    t.integer  "users_count",                                 default: 0,     null: false
+    t.integer  "stores_count",                                default: 0,     null: false
     t.string   "logo"
-    t.integer  "term_version",        default: 0,     null: false
-    t.boolean  "active",              default: true,  null: false
+    t.integer  "term_version",                                default: 0,     null: false
+    t.boolean  "active",                                      default: true,  null: false
     t.datetime "plan_updated_at"
     t.integer  "app_logo_id"
     t.text     "about"
     t.integer  "seller_id"
-    t.boolean  "blocked",             default: false, null: false
+    t.boolean  "blocked",                                     default: false, null: false
     t.integer  "department_id"
     t.integer  "sub_department_id"
     t.text     "short_description"
     t.text     "keywords"
     t.string   "vender_name"
-    t.string   "currency",            default: "USD", null: false
+    t.string   "currency",                                    default: "USD", null: false
     t.integer  "franchise_id"
     t.string   "ancestry"
-    t.integer  "ancestry_depth",      default: 0,     null: false
-    t.boolean  "free_payment",        default: false, null: false
-    t.boolean  "manual_payment",      default: false, null: false
+    t.integer  "ancestry_depth",                              default: 0,     null: false
+    t.boolean  "free_payment",                                default: false, null: false
+    t.boolean  "manual_payment",                              default: false, null: false
     t.integer  "business_id"
-    t.integer  "active_stores_count", default: 0,     null: false
+    t.integer  "active_stores_count",                         default: 0,     null: false
+    t.boolean  "register",                                    default: false
+    t.string   "short_name"
+    t.boolean  "search",                                      default: true
+    t.boolean  "paid",                                        default: false
+    t.decimal  "price",               precision: 8, scale: 2
+    t.boolean  "free",                                        default: false
   end
 
   add_index "stores", ["ancestry"], name: "index_stores_on_ancestry", using: :btree

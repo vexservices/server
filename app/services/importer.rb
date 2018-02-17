@@ -108,6 +108,9 @@ class Importer
       keywords: row['keywords'],
       short_name: row['short_name'],
       search: row['search'],
+      paid: row['paid'],
+      price: row['price'],
+      free: row['free'],
       address_attributes: {
         country: row['country'],
         state: row['state'],
@@ -123,16 +126,45 @@ class Importer
       }]
     }
 
-    branch_store = @store.stores.build(store_params)
+    store_params_update = {
+      name: row['name'],
+      cell_phone: row['cell_phone'],
+      time_zone: row['time_zone'],
+      phone: row['phone'],
+      contact: row['contact'],
+      official_email: row['official_email'],
+      website: row['website'],
+      about: row['about'],
+      register: row['register'],
+      keywords: row['keywords'],
+      short_name: row['short_name'],
+      search: row['search'],
+      address_attributes: {
+        country: row['country'],
+        state: row['state'],
+        street: row['street'],
+        city: row['city'],
+        zip: row['zip']
+      }
+    }
 
-    if row['department']
-      if department = @store.sections.search_by_name(row['department']).first
-        branch_store.departments << department;
+    if (row['id'].empty?)
+
+      branch_store = @store.stores.build(store_params)
+
+      if row['department']
+        if department = @store.sections.search_by_name(row['department']).first
+          branch_store.departments << department;
+        end
       end
-    end
 
-    if row['image']
-      create_store_logo(branch_store, row['image'])
+      if row['image']
+        create_store_logo(branch_store, row['image'])
+      end
+
+    else
+      branch_store = Store.find(row['id'])
+      branch_store.assign_attributes(store_params_update) 
     end
 
     if branch_store.save

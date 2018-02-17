@@ -58,7 +58,7 @@ class Admin::StoresController < Admin::AdminController
         :name, :short_name, :cell_phone, :app_name, :time_zone, :payment_option,
         :plan_id, :phone, :official_email, :website, :contact, :trial_at,
         :about, :keywords,
-        :blocked, :free_payment, :register, :search, :paid, :price,
+        :blocked, :free_payment, :register, :search, :paid, :price, :free,
         address_attributes: [
           :id, :country, :state, :city, :street, :zip, :latitude, :longitude
         ]

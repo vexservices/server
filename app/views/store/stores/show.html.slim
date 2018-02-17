@@ -50,6 +50,10 @@
             td== boolean_span @store.search ? @store.search : false
         tr
           td
+            strong== ta(Store, 'free')
+            td== boolean_span @store.free ? @store.free : false
+        tr
+          td
             strong== ta(Store, 'paid')
             td== boolean_span @store.paid ? @store.paid : false
         tr
