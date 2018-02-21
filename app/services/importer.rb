@@ -148,7 +148,10 @@ class Importer
       }
     }
 
-    if (row['id'].empty?)
+    if (row['id'])
+      branch_store = Store.find(row['id'])
+      branch_store.assign_attributes(store_params_update)
+    else
 
       branch_store = @store.stores.build(store_params)
 
@@ -161,10 +164,6 @@ class Importer
       if row['image']
         create_store_logo(branch_store, row['image'])
       end
-
-    else
-      branch_store = Store.find(row['id'])
-      branch_store.assign_attributes(store_params_update) 
     end
 
     if branch_store.save
