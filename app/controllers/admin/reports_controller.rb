@@ -8,7 +8,7 @@ class Admin::ReportsController < Admin::AdminController
     corporate_store = Store.where(id: params[:store_id]).first
     stores = corporate_store.subtree
     temp_file = File.open('/tmp/export.csv','w')
-    temp_file.write("id,parent id,number,level,name,short_name,keywords,cell_phone,phone,contact,official_email,website,time_zone,about,department,country,state,city,street,zip,register,paid,price,free,user_name,email,image\n")
+    temp_file.write("id,parent id,number,level,name,short_name,keywords,cell_phone,phone,contact,official_email,website,time_zone,about,department,country,state,city,street,zip,search,register,paid,price,free,user_name,email,image\n")
     stores.find_each do |store|
       user = store.users.first
       about = ""
@@ -48,6 +48,7 @@ L#{store.ancestry_depth},\
 #{store.address_city},\
 \"#{store.address_street}\",\
 #{store.address_zip},\
+#{store.search},\
 #{store.register},\
 #{store.paid},\
 #{store.price},\
