@@ -7,22 +7,32 @@
     table.table.table-bordered.table-striped
       thead
         tr
+          th== ta(Device, 'id')
           th== ta(Device, 'name')
+          th== ta(Device, 'token')
           th== ta(Device, 'email')
-          th== ta(Device, 'phone')
           th== ta(Device, 'kind')
           th== ta(Device, 'push_token')
+          th== ta(Device, 'latitude')
+          th== ta(Device, 'longitude')
+          th== ta(Device, 'radius')
           th== ta(Device, 'created_at')
           th== ta(Device, 'updated_at')
       tbody
         == content_tag_for :tr, @devices, class: 'text-center' do |device|
+            td== device.id
             td== device.friendly_name
+            td== device.token
             td== device.email
-            td== device.phone
-            td== device.android? ? 'Android' : 'IOS'
-            td== device.push_token
+            td== device.android? ? 'Android' : 'iOS'
+            td== device.push_token? ? 'Yes' : 'No'
+            td== device.latitude
+            td== device.longitude
+            td== device.radius
             td== l device.created_at
             td== l device.updated_at
+            td.text-center
+              == link_to_destroy device_path(device) if policy(device).destroy?
 
     .table-footer
       == paginate @devices, theme: 'twitter-bootstrap-3'

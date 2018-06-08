@@ -65,7 +65,7 @@ Rails.application.routes.draw do
     scope module: :store do
       resources :categories
       resources :clients
-      resources :devices, only: [:index]
+      resources :devices
 
       resources :stores do
         get :trees, on: :collection

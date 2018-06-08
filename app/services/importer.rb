@@ -97,6 +97,7 @@ class Importer
   def create_store(row)
     store_params = {
       name: row['name'],
+      formatted_name: row['formatted_name'],
       cell_phone: row['cell_phone'],
       time_zone: row['time_zone'],
       phone: row['phone'],

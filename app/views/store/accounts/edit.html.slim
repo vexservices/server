@@ -6,7 +6,8 @@
     == f.error_notification
 
     .form-inputs
-      == f.input :name, autofocus: true
+      == f.input :formatted_name, autofocus: true
+      == f.input :name
       == f.input :short_name
 
       .col-md-12

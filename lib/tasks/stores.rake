@@ -49,6 +49,13 @@ namespace :stores do
     end
   end
 
+  task copy_name: :environment do
+    Store.find_each do |store|
+      store.formatted_name = store.name
+      store.save
+    end
+  end
+
   task create_search_name: :environment do
     Store.find_each do |store|
       name = store.name

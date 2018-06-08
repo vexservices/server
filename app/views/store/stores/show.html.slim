@@ -14,12 +14,16 @@
           td== @store.number
         tr
           td
+            strong== ta(Store, 'formatted name')
+          td== @store.formatted_name
+        tr
+          td
             strong== ta(Store, 'name')
           td== @store.name
         tr
           td
             strong== ta(Store, 'short_name')
-          td
+          td== @store.short_name
         tr
           td
             strong== ta(Store, 'phone')
