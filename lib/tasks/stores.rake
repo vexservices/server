@@ -59,7 +59,7 @@ namespace :stores do
       store.show_address = true
       store.show_on_map = false
       store.map_icon = 'marker'
-      #store.save
+      store.save
     end
     Store.find_each do |store|
       if (store.about)
@@ -67,7 +67,6 @@ namespace :stores do
         if (split1 && split1.length >= 2)
           split2 = split1[1].split(",")
           len = split2.length - 1
-          Rails.logger.debug "split1[1]: #{split1[1]}"
           for i in 0..len do
             if (split2[i] == 'hideChatButton')
               store.chat_button = false
@@ -104,7 +103,6 @@ namespace :stores do
             elsif (split2[i].include? 'custombutton')
               split3 = split2[i].split(';')
               if (split3.length >= 4)
-                Rails.logger.debug "custombutton: #{split3[1]}, #{split3[2]}, #{split3[3]}" 
                 if (split3[2] == 'video')
                   store.video_button_link = split3[3]
                 elsif (split3[2] == 'pdf')
