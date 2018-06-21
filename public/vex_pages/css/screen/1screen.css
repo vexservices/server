@@ -1,0 +1,58 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 06/10/2014, 16:24:36
+    Author     : jadson
+*/
+
+body{
+    /*background-color: #dee0e2;*/
+    background-color: blue;
+    font-size: 200%;
+}
+
+.btn, .btn-link, .modal-body, .modal-header h4{
+    font-size: 120%;
+}
+
+.modal-header .close{
+    font-size: 200%;
+}
+
+.storeItem .icon{
+    font-size: 150%;
+}
+
+#btHomenh{
+    width: 75%;
+}
+
+#appTile{
+    font-size: 115%;
+}
+
+.title{
+    font-weight: bold;
+    font-size: 130%;
+    margin: 0;
+}
+
+.navbar .icon{
+    font-size: 170%;
+}
+
+.navbar .icon, .navbar .fa{
+    padding-top: 8px;
+}
+
+.btBack{
+    font-size: 130%;
+    margin: 10px 0;
+}
+
+.form-control{
+    font-size: 100%;  
+}

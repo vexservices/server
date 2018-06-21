@@ -39,6 +39,11 @@ class BranchStoresController < ApplicationController
         :plan_id, :phone, :official_email, :website, :contact, 
         :about, :keywords, :logo,
         :department_id, :sub_department_id, :register, :search, :paid, :price, :free,
+        :contact_button, :map_button, :chat_button, :waze_button, :favorite_button,
+        :show_address, :show_on_map, :map_icon,
+        :store_tap, :product_tab,
+        :pdf_button_link, :video_button_link,
+        :banner,
         users_attributes: [:id, :name, :email, :password, :password_confirmation],
         address_attributes: [ :id, :country, :state, :city, :street, :zip ]
       )

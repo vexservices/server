@@ -267,6 +267,11 @@ en:
     panel:
       app_info: App Info
       info: Information
+      name: Name
+      contact: Contact
+      administrative: Administrative
+      search: Search
+      private_client: Private Client
   store:
     report:
       products:

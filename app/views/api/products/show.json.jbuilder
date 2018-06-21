@@ -9,7 +9,7 @@ json.category_name  @product.category_name
 json.category_id    @product.category_id
 json.payment_option @product.payment_option
 json.created_at     @product.created_at
-
+json.banner         @product.banner
 json.images @product.pictures.each do |picture|
   json.id       picture.id
   json.thumb    picture.file.url(:thumb)

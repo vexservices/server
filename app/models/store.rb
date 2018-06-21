@@ -92,6 +92,7 @@ class Store < ActiveRecord::Base
   end
 
   has_enumeration_for :payment_option, with: PaymentOptions, create_helpers: true
+  enum map_icon: [:marker, :fuel, :food, :exit, :hotel, :hospital]
 
   def emails
     @emails ||= users.pluck(:email)

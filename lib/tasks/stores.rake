@@ -49,6 +49,76 @@ namespace :stores do
     end
   end
 
+  task parse_about: :environment do
+    Store.find_each do |store|
+      store.contact_button = true
+      store.chat_button = true
+      store.favorite_button = true
+      store.map_button = false 
+      store.waze_button = false
+      store.show_address = true
+      store.show_on_map = false
+      store.map_icon = 'marker'
+      #store.save
+    end
+    Store.find_each do |store|
+      if (store.about)
+        split1 = store.about.split('**')
+        if (split1 && split1.length >= 2)
+          split2 = split1[1].split(",")
+          len = split2.length - 1
+          Rails.logger.debug "split1[1]: #{split1[1]}"
+          for i in 0..len do
+            if (split2[i] == 'hideChatButton')
+              store.chat_button = false
+            elsif (split2[i] == 'hideContactButton')
+              store.contact_button = false
+            elsif (split2[i] == 'hideFavoriteButton')
+              store.favorite_button = false
+            elsif (split2[i] == 'showMapButton')
+              store.map_button = true
+            elsif (split2[i] == 'hideAddress')
+              store.show_address = false
+            elsif (split2[i] == 'showOnMap')
+              store.show_on_map = true
+            elsif (split2[i] == 'fuelIcon')
+              store.map_icon = 'fuel'
+            elsif (split2[i] == 'foodIcon')
+              store.map_icon = 'food'
+            elsif (split2[i] == 'exitIcon')
+              store.map_icon = 'exit'
+            elsif (split2[i] == 'hotelIcon')
+              store.map_icon = 'hotel'
+            elsif (split2[i] == 'hospitalIcon')
+              store.map_icon = 'hospital'
+            elsif (split2[i].include? 'storetab')
+              split3 = split2[i].split(';')
+              if (split3.length >= 2)
+                store.store_tab = split3[1]
+              end
+            elsif (split2[i].include? 'producttab')
+              split3 = split2[i].split(';')
+              if (split3.length >= 2)
+                store.product_tab = split3[1]
+              end
+            elsif (split2[i].include? 'custombutton')
+              split3 = split2[i].split(';')
+              if (split3.length >= 4)
+                Rails.logger.debug "custombutton: #{split3[1]}, #{split3[2]}, #{split3[3]}" 
+                if (split3[2] == 'video')
+                  store.video_button_link = split3[3]
+                elsif (split3[2] == 'pdf')
+                  store.pdf_button_link = split3[3]
+                end
+              end
+            end
+          end
+          store.save
+        end
+      end
+    end
+  end
+
   task copy_name: :environment do
     Store.find_each do |store|
       store.formatted_name = store.name

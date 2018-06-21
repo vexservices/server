@@ -92,7 +92,7 @@ class Store::ProductsController < Store::StoreController
     def products_params
       params.require(:product).permit(
         :name, :description, :regular_price, :price, :contact_info,
-        :code, :show_all, :category_id, :payment_option, store_ids: [],
+        :code, :show_all, :category_id, :payment_option, :banner, store_ids: [],
         properties_attributes: [:id, :name, :value, :_destroy]
       )
     end

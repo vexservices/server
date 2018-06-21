@@ -25,74 +25,106 @@
             == u.input :password_confirmation
 
       h3.title==t('title.sign_up.store')
-
+      h1 Name
+      .row
+        .col-md-6
+          == f.input :name
+        .col-md-6
+          == f.input :short_name
       .row
         .col-md-6
           == f.input :formatted_name
         .col-md-6
           == f.input :logo
+          == image_tag @store.logo_or_default_url(:medium), class: "img-thumbnail image-sample"
       .row
-        .col-md-6
-          == f.input :short_name
-        .col-md-6
-          == f.input :name
-      .row
-        .col-md-6
-          == f.input :cell_phone
-        .col-md-6
-          == f.input :phone
-      .row
-        .col-md-6
-          == f.input :contact
-        .col-md-6
-          == f.input :official_email
-      .row
-        .col-md-6
-          == f.input :website
-        .col-md-6
-          == f.input :time_zone, prompt: true, priority: /US/
+        .col-md-12
+          == f.input :about
+    h1 Contact
+    .row
+      .col-md-4
+        == f.input :cell_phone
+      .col-md-4
+        == f.input :phone
+      .col-md-4
+        == f.input :official_email
 
+    .row
+      .col-md-4
+        == f.input :contact
+      .col-md-4
+        == f.input :website
+    h1== hn(Address)
+    == f.simple_fields_for :address do |a|
+      .row
+        .col-md-12
+          == a.input :street
+      .row
+        .col-md-4
+          == a.input :city
+        .col-md-4
+          == a.input :state, collection: states_collection, prompt: true
+        .col-md-4
+          == a.input :zip
+      .row
+        .col-md-4
+          == f.input :time_zone, prompt: true, priority: /US/
+        .col-md-4
+          == a.input :country, priority: ["US","BR"], prompt: true
+    h1 Search
+    .row
+      .col-md-2
+        == f.input :search
+      .col-md-10
+        == f.input :keywords
+    h1 Private Client
+    p Select free for public branches and paid for branches that need to be purchased
+    .row
+      .col-md-2
+        == f.input :free
+      .col-md-2
+        == f.input :paid
+      .col-md-4
+        == f.input :price
+    p Select register if you want to include an 'Are you the owner?' link
+    == f.input :register
+    h1 Display
+    .row
+      .col-md-2
+        == f.input :contact_button
+      .col-md-2
+        == f.input :favorite_button
+      .col-md-2
+        == f.input :map_button
+      .col-md-2
+        == f.input :waze_button
+      .col-md-2
+        == f.input :chat_button
+
+    .row
+      .col-md-2
+        == f.input :show_address
+      .col-md-2
+        == f.input :show_on_map
+      .col-md-2
+        == f.input :map_icon, prompt:true, collection: Store.map_icons.keys.to_a
+    .row
+      .col-md-3
+        == f.input :store_tab
+      .col-md-3
+        == f.input :product_tab
+    .row
+      .col-md-6
+        == f.input :pdf_button_link
+      .col-md-6
+        == f.input :video_button_link
       - if Department.where(store_id: @corporate.root.subtree_ids).present?
         .row
           .col-md-12
             == f.association :departments, as: :check_boxes,
                 collection: Department.where(store_id: @corporate.root.subtree_ids).order('name ASC')
-
-      == f.simple_fields_for :address do |a|
-        .row
-          .col-md-6
-            == a.input :country, priority: ["US", "BR"]
-          .col-md-6
-            == a.input :state
-        .row
-          .col-md-6
-            == a.input :street
-          .col-md-6
-            == a.input :city
-        .row
-          .col-md-6
-            == a.input :zip
-
-      .row
-        .col-md-12
-          == f.input :about
-      .row
-        .col-md-12
-          == f.input :keywords
-      .row
-        .col-md-3
-          == f.input :search
-        .col-md-3
-          == f.input :register
-
-      .row
-        .col-md-6
-          == f.input :free
-        .col-md-6
-          == f.input :paid
-        .col-md-6
-          == f.input :price
       .form-actions
         == f.submit t('buttons.device.sign_up'), class: 'btn btn-primary btn-block btn-lg'
   - else
     == t('.error_message')
+

@@ -2,109 +2,216 @@
   h1.col-xs-12.col-sm-4== hn(Store)
 
 == pane @store.name do
-  .col-sm-6
-    table.table.table-striped
-      thead
-        tr
-          th[colspan='2']== t('.info') 
-      tbody
-        tr
-          td
-            strong== ta(Store, 'number')
-          td== @store.number
-        tr
-          td
-            strong== ta(Store, 'formatted name')
-          td== @store.formatted_name
-        tr
-          td
-            strong== ta(Store, 'name')
-          td== @store.name
-        tr
-          td
-            strong== ta(Store, 'short_name')
-          td== @store.short_name
-        tr
-          td
-            strong== ta(Store, 'phone')
-          td== @store.phone
-        tr
-          td
-            strong== ta(Store, 'cell_phone')
-          td== @store.cell_phone
-        tr
-          td
-            strong== ta(Store, 'contact')
-          td== @store.contact
-        tr
-          td
-            strong== ta(Store, 'official_email')
-          td== @store.official_email
-        tr
-          td
-            strong== ta(Store, 'website')
-          td== @store.website
-        tr
-          td
-            strong== ta(Store, 'register')
-          td== boolean_span @store.register ? @store.register : false
-        tr
-          td
-            strong== ta(Store, 'search')
+  .row
+    .col-md-6
+      table.table.table-striped
+        thead
+          tr
+            th[colspan='2']== t('.name')
+        tbody
+          tr
+            td
+              strong== ta(Store, 'number')
+            td== @store.number
+          tr
+            td
+              strong== ta(Store, 'name')
+            td== @store.name
+          tr
+            td
+              strong== ta(Store, 'short_name')
+            td== @store.short_name
+          tr
+            td
+              strong== ta(Store, 'formatted_name')
+            td== @store.formatted_name
+          tr
+            td
+              strong== ta(Store, 'about')
+            td== @store.about
+    .col-md-6
+      table.table.table-striped
+        thead
+          tr
+            th[colspan='2']== t('.contact')
+        tbody
+          tr
+            td
+              strong== ta(Store, 'phone')
+            td== @store.phone
+          tr
+            td
+              strong== ta(Store, 'cell_phone')
+            td== @store.cell_phone
+          tr
+            td
+              strong== ta(Store, 'contact')
+            td== @store.contact
+          tr
+            td
+              strong== ta(Store, 'official_email')
+            td== @store.official_email
+          tr
+            td
+              strong== ta(Store, 'website')
+            td== @store.website
+  .row
+    .col-md-6
+      table.table.table-striped
+        thead
+          tr
+            th[colspan='2']== hn(Address)
+        tbody
+          tr
+            td
+              strong== ta(Address, 'country')
+            td== @store.address_country
+          tr
+            td
+              strong== ta(Address, 'state')
+            td== @store.address_state
+          tr
+            td
+              strong== ta(Address, 'city')
+            td== @store.address_city
+          tr
+            td
+              strong== ta(Address, 'street')
+            td== @store.address_street
+          tr
+            td
+              strong== ta(Address, 'zip')
+            td== @store.address_zip
+          tr
+            td
+              strong== ta(Address, 'latitude')
+            td== @store.address_latitude
+          tr
+            td
+              strong== ta(Address, 'longitude')
+            td== @store.address_longitude
+  .row
+    .col-md-6
+      table.table.table-striped
+        thead
+          tr
+            th[colspan='2']== t('.search')
+        tbody
+          tr
+            td
+              strong== ta(Store, 'search')
             td== boolean_span @store.search ? @store.search : false
-        tr
-          td
-            strong== ta(Store, 'free')
+          tr
+            td
+              strong== ta(Store, 'keywords')
+            td== @store.keywords
+    .col-md-6
+      table.table.table-striped
+        thead
+          tr
+            th[colspan='2']== t('.private_client_and_register')
+        tbody
+          tr
+            td
+              strong== ta(Store, 'free')
             td== boolean_span @store.free ? @store.free : false
-        tr
-          td
-            strong== ta(Store, 'paid')
+          tr
+            td
+              strong== ta(Store,'paid')
             td== boolean_span @store.paid ? @store.paid : false
-        tr
-          td
-            strong== ta(Store, 'price')
+          tr
+            td
+              strong== ta(Store, 'price')
             td== @store.price
-  .col-sm-6
-    table.table.table-striped
-      thead
-        tr
-          th[colspan='2']== hn(Address) 
-      tbody
-        tr
-          td
-            strong== ta(Address, 'country')
-          td== @store.address_country
-        tr
-          td
-            strong== ta(Address, 'state')
-          td== @store.address_state
-        tr
-          td
-            strong== ta(Address, 'city')
-          td== @store.address_city
-        tr
-          td
-            strong== ta(Address, 'street')
-          td== @store.address_street
-        tr
-          td
-            strong== ta(Address, 'zip')
-          td== @store.address_zip
-
-  .col-md-12
-    h4== ta(Store, 'about')
-
-    == simple_format @store.about
-
-  .col-md-12
-    h4== ta(Store, 'keywords')
-    == @store.keywords
-
-  .col-md-12
-    == render 'users', users: @store.users
+          tr
+            td
+              strong== ta(Store,'register')
+            td== boolean_span @store.register ? @store.register : false
+  .row
+    .col-md-6
+      table.table.table-striped
+        thead
+          tr
+            th[colspan='2']== t('.standard_buttons')
+        tbody
+          tr
+            td
+              strong== ta(Store, 'contact_button')
+            td== boolean_span @store.contact_button ? @store.contact_button : false
+          tr
+            td
+              strong== ta(Store, 'favorite_button')
+            td== boolean_span @store.favorite_button ? @store.favorite_button : false
+          tr
+            td
+              strong== ta(Store, 'map_button')
+            td== boolean_span @store.map_button ? @store.map_button : false
+          tr
+            td
+              strong== ta(Store, 'waze_button')
+            td== boolean_span @store.waze_button ? @store.waze_button : false
+          tr
+            td
+              strong== ta(Store, 'chat_button')
+            td== boolean_span @store.chat_button ? @store.chat_button : false
+    .col-md-6
+      table.table.table-striped
+        thead
+          tr
+            th[colspan='2']== t('.map_and_address')
+        tbody
+          tr
+            td
+              strong== ta(Store, 'show_address')
+            td== boolean_span @store.show_address ? @store.show_address : false
+          tr
+            td
+              strong== ta(Store, 'show_on_map')
+            td== boolean_span @store.show_on_map ? @store.show_on_map : false
+          tr
+            td
+              strong== ta(Store, 'map_icon')
+            td==  @store.map_icon
+  .row
+    .col-md-6
+      table.table.table-striped
+        thead
+          tr
+            th[colspan='2']== t('.custom_buttons')
+        tbody
+          tr
+            td
+              strong== ta(Store, 'pdf_button_link')
+            td==  @store.pdf_button_link
+          tr
+            td
+              strong== ta(Store, 'video_button_link')
+            td==  @store.video_button_link
+    .col-md-6
+      table.table.table-striped
+        thead
+          tr
+            th[colspan='2']== t('.tabs_and_banner')
+        tbody
+          tr
+            td
+              strong== ta(Store, 'banner')
+            td== boolean_span @store.banner ? @store.banner : false
+          tr
+            td
+              strong== ta(Store, 'store_tab')
+            td==  @store.store_tab
+          tr
+            td
+              strong== ta(Store, 'product_tab')
+            td==  @store.product_tab
+  .row
+    .col-md-12
+      == render 'users', users: @store.users
 
   .clearfix
   hr
 
   .actions
     == link_to_back stores_path
+

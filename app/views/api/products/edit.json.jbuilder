@@ -9,6 +9,7 @@ json.product do
   json.category_name  @product.category_name
   json.category_id    @product.category_id
   json.payment_option @product.payment_option
+  json.banner         @product.banner
 end
 
 json.categories @categories do |category|

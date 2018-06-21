@@ -6,55 +6,58 @@
     == f.error_notification
 
     .form-inputs
-      == f.input :formatted_name, autofocus: true
-      == f.input :name
-      == f.input :short_name
-
-      .col-md-12
+    h1 Name
+    .row
+      .col-md-6
+        == f.input :name, autofocus: true
+      .col-md-6
+        == f.input :short_name
+    .row
+      .col-md-6
+        == f.input :formatted_name
+      .col-md-6
+        == f.input :logo
         == image_tag @store.logo_or_default_url(:medium), class: "img-thumbnail image-sample"
+    .row
+      .col-md-12
+        == f.input :about
+    h1 Contact
+    .row
+      .col-md-4
+        == f.input :cell_phone
+      .col-md-4
+        == f.input :phone
+      .col-md-4
+        == f.input :official_email
 
-      == f.input :logo
+    .row
+      .col-md-4
+        == f.input :contact
+      .col-md-4
+        == f.input :website
 
-      == f.input :cell_phone
-      == f.input :phone
-      == f.input :contact
-      == f.input :official_email
-      == f.input :website
-      == f.input :time_zone, prompt: true, priority: /US/
-      == f.input :register
-      == f.input :search
-
-      - if @store.corporate?
-        == f.association :business, collection: Business.includes(:translations), prompt: true
-        == f.input :currency, collection: money_collection, prompt: false
-
-      == f.input :about
-      == f.input :keywords
-      == f.input :free
-      == f.input :paid
-      == f.input :price
-
-      - if @store.corporate?
-        == f.input :keywords
-        == f.input :short_description
-
-        h3== hn(App)
-
-        == f.simple_fields_for :app do |a|
-          == a.input :name
-
-      == f.association :departments, as: :check_boxes, collection: current_store.corporate.sections.order('name ASC')
-
-      h3== hn(Address)
-
-      == f.simple_fields_for :address do |a|
-        == a.input :country, priority: ["US", "BR"]
-        == a.input :state
-        == a.input :street
-        == a.input :city
-        == a.input :zip
-        == a.input :latitude, as: :hidden, input_html: { id: 'latitude' }
-        == a.input :longitude, as: :hidden, input_html: { id: 'longitude' }
+    h1== hn(Address)
+    == f.simple_fields_for :address do |a|
+      .row
+        .col-md-12
+          == a.input :street
+      .row
+        .col-md-4
+          == a.input :city
+        .col-md-4
+          == a.input :state, collection: states_collection, prompt: true
+        .col-md-4
+          == a.input :zip
+      .row
+        .col-md-4
+          == f.input :time_zone, prompt: true, priority: /US/
+        .col-md-4
+          == a.input :country, priority: ["US","BR"], prompt: true
+      .row
+        .col-md-4
+          == a.input :latitude, as: :hidden, input_html: {id: 'latitude'}
+        .col-md-4
+          == a.input :longitude, as: :hidden, input_html: {id: 'longitude'}
 
         p
           strong== t('messages.maps')
@@ -65,8 +68,70 @@
 
         .clearfix
         hr
+    h1 Search
+    .row
+      .col-md-2
+        == f.input :search
+      .col-md-10
+        == f.input :keywords
+          
+      == f.input :register
+
+    h1 Private Client
+    p Select free for public branches and paid for branches that need to be purchased
+    .row
+      .col-md-2
+        == f.input :free
+      .col-md-2
+        == f.input :paid
+      .col-md-4
+        == f.input :price
+    p Select register if you want to include an 'Are you the owner?' link
+    == f.input :register
+    h1 Display
+    .row
+      .col-md-2
+        == f.input :contact_button
+      .col-md-2
+        == f.input :favorite_button
+      .col-md-2
+        == f.input :map_button
+      .col-md-2
+        == f.input :waze_button
+      .col-md-2
+        == f.input :chat_button
+
+    .row
+      .col-md-2
+        == f.input :show_address
+      .col-md-2
+        == f.input :show_on_map
+      .col-md-2
+        == f.input :map_icon, prompt:true, collection: Store.map_icons.keys.to_a
+    .row
+      .col-md-3
+        == f.input :store_tab
+      .col-md-3
+        == f.input :product_tab
+
+    .row
+      .col-md-6
+        == f.input :pdf_button_link
+      .col-md-6
+        == f.input :video_button_link
+
+      == f.association :departments, as: :check_boxes, collection: current_store.corporate.sections.order('name ASC')
+
+    - if @store.corporate?
+      h1 Administration
+      == f.association :business, collection: Business.includes(:translations), prompt: true
+      == f.input :currency, collection: money_collection, prompt: false
+
+      == f.simple_fields_for :app do |a|
+        == a.input :name
 
     .form-actions
       == f.button :submit, class: 'btn-success'
 
 == render 'shared/map', store: @store
+

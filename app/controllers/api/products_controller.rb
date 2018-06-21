@@ -101,7 +101,7 @@ class Api::ProductsController < Api::ApiController
     def products_params
       params.require(:product).permit(
         :name, :description, :regular_price, :price, :contact_info,
-        :code, :show_all, :category_id, :payment_option
+        :code, :show_all, :category_id, :payment_option, :banner
       )
     end
 end

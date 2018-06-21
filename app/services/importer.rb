@@ -124,7 +124,20 @@ class Importer
         name: row['user_name'],
         email: row['email'],
         password: 'password' # TODO: define default password
-      }]
+      }],
+      contact_button: row['contact_button'],
+      map_button: row['map_button'],
+      chat_button: row['chat_button'],
+      waze_button: row['waze_button'],
+      favorite_button: row['favorite_button'],
+      show_address: row['show_address'],
+      show_on_map: row['show_on_map'],
+      map_icon: row['map_icon'],
+      store_tab: row['store_tab'],
+      product_tab: row['product_tab'],
+      pdf_button_link: row['pdf_button_link'],
+      video_button_link: row['video_button_link'],
+      banner: row['banner']
     }
 
     store_params_update = {
@@ -146,7 +159,20 @@ class Importer
         street: row['street'],
         city: row['city'],
         zip: row['zip']
-      }
+      },
+      contact_button: row['contact_button'],
+      map_button: row['map_button'],
+      chat_button: row['chat_button'],
+      waze_button: row['waze_button'],
+      favorite_button: row['favorite_button'],
+      show_address: row['show_address'],
+      show_on_map: row['show_on_map'],
+      map_icon: row['map_icon'],
+      store_tab: row['store_tab'],
+      product_tab: row['product_tab'],
+      pdf_button_link: row['pdf_button_link'],
+      video_button_link: row['video_button_link'],
+      banner: row['banner']
     }
 
     if (row['id'])
@@ -179,7 +205,7 @@ class Importer
     product ||= @store.products.build
 
     product.attributes = row.to_hash.slice('code', 'name', 'description',
-      'contact_info', 'show_all', 'regular_price', 'price')
+      'contact_info', 'show_all', 'regular_price', 'price', 'banner')
 
     if row['category']
       product.category = @store.categories.find_or_create_by(name: row['category'])

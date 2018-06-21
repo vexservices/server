@@ -2,82 +2,59 @@
   == f.error_notification
 
   .form-inputs
+    h1 Name
     .row
       .col-md-6
-        == f.input :formatted_name, autofocus: true
-        == f.input :name
+        == f.input :name, autofocus: true
+      .col-md-6
         == f.input :short_name
-        == f.input :cell_phone
-        == f.input :phone
-
+    .row
       .col-md-6
-        .col-md-12
-          == image_tag @store.logo_or_default_url(:medium), class: "img-thumbnail image-sample"
-
+        == f.input :formatted_name
+      .col-md-6
         == f.input :logo
-
-    .row
-      .col-md-6
-        == f.input :contact
-      .col-md-6
-        == f.input :official_email
-
-    .row
-      .col-md-6
-        == f.input :website
-      .col-md-6
-        == f.input :time_zone, prompt: true, priority: /US/
-
-    .row
-      .col-md-4
-        == f.input :active
-      .col-md-4
-        == f.input :register
-      .col-md-4
-        == f.input :search
-
-    .row
-      .col-md-4
-        == f.input :free
-      .col-md-4
-        == f.input :paid
-      .col-md-4
-        == f.input :price
+        == image_tag @store.logo_or_default_url(:medium), class: "img-thumbnail image-sample"
     .row
       .col-md-12
         == f.input :about
 
+    h1 Contact
     .row
-      .col-md-12
-        == f.input :keywords
+      .col-md-4
+        == f.input :cell_phone
+      .col-md-4
+        == f.input :phone
+      .col-md-4
+        == f.input :official_email
 
-    - if policy_scope(Department)
-      .row
-        .col-md-12
-          == f.association :departments, as: :check_boxes, collection: policy_scope(Department).order('name ASC')
+    .row
+      .col-md-4
+        == f.input :contact
+      .col-md-4
+        == f.input :website
 
-    h3.title== hn(Address)
-
+    h1== hn(Address)
     == f.simple_fields_for :address do |a|
       .row
-        .col-md-6
-          == a.input :country, priority: ["US", "BR"]
-        .col-md-6
-          == a.input :state
-
-      .row
-        .col-md-6
-          == a.input :city
-        .col-md-6
+        .col-md-12
           == a.input :street
-
       .row
-        .col-md-6
+        .col-md-4
+          == a.input :city
+        .col-md-4
+          == a.input :state, collection: states_collection, prompt: true
+        .col-md-4
           == a.input :zip
-        .col-md-6
-          == a.input :latitude, as: :hidden, input_html: { id: 'latitude' }
-          == a.input :longitude, as: :hidden, input_html: { id: 'longitude' }
-
+      .row
+        .col-md-4
+          == f.input :time_zone, prompt: true, priority: /US/
+        .col-md-4
+          == a.input :country, priority: ["US","BR"], prompt: true
+      .row
+        .col-md-4
+          == a.input :latitude, as: :hidden, input_html: {id: 'latitude'}
+        .col-md-4
+          == a.input :longitude, as: :hidden, input_html: {id: 'longitude'}
 
     - unless @store.new_record?
         p
@@ -91,9 +68,71 @@
 
         == render 'shared/map', store: @store
 
-    - else
+    h1 Search
+    .row
+      .col-md-2
+        == f.input :search
+      .col-md-10
+        == f.input :keywords
 
-      h3.title== hn(User)
+    h1 Private Client
+    p Select free for public branches and paid for branches that need to be purchased
+    .row
+      .col-md-2
+        == f.input :free
+      .col-md-2
+        == f.input :paid
+      .col-md-4
+        == f.input :price
+    p Select register if you want to include an 'Are you the owner?' link
+    == f.input :register
+
+    h1 Display
+    .row
+      .col-md-2
+        == f.input :contact_button
+      .col-md-2
+        == f.input :favorite_button
+      .col-md-2
+        == f.input :map_button
+      .col-md-2
+        == f.input :waze_button
+      .col-md-2
+        == f.input :chat_button
+
+    .row
+      .col-md-2
+        == f.input :show_address
+      .col-md-2
+        == f.input :show_on_map
+      .col-md-2
+        == f.input :map_icon, prompt:true, collection: Store.map_icons.keys.to_a 
+    .row
+      .col-md-3
+        == f.input :store_tab
+      .col-md-3
+        == f.input :product_tab
+
+    .row
+      .col-md-6
+        == f.input :pdf_button_link
+      .col-md-6
+        == f.input :video_button_link
+
+    hr
+    - if policy_scope(Department)
+      .row
+        .col-md-12
+          == f.association :departments, as: :check_boxes, collection: policy_scope(Department).order('name ASC')
+
+    h1 Administrative
+    .row
+      .col-md-4
+        == f.input :active
+
+    - unless !@store.new_record? 
+
+      h1.title== hn(User)
 
       == f.simple_fields_for :users do |u|
         .row

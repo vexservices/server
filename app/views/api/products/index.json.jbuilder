@@ -11,6 +11,7 @@ json.products @products do |product|
   json.name           product.name
   json.category_name  product.category_name
   json.category_id    product.category_id
+  json.banner         product.banner
   json.regular_price  number_to_currency_by_store_currency(product.regular_price_by_store(current_store))
   json.price          number_to_currency_by_store_currency(product.price_by_store(current_store))
   json.image          asset_url(product.image)

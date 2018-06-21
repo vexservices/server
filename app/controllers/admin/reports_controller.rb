@@ -8,7 +8,7 @@ class Admin::ReportsController < Admin::AdminController
     corporate_store = Store.where(id: params[:store_id]).first
     stores = corporate_store.subtree
     temp_file = File.open('/tmp/export.csv','w')
-    temp_file.write("id,parent id,number,level,name,formatted_name,short_name,keywords,cell_phone,phone,contact,official_email,website,time_zone,about,department,country,state,city,street,zip,search,register,paid,price,free,user_name,email,image\n")
+    temp_file.write("id,parent id,number,level,name,formatted_name,short_name,keywords,cell_phone,phone,contact,official_email,website,time_zone,about,department,country,state,city,street,zip,search,register,paid,price,free,user_name,email,image,contact_button,map_button,chat_button,waze_button,favorite_button,show_address,show_on_map,map_icon,store_tab,product_tab,pdf_button_link,video_button_link,banner\n")
     stores.find_each do |store|
       user = store.users.first
       about = ""
@@ -60,7 +60,20 @@ L#{store.ancestry_depth},\
 #{store.free},\
 #{user.name},\
 #{user.email},\
-#{store.logo.url(:original)}")
+#{store.logo.url(:original)},\
+#{store.contact_button},\
+#{store.map_button},\
+#{store.chat_button},\
+#{store.waze_button},\
+#{store.favorite_button},\
+#{store.show_address},\
+#{store.show_on_map},\
+#{store.map_icon},\
+#{store.store_tab},\
+#{store.product_tab},\
+#{store.pdf_button_link},\
+#{store.video_button_link},\
+#{store.banner}")
       temp_file.write("\n")
     end
     temp_file.close

@@ -58,6 +58,10 @@
         td
           strong== ta(Product, 'created_at')
         td== l @product.created_at, format: :long
+      tr
+        td
+          strong== ta(Banner, 'banner')
+        td== @product.banner
 
       /! Uncomment to enable products attributes
         == render 'properties', properties: @product.properties

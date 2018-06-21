@@ -59,6 +59,11 @@ class Admin::StoresController < Admin::AdminController
         :plan_id, :phone, :official_email, :website, :contact, :trial_at,
         :about, :keywords,
         :blocked, :free_payment, :register, :search, :paid, :price, :free,
+        :contact_button, :map_button, :chat_button, :waze_button, :favorite_button,
+        :show_address, :show_on_map, :map_icon,
+        :store_tab, :product_tab,
+        :pdf_button_link, :video_button_link,
+        :banner,
         address_attributes: [
           :id, :country, :state, :city, :street, :zip, :latitude, :longitude
         ]
