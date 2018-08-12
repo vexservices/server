@@ -63,6 +63,7 @@ class Admin::StoresController < Admin::AdminController
         :show_address, :show_on_map, :map_icon,
         :store_tab, :product_tab,
         :pdf_button_link, :video_button_link,
+        :twitter, :latest_tweet, :latest_tweet_id,
         :banner,
         address_attributes: [
           :id, :country, :state, :city, :street, :zip, :latitude, :longitude

@@ -1,9 +1,9 @@
 class AppMailer < ActionMailer::Base
-  default from: 'support@vexapps.com'
+  default from: 'developer@vexservices.com'
 
   def invalid_app(app)
     store = app.store
-    from  = store.franchise_email  || 'support@vexapps.com'
+    from  = store.franchise_email  || 'developer@vexservices.com'
 
     @app = app
     @host = store.franchise_domain || 'vexapps.com'

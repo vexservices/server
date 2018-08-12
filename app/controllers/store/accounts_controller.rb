@@ -25,6 +25,7 @@ class Store::AccountsController < Store::StoreController
         :show_address, :show_on_map, :map_icon,
         :store_tab, :product_tab,
         :pdf_button_link, :video_button_link,
+        :twitter, :latest_tweet, :latest_tweet_id,
         :banner,
         department_ids: [],
         address_attributes: [

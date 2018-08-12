@@ -259,7 +259,7 @@ en:
     contact:
       description: 'Please complete the following form in the event you desire to
         contact us:'
-      email: support@vexapps.com
+      email: developer@vexservices.com
       phone: Phone
     index:
       plans: 'Plan Choices - Custom Plans Available on Request '
@@ -272,6 +272,7 @@ en:
       administrative: Administrative
       search: Search
       private_client: Private Client
+      social_media: Social Media
   store:
     report:
       products:

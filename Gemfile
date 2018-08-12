@@ -169,3 +169,5 @@ gem 'capistrano-rails-db'
 gem 'capistrano-sidekiq'
 
 gem 'jstree-rails-4'
+
+gem 'twitter'

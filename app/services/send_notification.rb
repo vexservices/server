@@ -31,11 +31,11 @@ class SendNotification
 
   def send_notification_to_android
     return unless app.has_google_api_key?
-
+    Rails.logger.debug "notification store.name: #{store.name}"
     AndroidNotifier.send_push(
       app.google_api_key,
       android_tokens,
-      title: app.name,
+      title: store.name,
       message: message,
       store_id: store.id
     )

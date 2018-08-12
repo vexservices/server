@@ -112,6 +112,7 @@ class Importer
       paid: row['paid'],
       price: row['price'],
       free: row['free'],
+      twitter: row['twitter'],
       address_attributes: {
         country: row['country'],
         state: row['state'],
@@ -153,6 +154,7 @@ class Importer
       keywords: row['keywords'],
       short_name: row['short_name'],
       search: row['search'],
+      twitter: row['twitter'],
       address_attributes: {
         country: row['country'],
         state: row['state'],

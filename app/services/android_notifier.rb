@@ -4,6 +4,7 @@ class AndroidNotifier
     push_token = { 'data' => options.stringify_keys }
 
     gcm = GCM.new(key)
-    gcm.send_notification(tokens, push_token)
+    response = gcm.send_notification(tokens, push_token)
+    Rails.logger.info "reponse: #{response.to_json}"
   end
 end

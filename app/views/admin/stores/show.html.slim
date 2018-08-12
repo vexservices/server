@@ -156,6 +156,25 @@
       table.table.table-striped
         thead
           tr
+            th[colspan='2']== t('.social_media') 
+        tbody
+          tr
+            td
+              strong== ta(Store, 'twitter')
+            td== @store.twitter 
+          tr
+            td
+              strong== ta(Store, 'latest_tweet_id')
+            td== @store.latest_tweet_id
+          tr
+            td
+              strong== ta(Store, 'latest_tweet')
+            td== @store.latest_tweet
+  .row
+    .col-md-6
+      table.table.table-striped
+        thead
+          tr
             th[colspan='2']== t('.standard_buttons')
         tbody
           tr
