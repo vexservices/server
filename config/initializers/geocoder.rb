@@ -1,1 +1,6 @@
-Geocoder::Configuration.timeout = 15
+Geocoder.configure(
+  lookup: :google,
+  api_key: ENV['GOOGLE_API_KEY'],
+  timeout: 15
+)
+
