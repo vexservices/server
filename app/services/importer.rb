@@ -8,6 +8,7 @@ class Importer
     @spreadsheet = open_spreadsheet(job.file)
     @header = spreadsheet.row(1)
     @log = []
+    @base_id = DateTime.now.to_i
   end
 
   def import
@@ -124,7 +125,7 @@ class Importer
       users_attributes: [{
         name: row['user_name'],
         email: row['email'],
-        password: 'password' # TODO: define default password
+        password: '12345678'
       }],
       contact_button: row['contact_button'],
       map_button: row['map_button'],
@@ -181,9 +182,27 @@ class Importer
       branch_store = Store.find(row['id'])
       branch_store.assign_attributes(store_params_update)
     else
+      import_id = 0
+      parent_import_id = 0
+      if (row['import_id'])
+        import_id = @base_id + row['import_id'].to_i
+      end
+      if (row['parent_id'])
+        parent_import_id = @base_id + row['parent_id'].to_i
+      end
 
-      branch_store = @store.stores.build(store_params)
-
+      if (parent_import_id > 0)
+        store = Store.where(import_id: parent_import_id).first
+        if (store)
+          store_params.merge!(import_id: import_id)
+          branch_store = store.stores.build(store_params)
+        else
+          return "Error creating store: #{row['parent_import_id']}"
+        end
+      else
+        store_params.merge!(import_id: import_id)
+        branch_store = @store.stores.build(store_params)
+      end
       if row['department']
         if department = @store.sections.search_by_name(row['department']).first
           branch_store.departments << department;

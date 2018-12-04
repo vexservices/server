@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180417133312) do
+ActiveRecord::Schema.define(version: 20181129132521) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -453,6 +453,7 @@ ActiveRecord::Schema.define(version: 20180417133312) do
     t.datetime "last_published_at"
     t.datetime "last_unpublished_at"
     t.string   "payment_option"
+    t.boolean  "banner"
   end
 
   add_index "products", ["category_id"], name: "index_products_on_category_id", using: :btree
@@ -615,6 +616,23 @@ ActiveRecord::Schema.define(version: 20180417133312) do
     t.decimal  "price",               precision: 8, scale: 2
     t.boolean  "free",                                        default: false
     t.text     "formatted_name"
+    t.boolean  "contact_button"
+    t.boolean  "map_button"
+    t.boolean  "chat_button"
+    t.boolean  "waze_button"
+    t.boolean  "favorite_button"
+    t.boolean  "show_address"
+    t.boolean  "show_on_map"
+    t.integer  "map_icon"
+    t.string   "store_tab"
+    t.string   "product_tab"
+    t.string   "pdf_button_link"
+    t.string   "video_button_link"
+    t.boolean  "banner"
+    t.string   "twitter"
+    t.string   "latest_tweet"
+    t.string   "latest_tweet_id"
+    t.integer  "import_id"
   end
 
   add_index "stores", ["ancestry"], name: "index_stores_on_ancestry", using: :btree
