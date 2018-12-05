@@ -8,7 +8,7 @@ class Admin::ReportsController < Admin::AdminController
     corporate_store = Store.where(id: params[:store_id]).first
     stores = corporate_store.subtree
     temp_file = File.open('/tmp/export.csv','w')
-    temp_file.write("id,parent_id,import_id,number,level,name,formatted_name,short_name,keywords,cell_phone,phone,contact,official_email,website,time_zone,about,department,country,state,city,street,zip,search,register,paid,price,free,user_name,email,image,contact_button,map_button,chat_button,waze_button,favorite_button,show_address,show_on_map,map_icon,store_tab,product_tab,pdf_button_link,video_button_link,twitter,banner\n")
+    temp_file.write("id,parent_id,number,level,name,formatted_name,short_name,keywords,cell_phone,phone,contact,official_email,website,time_zone,about,department,country,state,city,street,zip,search,register,paid,price,free,user_name,email,image,contact_button,map_button,chat_button,waze_button,favorite_button,show_address,show_on_map,map_icon,store_tab,product_tab,pdf_button_link,video_button_link,twitter,banner\n")
     stores.find_each do |store|
       user = store.users.first
       about = ""
@@ -31,11 +31,9 @@ class Admin::ReportsController < Admin::AdminController
         short_name = store.short_name
         short_name = short_name.gsub('"',"'")
       end
-      import_id = DateTime.now.to_i + store.id
       temp_file.write( 
 "#{store.id},\
 #{store.store_id},\
-#{import_id},\
 #{store.number},\
 L#{store.depth},\
 \"#{name}\",\
