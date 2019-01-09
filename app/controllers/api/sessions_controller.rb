@@ -17,7 +17,7 @@ class Api::SessionsController < Api::ApiController
   end
   def create
     user = User.where(email: params[:user][:email]).first
-    if (user.store_id)
+    if (user && user.store_id)
       resource = User.find_for_database_authentication(email: params[:user][:email])
 
       return invalid_login_attempt unless resource
@@ -36,7 +36,7 @@ class Api::SessionsController < Api::ApiController
     else
       render json: {
         success: false,
-        message: "User registration pending"
+        message: "Invalid user name"
       }
     end
   end

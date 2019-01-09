@@ -47,6 +47,7 @@ class Api::MessagesController < Api::ApiController
   def stores
     @stores = current_store.subtree
                            .actives
+                           .has_chat
                            .with_messages
                            .page(params[:page])
   end

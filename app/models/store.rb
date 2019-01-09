@@ -6,10 +6,10 @@ class Store < ActiveRecord::Base
   scope :corporates,     -> { where(corporate: true) }
   scope :find_by_number, ->(term) { where(number: term) }
   scope :actives,        -> { where(blocked: false) }
-
+  scope :has_chat,        -> { where(chat_button: true) }
   scope :with_messages, -> do
     distinct
-      .select('stores.id, stores.name, stores.logo, COUNT(messages.id) AS messages_count')
+      .select('stores.id, stores.chat_button, stores.name, stores.logo, COUNT(messages.id) AS messages_count')
       .joins(
         <<-SQL
           LEFT JOIN messages ON messages.store_id = stores.id
