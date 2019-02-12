@@ -23,8 +23,8 @@ class Admin::ReportsController < Admin::AdminController
         name = name.gsub('"',"'")
       end
       if (store.formatted_name)
-        formatted_name = store.formatted_name
-        formatted_name = formatted_name.gsub('"','"')
+        formatted_name = store.formatted_name.squish
+        formatted_name = formatted_name.gsub('"',"'")
       end
       short_name = ""
       if (store.short_name)
