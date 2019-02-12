@@ -3,7 +3,13 @@ class Api::SessionsController < Api::ApiController
 
   before_action :ensure_params_exist, except: [:destroy]
   def register
-    @user = User.new(:email => params[:user][:email], :password => params[:user][:password], :password_confirmation => params[:user][:password_confirmation], :name => params[:user][:name])
+    @store = Store.find(params[:user][:store_id])
+    @user = @store.users.build(
+      email: params[:user][:email],
+      password: params[:user][:password],
+      password_confirmation: params[:user][:password_confirmation],
+      name: params[:user][:name],
+      blocked: true)
     if !@user.save
       render json: {message: @user.errors.full_messages}
     else
