@@ -3,8 +3,16 @@ class AndroidNotifier
     options.reverse_merge!(title: 'Virtual Exchange', message: 'New Product')
     push_token = { 'data' => options.stringify_keys }
 
-    gcm = GCM.new(key)
-    response = gcm.send_notification(tokens, push_token)
-    Rails.logger.info "reponse: #{response.to_json}"
+    fcm_options = {
+      notification: {
+        title: options[:title],
+        body: options[:message]
+      },
+      data: {
+        store_id: options[:store_id]
+      }
+    }
+    fcm = FCM.new(key)
+    response = fcm.send_notification(tokens, fcm_options)
   end
 end

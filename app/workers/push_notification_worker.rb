@@ -13,7 +13,8 @@ class PushNotificationWorker
         app.google_api_key,
         android_devices.map(&:push_token),
         title: app.name,
-        message: message
+        message: message,
+        store_id: store_id
       )
     end
 

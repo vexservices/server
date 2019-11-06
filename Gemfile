@@ -96,7 +96,7 @@ gem 'prawn'
 gem 'prawn-table'
 
 # Push Notification
-gem 'gcm'
+gem 'fcm'
 gem 'houston', github: 'nomad/Houston'
 
 # Import XLS

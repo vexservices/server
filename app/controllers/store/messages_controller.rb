@@ -14,7 +14,7 @@ class Store::MessagesController < Store::StoreController
                          .order('created_at DESC')
                          .limit(26)
 
-      @messages.unread.update_all(read_at: DateTime.now)
+      @messages.unread.where(kind: 1).update_all(read_at: DateTime.now)
       @messages = @messages.to_a.sort_by(&:created_at)
     end
   end
@@ -49,7 +49,7 @@ class Store::MessagesController < Store::StoreController
     end
 
     def read_messages
-      @messages.update_all(read_at: DateTime.now)  if @messages.any?
+      @messages.where(kind: 1).update_all(read_at: DateTime.now)  if @messages.any?
     end
 
     def messages_params
