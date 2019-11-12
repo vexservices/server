@@ -191,6 +191,7 @@ Rails.application.routes.draw do
 
       resources :corporates do
         resources :stores, only: [:index, :show, :edit, :update, :destroy]
+        resources :search, only: [:index]
         resource  :image, only: [:edit, :update]
 
         resource :app do
