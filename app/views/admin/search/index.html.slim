@@ -16,9 +16,9 @@
       thead
         tr
           th== ta(Store, 'number')
-          th== ta(Store, 'root')
+          th== ta(Store, 'app')
           th== ta(Store, 'name')
-          th== ta(Store, 'phone')
+          th== ta(Store, 'parent')
           th== ta(Address, 'state')
           th== ta(Address, 'city')
           th== ta(Address, 'street')
@@ -28,7 +28,7 @@
           td.text-center== store.number
           td== store.root.name
           td== link_to store.name, admin_corporate_store_path(store.store_id, store)
-          td== store.phone
+          td== store.parent.name
           td== store.address_state
           td== store.address_city
           td== store.address_street
