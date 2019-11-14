@@ -6,7 +6,8 @@ class Admin::SearchController < Admin::AdminController
     @q = Store.ransack(params[:q])
 
     @stores = @q.result
-                .includes(:address)
+                .where.not(store_id: nil)
+                .descendants_of(@corporate)
                 .page(params[:page])
 
     #@stores = @stores.descendants_of(@corporate.id)
