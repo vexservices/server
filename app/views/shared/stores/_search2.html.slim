@@ -1,0 +1,12 @@
+#search[ style="display: none" ]
+  == pane t('titles.filter') do
+    == search_form_for @q, builder: SimpleForm::FormBuilder, url: request.path do |f|
+      .form-inputs
+        == f.input :name_cont, label: ta(Store, 'name')
+
+      br
+
+      .form_actions.clearfix
+        == f.submit t('buttons.search'), class: 'btn btn-primary'
+        == link_to t('buttons.all'), request.path, class: 'btn btn-default'
+        == link_to t('buttons.close'), 'javascript:void(0)', class: 'btn btn-danger', data: { toggle: true, target: '#search' }

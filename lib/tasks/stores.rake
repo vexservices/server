@@ -123,7 +123,18 @@ namespace :stores do
       store.save
     end
   end
-
+  task check_for_orphans: :environment do
+    Store.find_each do |store|
+      if (store.store_id)
+        parent_store = Store.find_by(id: store.store_id)
+        if (!parent_store) 
+          store.latest_tweet = "orphan"
+          store.save
+          puts "orphon for id: #{store.id}"
+        end
+      end
+    end
+  end
   task create_search_name: :environment do
     Store.find_each do |store|
       name = store.name

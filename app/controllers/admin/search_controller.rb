@@ -7,6 +7,7 @@ class Admin::SearchController < Admin::AdminController
 
     @stores = @q.result
                 .where.not(store_id: nil)
+                .where.not(latest_tweet: "orphan")
                 .descendants_of(@corporate)
                 .page(params[:page])
 
