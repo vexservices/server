@@ -59,7 +59,7 @@ Rails.application.routes.draw do
     resources :sellers, only: [:show]
 
     resources :corporates, only: [] do
-      resources :branch_stores, only: [:new, :create]
+      resources :branch_stores, only: [:new, :create, :index]
     end
 
     scope module: :store do
@@ -69,6 +69,10 @@ Rails.application.routes.draw do
 
       resources :stores do
         get :trees, on: :collection
+      end
+
+      resources :corporates do
+        resources :stores, only: [:index, :show, :edit, :update, :destroy]
       end
 
       resources :users

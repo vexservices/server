@@ -9,7 +9,11 @@ class Store::StoreController < ApplicationController
   rescue_from Pundit::NotAuthorizedError, with: :user_not_authorized
 
   def current_store
-    @current_store ||= current_user.store
+    if (params[:corporate_id])
+      @current_store ||= Store.find(params[:corporate_id])
+    else
+      @current_store ||= current_user.store
+    end
   end
   helper_method :current_store
 

@@ -10,16 +10,24 @@ class Store::StoresController < Store::StoreController
     authorize :store, :index?
 
     @q = Store.ransack(params[:q])
-
-    @stores = @q.result
+    @parent = false
+    if (params[:corporate_id])
+        @parent = true
+        @stores = Store 
+                .where(store_id: params[:corporate_id])
+                .includes(:address)
+                .page(params[:page])
+    else
+        @stores = Store 
                 .where(store_id: current_store.id)
                 .includes(:address)
                 .page(params[:page])
+    end
   end
 
   def new
     authorize :store, :new?
-
+    
     @store = current_store.stores.build
 
     @store.users.build
@@ -60,7 +68,8 @@ class Store::StoresController < Store::StoreController
 
   private
     def set_store
-      @store = current_store.stores.find(params[:id])
+      #@store = current_store.stores.find(params[:id])
+      @store = Store.find(params[:id])
     end
 
     def authorize_action

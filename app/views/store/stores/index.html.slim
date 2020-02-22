@@ -6,51 +6,49 @@
       .pull-right.col-xs-12.col-sm-auto
         == link_to_new Store, new_store_path
       .pull-right.col-xs-12.col-sm-auto
-        == link_with_icon t('buttons.filters'), 'javascript:void(0)', id: 'filter-toggle',
-            data: { toggle: true, target: '#search' }, icon: 'search'
-
-== render 'shared/stores/search'
 
 == pane hnp Store do
 
   == store_link_message
 
-  - cache_if !params[:q].present?, [cache_key_for_store_stores, locale: I18n.locale, page: params[:page] || 1] do
-    == display_when_present @stores do
+  == display_when_present @stores do
 
-      table.table.table-bordered.table-striped
-        thead
-          tr
-            th== ta(Store, 'number')
-            th== sort_link(@q, :name, ta(Store, 'name'), default_order: :asc)
-            th== ta(Store, 'phone')
-            th== sort_link(@q, :address_state, ta(Address, 'state'))
-            th== sort_link(@q, :address_city, ta(Address, 'city'))
-            th== ta(Address, 'street')
-            th== ta(Address, 'zip')
-            th== ta(Store, 'active')
-            th== t('labels.action')
-        tbody
-          == content_tag_for :tr, @stores do |store|
-            - cache [store, locale: I18n.locale] do
-              td.text-center== store.number
-              td== link_to store.name, store_path(store)
-              td== store.phone
-              td== store.address_state
-              td== store.address_city
-              td== store.address_street
-              td== store.address_zip
-              td.text-center
-                == boolean_span store.active
+    table.table.table-bordered.table-striped
+      thead
+        tr
+          th== ta(Store, 'number')
+          th== sort_link(@q, :name, ta(Store, 'name'), default_order: :asc)
+          th== ta(Store, 'phone')
+          th== sort_link(@q, :address_state, ta(Address, 'state'))
+          th== sort_link(@q, :address_city, ta(Address, 'city'))
+          th== ta(Address, 'street')
+          th== ta(Address, 'zip')
+          th== ta(Store, 'active')
+          th== t('labels.action')
+      tbody
+        == content_tag_for :tr, @stores do |store|
+          td.text-center== store.number
+          td== link_to store.name, store_path(store)
+          td== store.phone
+          td== store.address_state
+          td== store.address_city
+          td== store.address_street
+          td== store.address_zip
+          td.text-center
+            == boolean_span store.active
 
-              td.text-center
-                == link_to_edit edit_store_path(store)
-                == link_to_destroy store
+          td.text-center
+            == link_to_edit edit_store_path(store)
+            == link_to_destroy store
 
       .table-footer
         == paginate @stores, theme: 'twitter-bootstrap-3'
 
   br
 
-  .col-xs-12.col-sm-auto
-    == link_to_new Store, new_store_path
+  - if @parent
+    .col-xs-12.col-sm-auto
+      == link_to_new Store, new_corporate_branch_store_path
+  - else
+    .col-xs-12.col-sm-auto
+      == link_to_new Store, new_store_path
