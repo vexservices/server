@@ -27,28 +27,53 @@
               class: 'btn btn-danger text-left',
               data: { disable_with: t('buttons.submitting') }
         li
-          == link_to t('buttons.feature_a'),
+          == link_to t('buttons.feature_1'),
+              feature_publish_path(product.try(:publish_id), featured: 8),
+              method: :post,
+              class: 'btn btn-info text-left',
+              data: { disable_with: t('buttons.submitting') }
+        li
+          == link_to t('buttons.feature_2'),
+              feature_publish_path(product.try(:publish_id), featured: 7),
+              method: :post,
+              class: 'btn btn-info text-left',
+              data: { disable_with: t('buttons.submitting') }
+        li
+          == link_to t('buttons.feature_3'),
+              feature_publish_path(product.try(:publish_id), featured: 6),
+              method: :post,
+              class: 'btn btn-info text-left',
+              data: { disable_with: t('buttons.submitting') }
+        li
+          == link_to t('buttons.feature_4'),
+              feature_publish_path(product.try(:publish_id), featured: 5),
+              method: :post,
+              class: 'btn btn-info text-left',
+              data: { disable_with: t('buttons.submitting') }
+        li
+          == link_to t('buttons.feature_5'),
+              feature_publish_path(product.try(:publish_id), featured: 4),
+              method: :post,
+              class: 'btn btn-info text-left',
+              data: { disable_with: t('buttons.submitting') }
+        li
+          == link_to t('buttons.feature_6'),
               feature_publish_path(product.try(:publish_id), featured: 3),
               method: :post,
               class: 'btn btn-info text-left',
               data: { disable_with: t('buttons.submitting') }
-
         li
-          == link_to t('buttons.feature_b'),
+          == link_to t('buttons.feature_7'),
               feature_publish_path(product.try(:publish_id), featured: 2),
               method: :post,
               class: 'btn btn-info text-left',
               data: { disable_with: t('buttons.submitting') }
-
         li
-          == link_to t('buttons.feature_c'),
-              feature_publish_path(product.try(:publish_id)),
+          == link_to t('buttons.feature_8'),
+              feature_publish_path(product.try(:publish_id), featured: 1),
               method: :post,
               class: 'btn btn-info text-left',
               data: { disable_with: t('buttons.submitting') }
-
-
-
       - elsif policy(product).publish?
         li
           == link_to t('buttons.publish'),

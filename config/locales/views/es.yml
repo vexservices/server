@@ -40,6 +40,18 @@ es:
     edit: Edite
     edit_app: Edite la configuración de su aplicación móvil.
     feature: Despegar
+    feature_a: Feature Code A
+    feature_b: Feature Code B
+    feature_c: Feature Code C
+    feature_d: Feature Code D
+    feature_e: Feature Code E
+    feature_f: Feature Code F
+    feature_g: Feature Code G
+    feature_h: Feature Code H
+    feature_i: Feature Code I
+    feature_j: Feature Code J
+    feature_k: Feature Code K
+    feature_l: Feature Code L
     franchise_link: Prueba de enlace interno
     login: Entrar
     new: Novo %{model}
